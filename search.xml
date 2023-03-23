@@ -3,15 +3,7 @@
   <entry>
     <title>MySQL数据库基本操作</title>
     <url>/2023/03/23/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<hr>
-<p>title: MySQL数据库基本操作<br>date: 2023-03-23 16:07:52<br>keywords: mysql<br>cover: <a href="https://www.logosc.cn/oss/download/qt/2023/03/23/ec791cdaf7cffd3a99c5e9a206a32c7d.jpeg">https://www.logosc.cn/oss/download/qt/2023/03/23/ec791cdaf7cffd3a99c5e9a206a32c7d.jpeg</a><br>description: 带你学会最基本的MySQL数据库操作<br>tags:</p>
-<ul>
-<li>mysql</li>
-<li>后端<br>categories:</li>
-<li>code</li>
-</ul>
-<hr>
-<h1 id="MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com"><a href="#MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com" class="headerlink" title="MySQL基本操作SQL 快速参考 | 菜鸟教程 (runoob.com)"></a>MySQL基本操作<a href="https://www.runoob.com/sql/sql-quickref.html">SQL 快速参考 | 菜鸟教程 (runoob.com)</a></h1><h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><blockquote>
+    <content><![CDATA[<h1 id="MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com"><a href="#MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com" class="headerlink" title="MySQL基本操作SQL 快速参考 | 菜鸟教程 (runoob.com)"></a>MySQL基本操作<a href="https://www.runoob.com/sql/sql-quickref.html">SQL 快速参考 | 菜鸟教程 (runoob.com)</a></h1><h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><blockquote>
 <p>以下是从命令行中连接mysql服务器的简单实例：</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
