@@ -15,7 +15,7 @@
 <meta property="og:description" content="带你学会最基本的MySQL数据库操作">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-03-23T08:07:52.000Z">
-<meta property="article:modified_time" content="2023-03-23T08:37:46.807Z">
+<meta property="article:modified_time" content="2023-03-23T08:52:02.687Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="后端">
@@ -66,7 +66,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"deep-octopus.github.io","author":"John Doe","root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"images/energy32.png","icon16":"images/energy16.png","icon32":"images/energy32.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"images/energy16.png","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-23 16:37:46"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-23 16:52:02"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
@@ -389,48 +389,56 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h1 id="MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com"><a href="#MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com" class="headerlink" title="MySQL基本操作SQL 快速参考 | 菜鸟教程 (runoob.com)"></a>MySQL基本操作<a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-quickref.html">SQL 快速参考 | 菜鸟教程 (runoob.com)</a></h1><h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><blockquote>
+    <hr>
+<p>title: MySQL数据库基本操作<br>date: 2023-03-23 16:07:52<br>keywords: mysql<br>cover: <a target="_blank" rel="noopener" href="https://www.logosc.cn/oss/download/qt/2023/03/23/ec791cdaf7cffd3a99c5e9a206a32c7d.jpeg">https://www.logosc.cn/oss/download/qt/2023/03/23/ec791cdaf7cffd3a99c5e9a206a32c7d.jpeg</a><br>description: 带你学会最基本的MySQL数据库操作<br>tags:</p>
+<ul>
+<li>mysql</li>
+<li>后端<br>categories:</li>
+<li>code</li>
+</ul>
+<hr>
+<h1 id="MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com"><a href="#MySQL基本操作SQL-快速参考-菜鸟教程-runoob-com" class="headerlink" title="MySQL基本操作SQL 快速参考 | 菜鸟教程 (runoob.com)"></a>MySQL基本操作<a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-quickref.html">SQL 快速参考 | 菜鸟教程 (runoob.com)</a></h1><h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><blockquote>
 <p>以下是从命令行中连接mysql服务器的简单实例：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host]# mysql -u root -p</span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
 
 <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><blockquote>
 <p>以下命令简单的演示了创建数据库的过程，数据名为 TUTORIALS:</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host]# mysqladmin -u root -p create TUTORIALS</span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysqladmin -u root -p create TUTORIALS</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><blockquote>
 <p>以下实例删除数据库TUTORIALS</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@host]# mysqladmin -u root -p drop TUTORIALS</span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysqladmin -u root -p drop TUTORIALS</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
 
 <h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><blockquote>
 <p>以下实例选取了数据库 TUTORIALS:</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use TUTORIALS;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use TUTORIALS;</span><br></pre></td></tr></table></figure>
 
 <h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><blockquote>
 <p>以下为创建MySQL数据表的SQL通用语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table<span class="built_in">_</span>name (column<span class="built_in">_</span>name column<span class="built_in">_</span>type);</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name (column_name column_type);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">CREATE TABLE tutorials<span class="built_in">_</span>tbl(</span><br><span class="line">    tutorial<span class="built_in">_</span>id INT NOT NULL AUTO<span class="built_in">_</span>INCREMENT,</span><br><span class="line">    tutorial<span class="built_in">_</span>title VARCHAR(100) NOT NULL,</span><br><span class="line">    tutorial<span class="built_in">_</span>author VARCHAR(40) NOT NULL,</span><br><span class="line">    submission<span class="built_in">_</span>date DATE,</span><br><span class="line">    PRIMARY KEY ( tutorial<span class="built_in">_</span>id )</span><br><span class="line">    ); )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tutorials_tbl(</span><br><span class="line">    tutorial_id INT NOT NULL AUTO_INCREMENT,</span><br><span class="line">    tutorial_title VARCHAR(<span class="number">100</span>) NOT NULL,</span><br><span class="line">    tutorial_author VARCHAR(<span class="number">40</span>) NOT NULL,</span><br><span class="line">    submission_date DATE,</span><br><span class="line">    PRIMARY KEY ( tutorial_id )</span><br><span class="line">    ); )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><blockquote>
 <p>以下实例删除了数据表tutorials_tbl:</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@host<span class="params">#</span> mysql -u root -p</span><br><span class="line">Enter password:*******</span><br><span class="line">mysql&gt; use TUTORIALS;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; DROP TABLE tutorials<span class="built_in">_</span>tbl</span><br><span class="line">Query OK, 0 rows affected (0.8 sec)</span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@host<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:*******</span><br><span class="line">mysql&gt; use TUTORIALS;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; DROP TABLE tutorials_tbl</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.8</span> sec)</span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><blockquote>
 <p>以下为向MySQL数据表插入数据通用的 <strong>INSERT INTO</strong> SQL语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table<span class="built_in">_</span>name ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
 
 <p>如果数据是字符型，必须使用单引号或者双引号，如：”value”。</p>
 <h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><blockquote>
 <p>以下为在MySQL数据库中查询数据通用的 SELECT 语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN table<span class="built_in">_</span>name1, table<span class="built_in">_</span>name2...</span><br><span class="line">[WHERE Clause]</span><br><span class="line">[OFFSET M ][LIMIT N]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">OFFSET</span> M ][LIMIT N]</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分割，并使用WHERE语句来设定查询条件。</li>
@@ -443,7 +451,7 @@
 <h2 id="where-子句"><a href="#where-子句" class="headerlink" title="where 子句"></a>where 子句</h2><blockquote>
 <p>以下是SQL SELECT 语句使用 WHERE 子句从数据表中读取数据的通用语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN table<span class="built_in">_</span>name1, table<span class="built_in">_</span>name2...</span><br><span class="line">[WHERE condition1 [AND [OR]] condition2.....</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line">[<span class="keyword">WHERE</span> condition1 [<span class="keyword">AND</span> [<span class="keyword">OR</span>]] condition2.....</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>查询语句中你可以使用一个或者多个表，表之间使用逗号(,)分割，并使用WHERE语句来设定查询条件。</li>
@@ -455,7 +463,7 @@
 <h1 id="UPDATE-查询"><a href="#UPDATE-查询" class="headerlink" title="UPDATE 查询"></a>UPDATE 查询</h1><blockquote>
 <p>以下是 UPDATE 命令修改 MySQL 数据表数据的通用SQL语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table<span class="built_in">_</span>name SET field1=new-value1, field2=new-value2</span><br><span class="line">[WHERE Clause]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1<span class="operator">=</span><span class="keyword">new</span><span class="operator">-</span>value1, field2<span class="operator">=</span><span class="keyword">new</span><span class="operator">-</span>value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>你可以同时更新一个或多个字段。</li>
@@ -466,7 +474,7 @@
 <h3 id="DELETE-语句"><a href="#DELETE-语句" class="headerlink" title="DELETE 语句"></a>DELETE 语句</h3><blockquote>
 <p> 以下是SQL DELETE 语句从MySQL数据表中删除数据的通用语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table<span class="built_in">_</span>name [WHERE Clause]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果没有指定 WHERE 子句，MySQL表中的所有记录将被删除。</li>
@@ -477,7 +485,7 @@
 <h3 id="LIKE-子句-a"><a href="#LIKE-子句-a" class="headerlink" title="LIKE 子句(%a%)"></a>LIKE 子句(%a%)</h3><blockquote>
 <p>  以下是SQL SELECT 语句使用 LIKE 子句从数据表中读取数据的通用语法：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN table<span class="built_in">_</span>name1, table<span class="built_in">_</span>name2...</span><br><span class="line">WHERE field1 LIKE condition1 [AND [OR]] filed2 = &#x27;somevalue&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line"><span class="keyword">WHERE</span> field1 <span class="keyword">LIKE</span> condition1 [<span class="keyword">AND</span> [<span class="keyword">OR</span>]] filed2 <span class="operator">=</span> <span class="string">&#x27;somevalue&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>你可以在WHERE子句中指定任何条件。</li>
@@ -490,7 +498,7 @@
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><blockquote>
 <p>以下是SQL SELECT 语句使用 <code>ORDER BY </code>子句将查询数据排序后再返回数据：</p>
 </blockquote>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT field1, field2,...fieldN table<span class="built_in">_</span>name1, table<span class="built_in">_</span>name2...</span><br><span class="line">ORDER BY field1, [field2...] [ASC [DESC]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> field1, field2,...fieldN table_name1, table_name2...</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> field1, [field2...] [<span class="keyword">ASC</span> [<span class="keyword">DESC</span>]]</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>你可以使用任何字段来作为排序的条件，从而返回排序后的查询结果。</li>
@@ -502,7 +510,7 @@
 <p>你可以在SELECT, UPDATE 和 DELETE 语句中使用Mysql 的 join 来联合多表查询。</p>
 </blockquote>
 <p>接下来我们就使用MySQL的JOIN来连接以上两张表来读取tutorials_tbl表中所有tutorial_author字段在tcount_tbl表对应的tutorial_count字段值：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.tutorial<span class="built_in">_</span>id, a.tutorial<span class="built_in">_</span>author, b.tutorial<span class="built_in">_</span>count</span><br><span class="line">     FROM tutorials<span class="built_in">_</span>tbl a, tcount<span class="built_in">_</span>tbl b</span><br><span class="line">     WHERE a.tutorial<span class="built_in">_</span>author = b.tutorial<span class="built_in">_</span>author;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.tutorial_id, a.tutorial_author, b.tutorial_count</span><br><span class="line">     <span class="keyword">FROM</span> tutorials_tbl a, tcount_tbl b</span><br><span class="line">     <span class="keyword">WHERE</span> a.tutorial_author <span class="operator">=</span> b.tutorial_author;</span><br></pre></td></tr></table></figure>
 
 <h3 id="INNER-JOIN关键字"><a href="#INNER-JOIN关键字" class="headerlink" title="INNER JOIN关键字"></a>INNER JOIN关键字</h3><blockquote>
 <p>   INNER JOIN 关键字在表中存在至少一个匹配时返回行。</p>
@@ -514,9 +522,9 @@
 
 <p><strong>注释</strong> : INNER JOIN 与 JOIN 是相同的。</p>
 <h3 id="LEFT-JOIN"><a href="#LEFT-JOIN" class="headerlink" title="LEFT JOIN"></a>LEFT JOIN</h3><blockquote>
-<p>                MySQL left join 与 join 有所不同。 MySQL  LEFT  JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。</p>
+<p>                                MySQL left join 与 join 有所不同。 MySQL  LEFT  JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT a.tutorial_id, a.tutorial_author, b.tutorial_count</span></span><br><span class="line">    -&gt; FROM tutorials_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">    -&gt; ON a.tutorial_author = b.tutorial_author;</span><br><span class="line">+-------------+-----------------+----------------+</span><br><span class="line">| tutorial_id | tutorial_author | tutorial_count |</span><br><span class="line">+-------------+-----------------+----------------+</span><br><span class="line">|           1 | John Poul       |              1 |</span><br><span class="line">|           2 | Abdul S         |           NULL |</span><br><span class="line">|           3 | Sanjay          |              1 |</span><br><span class="line">+-------------+-----------------+----------------+</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">SELECT</span> a.tutorial_id, a.tutorial_author, b.tutorial_count</span><br><span class="line">    -&gt; FROM tutorials_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">    -&gt; ON a.tutorial_author = b.tutorial_author;</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br><span class="line">| tutorial_id | tutorial_author | tutorial_count |</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br><span class="line">|           <span class="number">1</span> | John Poul       |              <span class="number">1</span> |</span><br><span class="line">|           <span class="number">2</span> | Abdul S         |           NULL |</span><br><span class="line">|           <span class="number">3</span> | Sanjay          |              <span class="number">1</span> |</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br></pre></td></tr></table></figure>
 
 <p>以上实例中使用了LEFT JOIN，该语句会读取左边的数据表tutorials_tbl的所有选取的字段数据，即便在右侧表tcount_tbl中没有对应的tutorial_author字段值。</p>
 <h2 id="NULL-值处理"><a href="#NULL-值处理" class="headerlink" title="NULL 值处理"></a>NULL 值处理</h2><p>我们已经知道MySQL使用 SQL <code>SELECT </code>命令及<code> WHERE</code> 子句来读取数据表中的数据,但是当提供的查询条件字段为 <code>NULL </code>时，该命令可能就无法正常工作。</p>
@@ -561,7 +569,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT name FROM person_tbl WHERE name REGEXP <span class="string">&#x27;^[aeiou]|ok$&#x27;</span>;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
-<p>                MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个<code>事务</code>！</p>
+<p>                                MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个<code>事务</code>！</p>
 </blockquote>
 <ul>
 <li>在MySQL中只有使用了Innodb数据库引擎的数据库或表才支持事务</li>
@@ -569,7 +577,7 @@
 <li>事务用来管理insert,update,delete语句</li>
 </ul>
 <blockquote>
-<p>                一般来说，事务是必须满足4个条件（<code>ACID</code>）： Atomicity（原子性）、Consistency（稳定性）、Isolation（隔离性）、Durability（可靠性）</p>
+<p>                                一般来说，事务是必须满足4个条件（<code>ACID</code>）： Atomicity（原子性）、Consistency（稳定性）、Isolation（隔离性）、Durability（可靠性）</p>
 </blockquote>
 <ul>
 <li>1、<strong>事务的原子性</strong>:     一组事务，要么成功；要么撤回。</li>
@@ -578,10 +586,10 @@
 <li>4、<strong>可靠性</strong>:    软、硬件崩溃后，InnoDB数据表驱动会利用日志文件重构修改。可靠性和高速度不可兼得， innodb_flush_log_at_trx_commit选项 决定什么时候吧事务保存到日志里。</li>
 </ul>
 <h3 id="在Mysql控制台使用事务来操作"><a href="#在Mysql控制台使用事务来操作" class="headerlink" title="在Mysql控制台使用事务来操作"></a>在Mysql控制台使用事务来操作</h3><p>1，开始一个事务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start transaction</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> transaction</span><br></pre></td></tr></table></figure>
 
 <p>2, 做保存点</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save point 保存点名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save point 保存点名称</span><br></pre></td></tr></table></figure>
 
 <p>3, 操作</p>
 <p>4，可以回滚，可以提交，没有问题，就提交，有问题就回滚。</p>
@@ -591,33 +599,33 @@
 <blockquote>
 <p>如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl  DROP i;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl  DROP i;</span><br></pre></td></tr></table></figure>
 
 <p>如果数据表中只剩余一个字段则无法使用DROP来删除字段。</p>
 <blockquote>
 <p>MySQL 中使用 ADD 子句来想数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</span><br></pre></td></tr></table></figure>
 
 <p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
 <h3 id="如果需要修改字段类型及名称-你可以在ALTER命令中使用-MODIFY-或-CHANGE-子句-。"><a href="#如果需要修改字段类型及名称-你可以在ALTER命令中使用-MODIFY-或-CHANGE-子句-。" class="headerlink" title="如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。"></a>如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</h3><blockquote>
 <p>把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl MODIFY c CHAR(10);</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl MODIFY c CHAR(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段的类型及名称。尝试如下实例：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl CHANGE i j BIGINT;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl CHANGE i j BIGINT;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>&lt;p如果你现在想把字段 j&#x3D;”” 从&#x3D;”” bigint&#x3D;”” 修改为&#x3D;”” int，sql语句如下：&lt;&#x3D;”” p&#x3D;””&gt;</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h2 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h2></blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</span><br></pre></td></tr></table></figure>
 
 <h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><blockquote>
 <p>NOT    NULL约束<a target="_blank" rel="noopener" href="https://www.runoob.com/sql/sql-notnull.html">SQL NOT NULL 约束 | 菜鸟教程 (runoob.com)</a></p>
@@ -640,14 +648,14 @@
 <h2 id="AUTO-INCREMENT-字段"><a href="#AUTO-INCREMENT-字段" class="headerlink" title="AUTO INCREMENT 字段"></a>AUTO INCREMENT 字段</h2><p>我们通常希望在每次插入新记录时，自动地创建主键字段的值。</p>
 <p>我们可以在表中创建一个 auto-increment 字段。</p>
 <p>下面的 SQL 语句把 “Persons” 表中的 “ID” 列定义为 auto-increment 主键字段：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Persons  </span><br><span class="line">(  </span><br><span class="line">ID int NOT NULL AUTO_INCREMENT,  </span><br><span class="line">LastName varchar(255) NOT NULL,  </span><br><span class="line">FirstName varchar(255),  </span><br><span class="line">Address varchar(255),  </span><br><span class="line">City varchar(255),  </span><br><span class="line">PRIMARY KEY (ID)  </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">    ID <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    LastName <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    FirstName <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    Address <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    City <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (ID)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>默认地，AUTO_INCREMENT 的开始值是 1，每条新记录递增 1。</p>
 <p>要让 AUTO_INCREMENT 序列以其他的值起始，请使用下面的 SQL 语法：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Persons AUTO<span class="built_in">_</span>INCREMENT=100</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons AUTO_INCREMENT<span class="operator">=</span><span class="number">100</span></span><br></pre></td></tr></table></figure>
 
 <p>要在 “Persons” 表中插入新记录，我们不必为 “ID” 列规定值（会自动添加一个唯一的值）</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO Persons (FirstName,LastName) VALUES (&#x27;Lars&#x27;,&#x27;Monsen&#x27;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Persons (FirstName,LastName) <span class="keyword">VALUES</span> (<span class="string">&#x27;Lars&#x27;</span>,<span class="string">&#x27;Monsen&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="MySQL多表操作-一对一-一对多-多对多"><a href="#MySQL多表操作-一对一-一对多-多对多" class="headerlink" title="MySQL多表操作(一对一 一对多 多对多)"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/minseo/p/14318464.html">MySQL多表操作(一对一 一对多 多对多)</a></h2>
 </article>
