@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/03/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Leetcode刷题笔记</title>
     <url>/2023/03/23/Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="LeetCode刷题笔记"><a href="#LeetCode刷题笔记" class="headerlink" title="LeetCode刷题笔记"></a>LeetCode刷题笔记</h1><blockquote>
@@ -358,6 +340,950 @@
       <tags>
         <tag>mysql</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/03/23/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Java数据结构与算法</title>
+    <url>/2023/03/24/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<hr>
+<hr>
+<h1 id="Java数据结构与算法"><a href="#Java数据结构与算法" class="headerlink" title="Java数据结构与算法"></a>Java数据结构与算法</h1><h2 id="1、绪论"><a href="#1、绪论" class="headerlink" title="1、绪论"></a>1、绪论</h2><blockquote>
+<p><code>数据结构</code>是指所涉及的数据元素的集合以及数据元素之间的关系</p>
+</blockquote>
+<blockquote>
+<p>逻辑结构的类型</p>
+</blockquote>
+<ul>
+<li><p>集合</p>
+</li>
+<li><p>线性结构</p>
+</li>
+<li><p>树形结构</p>
+</li>
+<li><p>图形结构</p>
+</li>
+</ul>
+<blockquote>
+<p>存储结构</p>
+</blockquote>
+<ul>
+<li><p>顺序存储结构</p>
+</li>
+<li><p>链式存储结构</p>
+</li>
+<li><p>索引存储结构</p>
+</li>
+<li><p>哈希（散列）存储结构</p>
+</li>
+</ul>
+<blockquote>
+<p><code>数据类型</code> 是一组性质相同的值的集合和定义在此集合上的一组操作的总称</p>
+</blockquote>
+<blockquote>
+<p>ADT(抽象数据类型)</p>
+</blockquote>
+<blockquote>
+<p>算法</p>
+</blockquote>
+<ul>
+<li><p>有穷性 —&gt;不会出现无限循环</p>
+</li>
+<li><p>确定性—&gt;不会出现二义性</p>
+</li>
+<li><p>可行性—&gt;算法每条指令都可执行</p>
+</li>
+<li><p>输入性—&gt;零个或者多个输入</p>
+</li>
+<li><p>输出性—&gt;至少一个输出</p>
+</li>
+</ul>
+<blockquote>
+<p>算法时间复杂度</p>
+</blockquote>
+<ul>
+<li>用T(n)的数量级表示，记作T(n)&#x3D;O(f(n))</li>
+</ul>
+<blockquote>
+<p>最好时间复杂度–》min{T(n)}</p>
+<p>最坏时间复杂度–》max{T(n)}</p>
+<p>平均时间复杂度–》概率</p>
+</blockquote>
+<h2 id="2、线性表"><a href="#2、线性表" class="headerlink" title="2、线性表"></a>2、线性表</h2><blockquote>
+<p>线性表的顺序存储结构—顺序表(p42)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//顺序表泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SqListClass</span>&lt;E&gt; &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">initCapacity</span> <span class="operator">=</span> <span class="number">10</span>; <span class="comment">//顺序表初始容量</span></span><br><span class="line">    <span class="keyword">public</span> E[] data; <span class="comment">//存放顺序表中的元素</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> size; <span class="comment">//存放顺序表长度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> capacity; <span class="comment">//顺序表的容量</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SqListClass</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = (E[]) <span class="keyword">new</span> <span class="title class_">Object</span>[initCapacity];</span><br><span class="line">        <span class="built_in">this</span>.capacity = initCapacity;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    更改容量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">updateCapacity</span><span class="params">(<span class="type">int</span> newCapacity)</span> &#123;</span><br><span class="line">        E[] newData = (E[]) <span class="keyword">new</span> <span class="title class_">Object</span>[newCapacity];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="built_in">this</span>.data.length; i++) &#123;</span><br><span class="line">            newData[i] = <span class="built_in">this</span>.data[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.capacity = newCapacity;</span><br><span class="line">        <span class="built_in">this</span>.data = newData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    整体建立顺序表</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createList</span><span class="params">(E[] a)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>.size == <span class="built_in">this</span>.capacity) &#123;</span><br><span class="line">                <span class="built_in">this</span>.updateCapacity(<span class="built_in">this</span>.size * <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            data[i] = a[i];</span><br><span class="line">            size++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    add</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size == capacity) &#123;</span><br><span class="line">            <span class="built_in">this</span>.updateCapacity(size * <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        data[size] = e;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    长度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    设置长度,主要用于缩短长度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSize</span><span class="params">(<span class="type">int</span> nLen)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (nLen &lt; <span class="number">0</span> || nLen &gt; <span class="built_in">this</span>.size) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;设置长度不在范围内&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.size = nLen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//    获取线性表中序号为i的元素</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">getElem</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt; size - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;位置i不在有效范围内&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> (E) <span class="built_in">this</span>.data[i];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    setElem();</span></span><br><span class="line"><span class="comment">//    求线性表中第一个为e的元素的序号：getNo(E e);</span></span><br><span class="line"><span class="comment">//    将序号为i和j的元素交换位置：swap(int i, int j);</span></span><br><span class="line"><span class="comment">//    在线性表中序号为i的位置插入元素e:insert(int i, E e);</span></span><br><span class="line"><span class="comment">//    删除线性表中序号为i的元素：delete(int i);</span></span><br><span class="line"><span class="comment">//    toString();</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>线性表的链式存储结构–链表(P58)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> 线性表;</span><br><span class="line"><span class="comment">//单链表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//单链表结点类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkNode</span>&lt;E&gt; &#123;</span><br><span class="line">    E data;</span><br><span class="line">    LinkNode&lt;E&gt; next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">()</span> &#123;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">(E data)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">        <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单链表类</span></span><br><span class="line"><span class="comment">//public class LinkList&#123;</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkList</span>&lt;E&gt; &#123;</span><br><span class="line">    LinkNode&lt;E&gt; head; <span class="comment">//存放头结点</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkList</span><span class="params">()</span> &#123;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;E&gt;();<span class="comment">//设置头结点</span></span><br><span class="line">        head.next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    将s结点插入到p结点后面--&gt; s.next = p.next;p.next = s;</span></span><br><span class="line"><span class="comment">//    删除结点p的后继结点--&gt; p.next = p.next.next;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建立单链表的方法(下面的代码块均位于LinkList类里)</p>
+</blockquote>
+<ul>
+<li>头插法(数据结点次序和数组中数据次序正好相反)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createListF</span><span class="params">(E[]e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e.length();i++)&#123;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;E&gt;(e[i]); <span class="comment">//循环建立结点</span></span><br><span class="line">        s.next=<span class="built_in">this</span>.head.next;</span><br><span class="line">        <span class="built_in">this</span>.head.next=s;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>尾插法(数据结点次序和数组中数据次序相同)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createListR</span><span class="params">(E[]e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s t;</span><br><span class="line">        t=<span class="built_in">this</span>.head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;e.length();i++)&#123;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;E&gt;(e[i]);</span><br><span class="line">        t.next=s;</span><br><span class="line">        t=s;</span><br><span class="line">        &#125;</span><br><span class="line">        t=<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>线性表的基本运算在单链表中的实现</p>
+</blockquote>
+<ul>
+<li>获得序号为i的元素（0&lt;&#x3D; i &lt;&#x3D;n-1）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> LinkNode&lt;E&gt; <span class="title function_">getI</span><span class="params">(<span class="type">int</span> i)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; h=<span class="built_in">this</span>.head;</span><br><span class="line">        <span class="type">int</span> j=-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;i)&#123;</span><br><span class="line">        j++;</span><br><span class="line">        h=h.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将元素e添加到线性表末尾</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        LinkNode&lt;E&gt; p=head;</span><br><span class="line">        <span class="keyword">while</span>(p.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">        p=p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        p.next=s;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>求线性表的长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; p=head;</span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="keyword">while</span>(p.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">        size++;</span><br><span class="line">        p=p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置线性表的长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSize</span><span class="params">(<span class="type">int</span> nLen)</span>&#123;</span><br><span class="line">        <span class="type">int</span> len=<span class="built_in">this</span>.size();</span><br><span class="line">        <span class="keyword">if</span>(nLen&lt; <span class="number">0</span>||nLen&gt;len)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&#x27;err-msg&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span>(nLen==len)<span class="keyword">return</span>;</span><br><span class="line">        LinkNode&lt;E&gt; p=<span class="built_in">this</span>.getI(nLen-<span class="number">1</span>);<span class="comment">//获取序号为 nLen-1 的结点</span></span><br><span class="line">        p.next=<span class="literal">null</span>;<span class="comment">//截断</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取线性表中序号为i的元素（data）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">getElem</span><span class="params">(<span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="type">int</span> len=<span class="built_in">this</span>.size();</span><br><span class="line">        <span class="keyword">if</span>(i&lt; <span class="number">0</span>||i&gt;len-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&#x27;err-msg&#x27;</span>);</span><br><span class="line">        LinkNode&lt;E&gt; p=getI(i);<span class="comment">//获取结点</span></span><br><span class="line">        <span class="keyword">return</span>(E)p.data;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>设置线性表中序号为i的元素setElem(int i,E e)  (与获取相似)</p>
+</li>
+<li><p>求线性表中第一个为e的元素的逻辑序号</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNo</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        <span class="type">int</span> j;</span><br><span class="line">        LinkNode&lt;E&gt; p=<span class="built_in">this</span>.head;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">null</span>&amp;&amp;!p.data.equals(e))&#123;</span><br><span class="line">        j++;</span><br><span class="line">        p=p.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="literal">null</span>)<span class="keyword">return</span>-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> j;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>交换序号为 i 和 j 的元素</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> i,<span class="type">int</span> j)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; p=getI(i);</span><br><span class="line">        LinkNode&lt;E&gt; q=getI(j);</span><br><span class="line">        E temp=p.data;</span><br><span class="line">        p.data=q.data;</span><br><span class="line">        q.data=temp;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>插入 e 作为第i个元素(序号为i)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insert</span><span class="params">(<span class="type">int</span> i,E e)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt; <span class="number">0</span>||i&gt;size())<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegealArgumentException</span>();</span><br><span class="line">        LinkNode&lt;E&gt; p=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        LinkNode&lt;E&gt; s=getI(i-<span class="number">1</span>);</span><br><span class="line">        s.next=p.next;</span><br><span class="line">        p.next=s;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除第i个元素(序号为i)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delete</span><span class="params">(<span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt; <span class="number">0</span>||i&gt;size())<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegealArgumentException</span>();</span><br><span class="line">        LinkNode&lt;E&gt; p=getI(i-<span class="number">1</span>);</span><br><span class="line">        p.next</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>快慢指针法(返回单链表中间位置元素)(P66)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> E <span class="title function_">middle</span><span class="params">(LinkList&lt;E&gt; l)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; fast=l.head.next;</span><br><span class="line">        LinkNode&lt;E&gt; slow=l.head.next;</span><br><span class="line">        <span class="keyword">while</span>(fast.next!=<span class="literal">null</span>&amp;&amp;fast.next.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">        slow=slow.next;</span><br><span class="line">        fast=fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow.data;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>利用头插法让单链表l逆序，如（1,2,3,4,5）&#x3D;&#x3D;&gt;（5,4,3,2,1）</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">reverse</span><span class="params">(LinkList&lt;E&gt; l)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; p=l.head.next;<span class="comment">//p指向头结点</span></span><br><span class="line">        LinkNode&lt;E&gt; q;</span><br><span class="line">        l.head.next=<span class="literal">null</span>;<span class="comment">//将l设置为一个空表</span></span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">null</span>)&#123;</span><br><span class="line">        q=p.next;<span class="comment">//先用q临时保存p的后继结点</span></span><br><span class="line">        p.next=l.head.next;</span><br><span class="line">        l.head.next=p;</span><br><span class="line">        p=q;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将两个递增有序单链表合并为一个递增有序单链表（二路归并 + 尾插法）</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> LinkNodeClass&lt;Integer&gt; <span class="title function_">Merge</span><span class="params">(LinkListClass&lt;Integer&gt; A,</span></span><br><span class="line"><span class="params">        LinkListClass&lt;Integer&gt; B)</span>&#123;</span><br><span class="line">        LinkNode&lt;Integer&gt; p=A.head.next;</span><br><span class="line">        LinkNode&lt;Integer&gt; q=B.head.next;<span class="comment">//p,q均指向头结点</span></span><br><span class="line">        LinkListClass&lt;Integer&gt; C=<span class="keyword">new</span> <span class="title class_">LinkListClass</span>&lt;&gt;();</span><br><span class="line">        LinkNode&lt;Integer&gt; t=C.head;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">null</span>&amp;&amp;q!=<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(p.data&lt;q.data)&#123;</span><br><span class="line">        t.next=p;</span><br><span class="line">        t=p;</span><br><span class="line">        p=p.next;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        t.next=q;</span><br><span class="line">        t=q;</span><br><span class="line">        q=q.next;<span class="comment">//将较小的结点链接到C的末尾</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        t.next=<span class="literal">null</span>;<span class="comment">//将C的尾结点的next设置为空</span></span><br><span class="line">        <span class="keyword">if</span>(p!=<span class="literal">null</span>)t.next=p;</span><br><span class="line">        <span class="keyword">if</span>(q!=<span class="literal">null</span>)t.next=q;</span><br><span class="line">        <span class="keyword">return</span> C;<span class="comment">//返回新链表</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>双链表</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//双链表的结点泛型类</span></span><br><span class="line"><span class="keyword">public</span> DLinkNode&lt;E&gt;&#123;</span><br><span class="line">        E data;</span><br><span class="line">        DlinkNode&lt;E&gt; prior;<span class="comment">//前驱结点</span></span><br><span class="line">        DlinkNode&lt;E&gt; next;<span class="comment">//后继结点</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">DlinkNode</span><span class="params">()</span>&#123;</span><br><span class="line">        prior=<span class="literal">null</span>;</span><br><span class="line">        next=<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">DlinkNode</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        data=e;</span><br><span class="line">        <span class="built_in">this</span>.DlinkNode();</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//双链表的泛型类</span></span><br><span class="line"><span class="keyword">public</span> DlinkListClass&lt;E&gt;&#123;</span><br><span class="line">        DlinkNode&lt;E&gt; dhead;<span class="comment">//头结点</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">DlinkListClass</span><span class="params">()</span>&#123;</span><br><span class="line">        dhead=<span class="keyword">new</span> <span class="title class_">DLinkNode</span>&lt;E&gt;();</span><br><span class="line">        dhead.prior=<span class="literal">null</span>;</span><br><span class="line">        dhead.next=<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//头插法建立双链表</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createListF</span><span class="params">(E[]a)</span>&#123;</span><br><span class="line">        DLinkNode&lt;E&gt; s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;a.length();i++)&#123;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="title class_">DLinkNode</span>&lt;E&gt;(a[i]);</span><br><span class="line">        s.next=dhead.next;<span class="comment">//dhead 为类里面的头结点</span></span><br><span class="line">        <span class="keyword">if</span>(dhead.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">        dhead.next.prior=s;</span><br><span class="line">        &#125;</span><br><span class="line">        dhead.next=s;</span><br><span class="line">        s.prior=dhead;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//尾插法建立双链表</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createListR</span><span class="params">(E[]a)</span>&#123;</span><br><span class="line">        DLinkNode&lt;E&gt; s;</span><br><span class="line">        t=dhead;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;a.length();i++)&#123;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="title class_">DLinkNode</span>&lt;E&gt;(a[i]);</span><br><span class="line">        t.next=s;</span><br><span class="line">        s.prior=t;</span><br><span class="line">        t=s;</span><br><span class="line">        &#125;</span><br><span class="line">        t.next=<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环链表</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//循环单链表泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CLinkListClass</span> &#123;</span><br><span class="line">    LinkNode&lt;E&gt; head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ClinkListClass</span><span class="params">()</span> &#123;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;E&gt;();</span><br><span class="line">        head.next = head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>循环双链表</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CDLinkNodeList</span>&lt;E&gt; &#123;</span><br><span class="line">    DLinkNode&lt;E&gt; dhead;<span class="comment">//存放头结点</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> CDLinkNodeList &#123;</span><br><span class="line">        dhead = <span class="keyword">new</span> <span class="title class_">DLinkNode</span>&lt;E&gt;();</span><br><span class="line">        dhead.next = dhead;</span><br><span class="line">        dhead.prior = dhead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>顺序表和链表的比较</p>
+</blockquote>
+<ul>
+<li>基于时间考虑</li>
+</ul>
+<p>存储密度 &#x3D; 结点中数据本身所占用的存储量&#x2F;整个结点占用的内存量</p>
+<p>一般情况下，存储密度越大，存储空间利用率就越大</p>
+<p>当线性表长度变化不大，易于事先估计的情况，为了节省内存空间，宜采用顺序表</p>
+<p>反之，当变化较大，难以估计其内存大小时，为了节省存储空间，宜采用链表</p>
+<ul>
+<li>基于时间考虑</li>
+</ul>
+<p>在顺序表进行插入删除操作时平均需要移动一半的元素；</p>
+<blockquote>
+<p>二路归并 + 顺序存储结构求解多项式相加（主要算法）</p>
+</blockquote>
+<ul>
+<li><p>用i，j分别遍历L1和L2有序多项式顺序表的元素，先建立一个空的多项式顺序表L3，在L1，L2都没有遍历完时循环</p>
+</li>
+<li><ol>
+<li><p>若i指向的元素的指数比较大，则根据其系数和指数新建一个元素并将其添加到L3，i++</p>
+</li>
+<li><p>若j指向的元素的指数比较大，则根据其系数和指数新建一个元素并将其添加到L3，j++</p>
+</li>
+<li><p>若i和j指向的元素的指数相同，则求出系数之和c，若c !&#x3D; 0,则由该系数和指数新建一个元素并将其添加到L3，否则不新建元素。最后 i++，j++</p>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>采用链式存储结构求解多想是相加</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一个多项式对应的结点类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PolyNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> coef;<span class="comment">//系数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> exp;<span class="comment">//指数</span></span><br><span class="line">    <span class="keyword">public</span> PolyNode next;<span class="comment">//指向下一项</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">PolyNode</span><span class="params">()</span> &#123;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">PolyNode</span><span class="params">(<span class="type">double</span> coef, <span class="type">int</span> exp)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.coef = coef;</span><br><span class="line">        <span class="built_in">this</span>.exp = exp;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多项式单链表PolyClass类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PolyClass</span> &#123;</span><br><span class="line">    PolyNode head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">PolyClass</span><span class="params">()</span> &#123;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="title class_">PolyClass</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="https://www.cnblogs.com/youxin/p/3279391.html">对单链表设置一个头结点的作用是什么？</a></p>
+</blockquote>
+<h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><blockquote>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3></blockquote>
+<p>抽象来说，栈是一种只能在一段进行插入或者删除操作的线性表，允许插入和删除的一段叫做<code>栈顶</code>，另一端叫做<code>栈底</code>，插入操作通常称为<code>进栈</code>或<code>入栈</code>，删除操作通常称为<code>退栈</code>或<code>出栈</code></p>
+<p>设n个元素进栈顺序为1,2,3……n，出栈顺序为$p_1$,$p_2$,……$p_n$,若$p_1$ &#x3D; n,$p_2$ &#x3D; n-1,……,$p_n$&#x3D; 1,</p>
+<p>即：$p_i$ +$i$ &#x3D; $n$ + 1, $p_i$ &#x3D; $n$ - $i$ + 1</p>
+<blockquote>
+<p>顺序栈</p>
+</blockquote>
+<ol>
+<li>顺序栈四要素：</li>
+</ol>
+<ul>
+<li><p>栈空的条件是 <code>top = -1</code>;</p>
+</li>
+<li><p>栈满（栈上溢出）的条件是 <code>top = capacity -1</code>   ，采用动态扩容的方法，即栈满时将data数组的容量扩大<code>两倍</code>;</p>
+</li>
+<li><p>元素e进栈的操作是先将 <code>top+1</code>，然后将元素放在栈顶指针 <code>top</code> 处;</p>
+</li>
+<li><p>出栈操作先将栈顶指针<code>top</code>处的元素取出，再将<code>top - 1</code>;</p>
+</li>
+</ul>
+<ol start="2">
+<li>顺序栈的泛型类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">S</span>    qStackClass&lt;E&gt;&#123;</span><br><span class="line"><span class="keyword">final</span> <span class="type">int</span> initcapacity=<span class="number">10</span>;<span class="comment">//初始容量</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> capacity;<span class="comment">//存放顺序栈容量</span></span><br><span class="line"><span class="keyword">private</span> E[]data;<span class="comment">//存放顺序栈元素</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> top;<span class="comment">//存放栈顶指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">SqStackClass</span><span class="params">()</span>&#123;</span><br><span class="line">        data=(E[])<span class="keyword">new</span> <span class="title class_">Object</span>[initcapacity];<span class="comment">//强制转换为E类型数组</span></span><br><span class="line">        capacity=initcapacity;</span><br><span class="line">        top=-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//改变栈的容量大小</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateCapacity</span><span class="params">(<span class="type">int</span> newcapacity)</span>&#123;</span><br><span class="line">        E[] newdata=(E[])<span class="keyword">new</span> <span class="title class_">Object</span>[newcapacity];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;top+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        newdata[i]=data[i];</span><br><span class="line">        &#125;</span><br><span class="line">        capacity=newcapacity;</span><br><span class="line">        data=newdata;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否为空</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> top==-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//进栈</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(top==capacity-<span class="number">1</span>)&#123;</span><br><span class="line">        updateCapacity(<span class="number">2</span>*(top+<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        top++;</span><br><span class="line">        data[top]=e;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">illegalArgumentException</span>(<span class="string">&quot;栈空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        E e=data[top];</span><br><span class="line">        top--;</span><br><span class="line">        <span class="keyword">if</span>(capacity&gt;initcapacity&amp;&amp;top+<span class="number">1</span>&lt;capacity/<span class="number">4</span>)&#123;</span><br><span class="line">        updateCapacity(capacity/<span class="number">4</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素，但是top指针不移动，只是查看</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">illegalArgumentException</span>(<span class="string">&quot;栈空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>(E)data[top];</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//检查用户输入的括号是否配对</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isMatch</span><span class="params">(String str)</span>&#123;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">char</span> e;</span><br><span class="line">        SqStackClass&lt;Character&gt; st=<span class="keyword">new</span> <span class="title class_">SqStackClass</span>&lt;&gt;();<span class="comment">//建立顺序栈</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;str.length)&#123;</span><br><span class="line">        e=str.charAt(i);</span><br><span class="line">        <span class="keyword">if</span>(e==<span class="string">&#x27;(&#x27;</span>||e==<span class="string">&#x27;&#123;&#x27;</span>||e==<span class="string">&#x27;[&#x27;</span>)&#123;</span><br><span class="line">        st.push(e);<span class="comment">//左括号入栈</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(e==<span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(st.empty())<span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//栈空</span></span><br><span class="line">        <span class="keyword">if</span>(st.peek()!=<span class="string">&#x27;(&#x27;</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        st.pop();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(e==<span class="string">&#x27;]&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(st.empty())<span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//栈空</span></span><br><span class="line">        <span class="keyword">if</span>(st.peek()!=<span class="string">&#x27;[&#x27;</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        st.pop();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(e==<span class="string">&#x27;&#125;&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(st.empty())<span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//栈空</span></span><br><span class="line">        <span class="keyword">if</span>(st.peek()!=<span class="string">&#x27;&#123;&#x27;</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>!empty();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断回文字符串</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(String str)</span>&#123;</span><br><span class="line">        SqStackClass&lt;Character&gt; st=<span class="keyword">new</span> <span class="title class_">SqStackClass</span>&lt;&gt;();<span class="comment">//建立顺序栈</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">//将前半字符入栈</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;n/<span class="number">2</span>)&#123;</span><br><span class="line">        st.push(str.charAt(i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//n为奇数跳过最中间的字符</span></span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">        i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将后面的一半字符从栈顶开始比较</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;n)&#123;</span><br><span class="line">        <span class="comment">//取出栈最上面的字符比较</span></span><br><span class="line">        <span class="keyword">if</span>(!str.charAt(i).equals(st.pop()))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>栈的链式存储结构（不用考虑栈满上溢出的情况）</p>
+</blockquote>
+<ul>
+<li><p>栈空的条件为head.next &#x3D;&#x3D; null, 初始时只有一个头结点</p>
+</li>
+<li><p>由于只有内存溢出才会出现栈满的情况，所有一般不考虑</p>
+</li>
+<li><p>元素e入栈时将包含该元素的结点插入作为首结点</p>
+</li>
+<li><p>出栈操作返回首结点的值并删除该结点</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//结点泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkNode</span>&lt;E&gt; &#123;</span><br><span class="line">    E data;</span><br><span class="line">    LinkNode&lt;E&gt; next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">()</span> &#123;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">(E data)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//链栈泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkStackClass</span>&lt;E&gt;() &#123;</span><br><span class="line">    LinkNode&lt;E&gt; head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkStackClass</span><span class="params">()</span> &#123;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;E&gt;();</span><br><span class="line">        head.next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断链栈是否为空</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> head.next == <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进栈</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        LinkNode&lt;E&gt; s = <span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        s.next = head.next;</span><br><span class="line">        head.next = s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//出栈</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">illegalArgumentException</span>(<span class="string">&quot;空栈&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">E</span> <span class="variable">e</span> <span class="operator">=</span> (E) head.next.data;</span><br><span class="line">        head.next = head.next.next;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//取栈顶元素值</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">illegalArgumentException</span>(<span class="string">&quot;空栈&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (E) head.next.data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>中缀表达式转后缀表达式<a href="https://developer.aliyun.com/article/319924#:~:text=%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%201.%E9%81%87%E5%88%B0%E6%93%8D%E4%BD%9C%E6%95%B0%EF%BC%9A%E7%9B%B4%E6%8E%A5%E8%BE%93%E5%87%BA%EF%BC%88%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%EF%BC%89,2.%E6%A0%88%E4%B8%BA%E7%A9%BA%E6%97%B6%EF%BC%8C%E9%81%87%E5%88%B0%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%85%A5%E6%A0%88%203.%E9%81%87%E5%88%B0%E5%B7%A6%E6%8B%AC%E5%8F%B7%EF%BC%9A%E5%B0%86%E5%85%B6%E5%85%A5%E6%A0%88%204.%E9%81%87%E5%88%B0%E5%8F%B3%E6%8B%AC%E5%8F%B7%EF%BC%9A%E6%89%A7%E8%A1%8C%E5%87%BA%E6%A0%88%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%87%BA%E6%A0%88%E7%9A%84%E5%85%83%E7%B4%A0%E8%BE%93%E5%87%BA%EF%BC%8C%E7%9B%B4%E5%88%B0%E5%BC%B9%E5%87%BA%E6%A0%88%E7%9A%84%E6%98%AF%E5%B7%A6%E6%8B%AC%E5%8F%B7%EF%BC%8C%E5%B7%A6%E6%8B%AC%E5%8F%B7%E4%B8%8D%E8%BE%93%E5%87%BA%E3%80%82">【java】中缀表达式转后缀表达式 java实现-阿里云开发者社区 (aliyun.com)</a></p>
+</blockquote>
+<blockquote>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2></blockquote>
+<ul>
+<li>队列的顺序存储结构</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SqQueueClass</span>&lt;E&gt; &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MaxSize</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">private</span> E[] data;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> front, rear;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SqQueueClass</span><span class="params">()</span> &#123;</span><br><span class="line">        data = (E[]) <span class="keyword">new</span> <span class="title class_">Object</span>[MaxSize];</span><br><span class="line">        front = -<span class="number">1</span>;</span><br><span class="line">        rear = -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断为空</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> front == rear;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进队，先将rear+1，然后再将元素e放在该位置（总是尾部插入）</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (rear = MaxSize - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;队满&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        rear++;</span><br><span class="line">        data[rear] = e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//出队，现将front+1，然后再将该位置的元素取出（出队的元素总是从队头出来的）</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;队空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        front++;</span><br><span class="line">        <span class="keyword">return</span> (E) data[front];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//取队头元素</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;队空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (E) data[front + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>假溢出</p>
+</blockquote>
+<p>进队时rear增加，出队rear不变，front增加，当rear&#x3D;&#x3D;MaxSize-1队满，这种队列中有空位置但是满足队满条件的上溢出称为<code>假溢出</code></p>
+<blockquote>
+<p>循环队列</p>
+</blockquote>
+<p>循环队列首尾相连，当队尾指针rear&#x3D;MaxSize-1时再前进一个位置就到达0位置，这个可以用%（求余）来实现</p>
+<ul>
+<li><p>队首指针循环进1：front &#x3D; (front+1) % MaxSize;</p>
+</li>
+<li><p>队尾指针循环进1：rear &#x3D; (rear+1) % MaxSize;</p>
+</li>
+</ul>
+<p>循环队列的队头指针和队尾指针的初始化位置都是0，即front &#x3D; rear &#x3D; 0</p>
+<ul>
+<li><p>队空条件：rear &#x3D; front</p>
+</li>
+<li><p>队满的条件为（rear+1）% MaxSize &#x3D;&#x3D; front,(相当于试探进队一次，若rear达到了front，则认为队满了)</p>
+</li>
+<li><p>元素e进队时，rear &#x3D; (rear+1) % MaxSize,将元素e放置在该位置</p>
+</li>
+<li><p>元素出队时，front &#x3D; (front+1) % MaxSize,取出该位置元素</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CSqQueueClass</span>&lt;E&gt; &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MaxSize</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//容量</span></span><br><span class="line">    <span class="keyword">private</span> E[] data;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> front, rear;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CSqQueueClass</span><span class="params">()</span> &#123;</span><br><span class="line">        data = (E[]) <span class="keyword">new</span> <span class="title class_">Object</span>[MaxSize];</span><br><span class="line">        front = <span class="number">0</span>;</span><br><span class="line">        rear = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断队空</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> rear == front;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进队</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> ((rear + <span class="number">1</span>) % MaxSize == front) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队满&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        rear = (rear + <span class="number">1</span>) % MaxSize;</span><br><span class="line">        data[rear] = e;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//出队</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        front = (front + <span class="number">1</span>) % MaxSize;</span><br><span class="line">        <span class="keyword">return</span> (E) data[front];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//取队头元素</span></span><br><span class="line">    <span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (empty()) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (E) data[(front + <span class="number">1</span>) % MaxSize];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>队列的链式存储结构</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//结点泛型类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkNode</span>&lt;E&gt; &#123;</span><br><span class="line">    E data;</span><br><span class="line">    LinkNode&lt;E&gt; next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">()</span> &#123;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        data = e;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkQueueClass</span>&lt;E&gt; &#123;</span><br><span class="line">    LinkNode&lt;E&gt; front;</span><br><span class="line">    LinkNode&lt;E&gt; rear;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">()</span> &#123;</span><br><span class="line">        front = <span class="literal">null</span>;</span><br><span class="line">        rear = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>链队队空条件为front &#x3D; rear &#x3D; null或者front&#x3D;&#x3D;null</p>
+</li>
+<li><p>只有内存溢出才会出现队满，通常不考虑</p>
+</li>
+<li><p>元素e进队操作：在单链表的尾部插入存放e的s结点，并让队尾指针指向它</p>
+</li>
+<li><p>元素出队操作：取出队首结点的data值，并将其从链队中删除</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基本方法</span></span><br><span class="line"><span class="comment">//队空</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> front==<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//进队</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        front=rear=s;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        E e;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(rear==front)&#123;</span><br><span class="line">        <span class="comment">//只有一个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=rear=<span class="literal">null</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//多个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=front.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//取队头元素</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>(E)front.data;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="串"><a href="#串" class="headerlink" title="串"></a>串</h1><blockquote>
+<p>基本概念</p>
+</blockquote>
+<ul>
+<li><code>串</code>是由零个或多个字符组成的有限序列，里面的单个字符称为串的元素，是构成串的基本单位，串中包含的字符数称为串的长度，当个数为0为<code>空串</code></li>
+</ul>
+<blockquote>
+<p>串的存储结构</p>
+</blockquote>
+<ul>
+<li>顺序存储结构–顺序串</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//顺序串类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SqStringClass</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MaxSize</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">    <span class="type">char</span>[] data;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SqStringClass</span><span class="params">()</span> &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="title class_">char</span>[MaxSize];</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>串的链式存储结构–链串</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//链串结点类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkNode</span> &#123;</span><br><span class="line">    <span class="type">char</span> data;</span><br><span class="line">    LinkNode next;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">()</span> &#123;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkNode</span><span class="params">(<span class="type">char</span> ch)</span> &#123;</span><br><span class="line">        data = ch;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//链串类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkStringClass</span> &#123;</span><br><span class="line">    LinkNode head;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkStringClass</span><span class="params">()</span> &#123;</span><br><span class="line">        head.next = <span class="literal">null</span>;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//尾插法插入</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Java 里面的字符串</p>
+</blockquote>
+<blockquote>
+<p>串的模式匹配</p>
+</blockquote>
+<ul>
+<li><p>Brute-Force算法（BF算法）（简单匹配算法）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">BF</span><span class="params">(String s, String t)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>( i&lt;s.length() &amp;&amp; j&lt;t.length() )&#123;<span class="comment">//s,t都没遍历完时循环</span></span><br><span class="line">        <span class="keyword">if</span>(s.charAt(i) == t.charAt(j))&#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            i = i-j+<span class="number">1</span>;</span><br><span class="line">            j = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j &gt;= t.length()) <span class="keyword">return</span> ( i-t.length );</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://juejin.cn/post/6854573206896918542">KMP算法</a></p>
+</li>
+<li></li>
+<li><p>求模式串的next数组</p>
+</li>
+<li></li>
+<li></li>
+</ul>
+<pre><code>  1. 对于序号0，规定next[0] = -1;
+
+  2. 对于序号1，置next[1] = 0;
+
+  3. 如果$t_j$有多个相同的前后缀，应该取最长的长度为其next[$t_j$]值；
+</code></pre>
+<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><blockquote>
+<p>条件</p>
+</blockquote>
+<ul>
+<li><p>调用次数有限</p>
+</li>
+<li><p>有终止条件</p>
+</li>
+<li><p>把一个问题化成很多小问题解决，这些小问题和大问题求解方法一样，只是规模不同</p>
+</li>
+</ul>
+<blockquote>
+<p>递归模型</p>
+</blockquote>
+<p>$f(s_1)&#x3D;m_1$</p>
+<p>$f(s_n)&#x3D;g(f(s_{n-1}),c_{n-1})$</p>
+<p>在递归算法的执行中最长的递归调用的链长称为该算法的<code>递归调用深度</code></p>
+<p>例如$n!$的递归算法在求$fun(5)$的递归调用深度为5</p>
+<blockquote>
+<p>递归算法时间复杂度</p>
+</blockquote>
+<ol>
+<li><p>给出执行时间对应的递推式；</p>
+</li>
+<li><p>求解递推式得出算法的执行时间$T(n)$;</p>
+</li>
+<li><p>最后由$T(n)$得出时间复杂度。</p>
+</li>
+</ol>
+<blockquote>
+<p>递归算法的空间复杂度</p>
+</blockquote>
+<ul>
+<li>根据递归深度得到（同时间复杂度求法，$T(n)–&gt;S(n)$）</li>
+</ul>
+<h2 id="数组和稀疏矩阵"><a href="#数组和稀疏矩阵" class="headerlink" title="数组和稀疏矩阵"></a>数组和稀疏矩阵</h2><blockquote>
+<p>一维数组</p>
+</blockquote>
+<p>$LOC(a_i)&#x3D;LOC(a_0)+i*k$</p>
+<blockquote>
+<p>d维数组</p>
+</blockquote>
+<p>对于数组$a[m][n]$，假设每个元素占$k$个存储单元，$LOC(a_{0,0})$表示$a_{0,0}$元素的存储地址</p>
+<ul>
+<li><p>行优先</p>
+<p>$LOC(a_{i,j})&#x3D;LOC(a_{0,0})+(i*n+j)*k$</p>
+</li>
+<li><p>列优先</p>
+<p>$LOC(a_{i,j})&#x3D;LOC(a_{0,0})+(j*m+i)*k$</p>
+</li>
+</ul>
+<blockquote>
+<p>稀疏数组</p>
+</blockquote>
+<ul>
+<li>利用一个三元组$(i,j,a_{i,j})$来表示，三元组每个元素的类定义如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TupElem</span> &#123;</span><br><span class="line">    <span class="type">int</span> r;<span class="comment">//行号</span></span><br><span class="line">    <span class="type">int</span> c;<span class="comment">//列号</span></span><br><span class="line">    <span class="type">int</span> d;<span class="comment">//元素值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TupElem</span><span class="params">(<span class="type">int</span> r1, <span class="type">int</span> c1, <span class="type">int</span> d1)</span> &#123;</span><br><span class="line">        r = r1;</span><br><span class="line">        c = c1;</span><br><span class="line">        d = d1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>稀疏矩阵三元组类定义</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TupClass</span> &#123;</span><br><span class="line">    <span class="type">int</span> rows;<span class="comment">//行数</span></span><br><span class="line">    <span class="type">int</span> cols;<span class="comment">//列数</span></span><br><span class="line">    <span class="type">int</span> nums;<span class="comment">//非0元素个数</span></span><br><span class="line">    ArrayList&lt;TupElem&gt; data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TupClass</span><span class="params">()</span> &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;TupElem&gt;();</span><br><span class="line">        nums = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>特殊矩阵的压缩存储</p>
+</blockquote>
+<ul>
+<li><p>对称矩阵的压缩存储</p>
+</li>
+<li><ul>
+<li>可以使对称元素共享同一存储空间，可以将$n^2$个元素压缩存储到$n(n+1)&#x2F;2$ 个元素的空间中。按照行优先存储时仅仅存储其下三角和主对角线部分的元素。</li>
+</ul>
+</li>
+<li><ul>
+<li><p>A中任一元素$a_{i,j}$和B中的元素$b_k$之间的关系如下：</p>
+<pre><code>$$ k=\left\&#123;
+\begin&#123;matrix&#125;
+    &#123;i(i+1) \over 2&#125;+j~~~~~~~i&gt;=j \\
+    \\
+    \\
+    &#123;j(j+1) \over 2&#125;+i~~~~~~~i&lt;j
+    \end&#123;matrix&#125;
+    \right.
+$$
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a>树和二叉树</h2><blockquote>
+<p>树的基本术语</p>
+</blockquote>
+<ul>
+<li><p><code>结点的度</code>：树中某个结点的子树的个数</p>
+</li>
+<li><p><code>树的度</code>：树中各结点的度的最大值（通常将度为m的树称为m次树）</p>
+</li>
+<li><p><code>分支结点</code>：度不为0的结点</p>
+</li>
+<li><p><code>叶子结点</code>：度为0 的结点</p>
+</li>
+<li><p><code>双亲结点</code>、<code>孩子结点</code></p>
+</li>
+<li><p><code>树的高度（深度）</code>：根节点为第一层，树的最大层级称为树的高度</p>
+</li>
+</ul>
+<blockquote>
+<p>树的性质</p>
+</blockquote>
+<ul>
+<li><p>树中的结点数 <code>等于</code> 所有结点的度之和加一</p>
+</li>
+<li><p>度为m的树的第 $i$ 层上最多有 $m^{i-1}$ 个结点</p>
+</li>
+<li><p>高度为 $h$ 的 $m$ 次树最多有 ${(m^h-1) \over (m-1)}$个结点</p>
+</li>
+<li><p>具有 $n$ 个结点的 $m$ 次树的最小高度为 $[log_m(n(m-1)+1)]$</p>
+</li>
+</ul>
+<blockquote>
+<p>在$m$次树中计算结点时常用的关系式有：</p>
+</blockquote>
+<ol>
+<li><p>树中所有结点的度之和 &#x3D; 分支数 &#x3D; $n-1$</p>
+</li>
+<li><p>所有结点的度之和 &#x3D; $n_1 + 2n_2 + ··· + m*n_m$</p>
+</li>
+<li><p>$n &#x3D; n_0 + n_1 +···+ n_m$</p>
+</li>
+</ol>
+<blockquote>
+<p>树的存储结构</p>
+</blockquote>
+<ul>
+<li>双亲存储结构</li>
+</ul>
+<p>为一种顺序存储结构，双亲存储结构结点类如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PTree</span>&lt;E&gt; &#123;</span><br><span class="line">    E data;<span class="comment">//存放结点的值</span></span><br><span class="line">    <span class="type">int</span> parent;<span class="comment">//存放双亲结点的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>孩子链存储结构</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TSonNode</span>&lt;E&gt; &#123;</span><br><span class="line">    E data;<span class="comment">//结点的值</span></span><br><span class="line">    TSonNode&lt;E&gt;[] sons;<span class="comment">//指向孩子结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>二叉树（二分树）</p>
+</blockquote>
+<ul>
+<li><p>二叉树的5中基本形态</p>
+<ul>
+<li><p>空二叉树</p>
+</li>
+<li><p>单结点二叉树</p>
+</li>
+<li><p>右子树为空的二叉树</p>
+</li>
+<li><p>左子树为空的二叉树</p>
+</li>
+<li><p>左右子树都不为空的二叉树<br><img src="https://pdai.tech/_images/alg/alg-tree-3.png" alt="二叉树的5种状态" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+</ul>
+</li>
+<li><p><code>满二叉树</code>的特点</p>
+<ul>
+<li><p>叶子结点都在最下一层；</p>
+</li>
+<li><p>只有度为0和度为2 的结点；</p>
+</li>
+<li><p>含$n$个结点的满二叉树的高度为$log_2(n+1)$，叶子结点个数为$(n&#x2F;2)+1$，度为2的结点个数为$(n&#x2F;2)$。</p>
+</li>
+</ul>
+</li>
+<li><p><code>完全二叉树</code>的特点：</p>
+<ul>
+<li><p>叶子结点只可能出现在最下面两层；</p>
+</li>
+<li><p>最下一层的叶子结点都依次排列在改层最左边的位置上；</p>
+</li>
+<li><p>如果有度为 1 的结点，只可能有一个，且该结点最多只有左孩子而无右孩子；</p>
+</li>
+<li><p>按照层序编号后，一旦出现某结点（编号为$i$）为叶子结点或只有左孩子，则编号大于 $i$ 的结点均为叶子结点。</p>
+</li>
+</ul>
+</li>
+<li><p><code>完全二叉树</code>的计算：</p>
+<ul>
+<li><p>结点数为<code>偶</code>——&gt;只有一个分支</p>
+</li>
+<li><p>结点数为<code>奇</code>——&gt;无单分支</p>
+</li>
+<li><p>$(n-1)&#x2F;2$个双分支</p>
+</li>
+</ul>
+</li>
+<li><p>二叉树的<code>性质</code>:</p>
+<ul>
+<li><p>非空二叉树上叶子结点数等于双分支结点数加一；</p>
+</li>
+<li><p>非空二叉树的第$i$层上最多有$2^{i-1}$个结点$(i&gt;&#x3D;1)$;</p>
+</li>
+<li><p>高度为$h$的二叉树最多有$2^h-1$个结点；</p>
+</li>
+<li><p>具有$n$个结点的完全二叉树的高度为$log_2(n+1)$或$log_2n+1$。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>二叉树的存储结构</p>
+</blockquote>
+<ul>
+<li><p>二叉树的顺序存储结构</p>
+</li>
+<li><ul>
+<li>完全二叉树和满二叉树采用顺序存储结构比较合适，既能最大限度<code>节省存储空间</code>，又能利用下标迅速<code>确定二叉树中位置和结点之间的关系</code></li>
+</ul>
+</li>
+<li><ul>
+<li>编号为$ i $ 的结点的层次为$\lfloor log_2(i+1) \rfloor$</li>
+</ul>
+</li>
+<li><p>二叉树的链式存储结构(二叉链)</p>
+</li>
+<li><ul>
+<li><p>二叉链结点类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BTNode</span>&lt;E&gt;&#123;</span><br><span class="line">E data;</span><br><span class="line">BTNode lchild;<span class="comment">//指向左结点</span></span><br><span class="line">BTNode rchild;<span class="comment">//指向右结点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">BTNode</span><span class="params">()</span>&#123;</span><br><span class="line">    lchild=rchild=<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">BTNode</span><span class="params">(E e)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.data = e;</span><br><span class="line">    lchild=rchild=<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>二叉树的基本运算</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>二叉树的类设计</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BTreeClass</span>&#123;</span><br><span class="line">  BTNode&lt;Character&gt; b;<span class="comment">//根结点</span></span><br><span class="line">  String bstr;<span class="comment">//根结点字符串表达式</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">BTreeClass</span><span class="params">()</span>&#123;</span><br><span class="line">      b = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二叉树的基本运算</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建二叉树</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">CreateBTree</span><span class="params">(String str)</span></span><br><span class="line"><span class="comment">//返回二叉树括号表示字符串</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line"><span class="comment">//查找值为x的结点(递归查找)</span></span><br><span class="line">FindNode(x)</span><br><span class="line"><span class="comment">//求高度h(递归)</span></span><br><span class="line">Height()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>二叉树的遍历</p>
+</blockquote>
+<ul>
+<li><p>先序遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//先序遍历的递归算法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">PreOrder1</span><span class="params">(BTreeClass bt)</span>&#123;</span><br><span class="line">  PreOrder11(bt.b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">PreOrder11</span><span class="params">(BTNode&lt;Character&gt; t)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(t!=<span class="literal">null</span>)&#123;</span><br><span class="line">      System.out.print(t.data + <span class="string">&quot; &quot;</span>);</span><br><span class="line">      PreOrder11(t.lchild);<span class="comment">//先序遍历左子树</span></span><br><span class="line">      PreOrder11(t.rchild);<span class="comment">//先序遍历右子树</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//中序遍历的递归算法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">InOrder1</span><span class="params">(BTreeClass bt)</span>&#123;</span><br><span class="line">  InOrder11(bt.b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">InOrder11</span><span class="params">(BTNode&lt;Character&gt; t)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(t!=<span class="literal">null</span>)&#123;</span><br><span class="line">      InOrder11(t.lchild);<span class="comment">//中序遍历左子树</span></span><br><span class="line">      System.out.print(t.data + <span class="string">&quot; &quot;</span>);<span class="comment">//访问根结点</span></span><br><span class="line">      InOrder11(t.rchild);<span class="comment">//中序遍历右子树</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//后序遍历的递归算法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">PostOrder1</span><span class="params">(BTreeClass bt)</span>&#123;</span><br><span class="line">  PostOrder11(bt.b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">PostOrder11</span><span class="params">(BtNode&lt;Character&gt; t)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(t!=<span class="literal">null</span>)&#123;</span><br><span class="line">      PostOrder11(t.lchild);<span class="comment">//后序遍历左子树</span></span><br><span class="line">      PostOrder11(t.rchild);<span class="comment">//后序遍历右子树</span></span><br><span class="line">      System.out.print(t.data + <span class="string">&quot; &quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>二叉树的层次遍历</p>
+</blockquote>
+</li>
+<li><p>层次遍历基本步骤</p>
+</li>
+<li><ul>
+<li>访问根结点（第一层）</li>
+</ul>
+</li>
+<li><ul>
+<li>从左到右访问第二层的所有结点</li>
+</ul>
+</li>
+<li><ul>
+<li>从左到右访问第三层的所有结点，$…$，第$ h $层的所有结点</li>
+</ul>
+</li>
+<li><p>层次遍历算法设计</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">LevelOrder</span><span class="params">(BTreeClass bt)</span>&#123;</span><br><span class="line">  BTNode&lt;Character&gt; p;</span><br><span class="line">  Queue&lt;BTNode&gt; qu = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;BTNode&gt;();</span><br><span class="line">  qu.offer(bt.b);<span class="comment">//根结点进队</span></span><br><span class="line">  <span class="keyword">while</span>(!qu.isEmpty())&#123;<span class="comment">//队列不为空时循环</span></span><br><span class="line">       P = qu.poll();<span class="comment">//出队第一个结点</span></span><br><span class="line">       System.out.print(p.data + <span class="string">&quot; &quot;</span>);<span class="comment">//输出</span></span><br><span class="line">       <span class="keyword">if</span>(p.lchild!=<span class="literal">null</span>)&#123;<span class="comment">//有左孩子，进队</span></span><br><span class="line">          qu.offer(p.lchild);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(p.rchild!=<span class="literal">null</span>)&#123;<span class="comment">//有右孩子，进队</span></span><br><span class="line">          qu.offer(p.rchild);</span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于二叉树构造的一些结论</p>
+</blockquote>
+</li>
+<li><p>任何$ n(n&gt;&#x3D;0) $个不同结点的二叉树都可以由它的中序序列和先序序列唯一地确定</p>
+</li>
+<li><p>任何$ n(n&gt;&#x3D;0) $个不同结点的二叉树都可以由它的中序序列和后序序列唯一地确定</p>
+</li>
+</ul>
+<blockquote>
+<p>线索二叉树</p>
+</blockquote>
+<ul>
+<li><p>定义<br>对于n个结点的二叉树，在二叉链存储结构中有n+1个空链域，利用这些空链域存放在<code>某种遍历次序</code>下该结点的<code>前驱结点</code>和<code>后继结点</code>的<code>指针</code>，这些指针称为线索，加上<code>线索</code>的二叉树称为<code>线索二叉树</code>。</p>
+</li>
+<li><p>区分“前驱结点”和“孩子结点”<br><code>标识</code></p>
+<p>$$<br>左标识ltag&#x3D;\left{<br>\begin{matrix}<br>0~~~~表示lchild指向左孩子结点\\<br>1~~~~表示lchild指向前驱结点的线索<br>\end{matrix}<br>\right.<br>$$</p>
+</li>
+</ul>
+<p>$$<br>右标识ltag&#x3D;\left{<br>\begin{matrix}<br>0~~~~表示rchild指向右孩子结点\\<br>1~~~~表示rchild指向后继结点的线索<br>\end{matrix}<br>\right.<br>$$</p>
+<p>每个这样的结点存储结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>ltag</th>
+<th>lchild</th>
+<th>data</th>
+<th>rchild</th>
+<th>rtag</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>线索化二叉树（建立线索二叉树）（以下以中序遍历为主）</p>
+</blockquote>
+<ul>
+<li>二叉链结点类</li>
+<li>左孩子为空</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>^</th>
+<th>data</th>
+<th>rchild</th>
+</tr>
+</thead>
+</table>
+<p>左指针指向中序遍历的<code>直接前驱</code></p>
+<ul>
+<li>右孩子为空</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>lchild</th>
+<th>data</th>
+<th>^</th>
+</tr>
+</thead>
+</table>
+<p>右指针指向中序遍历的<code>直接后继</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThNode</span>&#123;</span><br><span class="line">    <span class="type">char</span> data;<span class="comment">//数据</span></span><br><span class="line">    ThNode lchild, rchild;</span><br><span class="line">    <span class="type">int</span> ltag, rtag;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ThNode</span><span class="params">()</span>&#123;</span><br><span class="line">        lchild = rchild = <span class="literal">null</span>;</span><br><span class="line">        ltag = rtag = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>中序线索化二叉树类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadClass</span>&#123;</span><br><span class="line">    ThNode b;<span class="comment">//二叉树根结点</span></span><br><span class="line">    ThNode root;<span class="comment">//线索二叉树的头结点</span></span><br><span class="line">    ThNode pre;<span class="comment">//用于中序线索化，指向中序前驱结点</span></span><br><span class="line">    String bstr;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ThreadClass</span><span class="params">()</span>&#123;</span><br><span class="line">        root = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//基本运算</span></span><br><span class="line">    <span class="comment">//建立以root为头结点的中序线索二叉树</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createThread</span><span class="params">()</span>&#123;……&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//对以P为根结点的二叉树进行中序线索化</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Thread</span><span class="params">(ThNode p)</span>&#123;……&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="%22https://zhuanlan.zhihu.com/p/134184036%22">遍历线索二叉树</a>  &lt;—click here to learn</p>
+</blockquote>
+<blockquote>
+<p>哈夫曼树（最优二叉树）（P272）</p>
+</blockquote>
+<ul>
+<li>权值越大，离根结点越近</li>
+<li>权值越小，离根结点越远</li>
+<li>具有$n_0$个叶子结点的哈夫曼树共有$2n_0-1$个结点</li>
+</ul>
+<blockquote>
+<p>哈夫曼编码</p>
+</blockquote>
+<ul>
+<li>在一组字符的哈夫曼编码中，任一字符的哈夫曼编码<code>不可能</code>是另一字符的哈夫曼编码的前缀。</li>
+</ul>
+<blockquote>
+<p>二叉树与树、森林之间的转换</p>
+</blockquote>
+<ul>
+<li>树到二叉树的转换步骤</li>
+</ul>
+<ul>
+<li><ul>
+<li>加线：在各兄弟结点之间加一连线</li>
+</ul>
+</li>
+<li><ul>
+<li>抹线：对于任意结点，除了其<code>最左子树</code>之外，抹掉该结点与其他子树之间的<code>双亲-孩子</code>关系</li>
+</ul>
+</li>
+<li><ul>
+<li>调整：（排列整齐）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>一棵由树转换的二叉树与还原为树</li>
+</ul>
+<ul>
+<li><ul>
+<li>加线：在<code>各结点的双亲</code>与<code>该结点右链</code>上的每个结点之间加一条连线</li>
+</ul>
+</li>
+<li><ul>
+<li>抹线：抹掉二叉树中所有双亲结点与其右孩子之间的<code>双亲-右孩子</code>关系</li>
+</ul>
+</li>
+<li><ul>
+<li>调整：（排列整齐）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>森林到二叉树的转换及还原</p>
+</blockquote>
+<ul>
+<li>森林转换为二叉树</li>
+</ul>
+<ul>
+<li><ul>
+<li>转换：将森林中每一棵树转换为二叉树</li>
+</ul>
+</li>
+<li><ul>
+<li>连接：将转换后的二叉树根结点相连</li>
+</ul>
+</li>
+<li><ul>
+<li>调整：（排列整齐）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>二叉树还原为森林</li>
+</ul>
+<ul>
+<li><ul>
+<li>抹线：抹掉根结点右链上所有<code>双亲-右孩子</code>关系</li>
+</ul>
+</li>
+<li><ul>
+<li>转换：分别将抹线后的二叉树还原为树</li>
+</ul>
+</li>
+<li><ul>
+<li>调整：（排列整齐）</li>
+</ul>
+</li>
+</ul>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><blockquote>
+<p>基本概念</p>
+</blockquote>
+<ul>
+<li>图$G$由两个集合$V和E$组成，记为$G&#x3D;(V,E)$，其中$V$是顶点的有限集合,记为$V(G)$,<br>$E$是连接两个不同顶点的边的有限集合，记为$E(G)$。<br>+无向图：在图$G$中，如果代表边的顶点对（或序偶）是无序的，则成$G$为无向图，$–&gt;(a,b)$</li>
+<li>有向图：顶点对有序$–&gt;&lt;a,b&gt;和&lt;b,a&gt;$不一样</li>
+</ul>
+<blockquote>
+<p>基本术语</p>
+</blockquote>
+<ul>
+<li>端点和邻接点<br>$(a,b)–&gt;a,b互为邻接点,a、b顶点称为该边的两个端点$</li>
+<li>顶点的度、入度、出度</li>
+<li><ul>
+<li><code>顶点的度</code>：顶点所关联的边的数目</li>
+</ul>
+</li>
+<li><ul>
+<li><code>入度、出度</code>：以该顶点为终点的边的数目，反之，以该端点为起点的边的数目为出度<br>若一个图中有$n$个顶点和$e$条边，每个顶点的度为  $ d_i(0&lt;&#x3D;i&lt;&#x3D;(n-1))$,则有：</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>e &#x3D; \frac{1}{2}\sum_{i&#x3D;0}^{n-1}d_i<br>$$</p>
+<p>相当于一个图中<code>顶点的度之和</code>等于<code>边数</code>的<code>两倍</code></p>
+<ul>
+<li>完全图<br><code>有向图</code>每两个顶点之间都存在着<code>方向相反</code>的<code>两条边</code></li>
+</ul>
+<pre class="mermaid">graph TD;
+0-->1
+1-->0
+1-->2
+2-->1
+2-->3
+3-->2
+3-->0
+0-->3
+3-->1
+1-->3
+0-->2
+2-->0</pre>
+
+<p><code>无向图</code>每两个端点之间都存在<code>一条边</code></p>
+<pre class="mermaid">graph LR;
+0---1
+1---2
+2---3
+3---0
+3---1
+2---0</pre>
+
+<ul>
+<li>稠密图和稀疏图<ul>
+<li>当一个图接近万全图时称为稠密图</li>
+<li>当一个图边数较少[有向图$e&lt;&lt;n(n-1),无向图e&lt;&lt;\frac{n(n-1)}{2}$]称为稀疏图</li>
+</ul>
+</li>
+<li>子图<ul>
+<li>两个图$G&#x3D;(V,E)和G’&#x3D;(V’,E’),若V’是V的子集，且E’是E的子集，则G’是G的子图$</li>
+</ul>
+</li>
+<li>路径和路径长度<ul>
+<li>从$顶点i到顶点j$的一条<code>路径</code>是一个顶点序列$(i,i_1,i_2,…,i_m,j)$</li>
+<li><code>路径长度</code>是指一条路径上经过的边的数目</li>
+<li><code>简单路径</code>是指一条路径上除开始点和结束点可以相同外，其余端点均不相同</li>
+</ul>
+</li>
+<li>回路和环<ul>
+<li>一条路径开始点和结束点相同，该路径被称为<code>回路</code>或<code>环</code></li>
+</ul>
+</li>
+<li>连通、连通图、连通分量<ul>
+<li>图的任意两个端点都是连通的图称为<code>连通图</code>，否则为<code>非连通图</code></li>
+<li>无向图G的<code>极大连通子图</code>称为G的<code>连通分量</code></li>
+</ul>
+</li>
+<li>强连通图和强连通分量<ul>
+<li>强连通图：$从顶点i到j和j到i都有路径$</li>
+<li>强连通分量：有向图的极大强连通子图称为该图的强连通分量</li>
+</ul>
+</li>
+<li>关结点和重连通图</li>
+<li>权和网<ul>
+<li>边上带有权的图称为带权图，也称作网</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>图的存储结构</p>
+</blockquote>
+<ul>
+<li>邻接矩阵<ul>
+<li>存储方法</li>
+<li><ul>
+<li>G不带权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>A[i][j]&#x3D;\left{<br>\begin{matrix}<br>1~~~~，(i,j) \in E(G)或者&lt;i,j&gt; \in E(G)\<br>0~~~~，其他<br>\end{matrix}<br>\right.<br>$$</p>
+<ul>
+<li><ul>
+<li><ul>
+<li>G带权</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>A[i][j]&#x3D;\left{<br>\begin{matrix}<br>w_{ij}~~~~，i \neq j 并且(i,j) \in E(G) 或者 &lt;i,j&gt; \in E(G) \<br>0~~~~，i &#x3D; j \<br>\infty~~~~,其他<br>\end{matrix}<br>\right.<br>$$</p>
+<ul>
+<li><ul>
+<li><ul>
+<li>三个邻接矩阵<br>$$A_1&#x3D;\begin{bmatrix}<br>0&amp;1&amp;0&amp;1&amp;1\<br>1&amp;0&amp;1&amp;1&amp;0\<br>0&amp;1&amp;0&amp;1&amp;1\<br>1&amp;1&amp;1&amp;0&amp;1\<br>1&amp;0&amp;1&amp;1&amp;0\<br>\end{bmatrix}$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$A_2&#x3D;\begin{bmatrix}<br>0&amp;1&amp;0&amp;1&amp;0\<br>0&amp;0&amp;1&amp;1&amp;0\<br>0&amp;0&amp;0&amp;1&amp;1\<br>0&amp;0&amp;0&amp;0&amp;0\<br>1&amp;0&amp;0&amp;1&amp;0\<br>\end{bmatrix}$$</p>
+<p>$$A_3&#x3D;\begin{bmatrix}<br>0&amp;8&amp;\infty&amp;5&amp;\infty\<br>\infty&amp;0&amp;3&amp;\infty&amp;\infty\<br>\infty&amp;\infty&amp;0&amp;\infty&amp;6\<br>\infty&amp;\infty&amp;9&amp;0&amp;\infty\<br>\infty&amp;\infty&amp;\infty&amp;\infty&amp;0\<br>\end{bmatrix}$$</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
