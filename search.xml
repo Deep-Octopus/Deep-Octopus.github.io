@@ -3,8 +3,7 @@
   <entry>
     <title>线性代数重要知识点</title>
     <url>/2023/03/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><img src="/images/2023-03-25-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/image-20230328151938932.png" alt="image-20230328151938932" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-]]></content>
+    <content><![CDATA[]]></content>
       <categories>
         <category>数学</category>
       </categories>
@@ -16,7 +15,8 @@
   <entry>
     <title>MySQL数据库基本操作</title>
     <url>/2023/03/23/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1><span id="mysql基本操作sql-快速参考-菜鸟教程-runoobcom">MySQL基本操作</span></h1>
+    <content><![CDATA[<h1><span id="mysql基本操作">MySQL基本操作</span></h1>
+<h1><span id="sql-快速参考-菜鸟教程-runoobcom"></span></h1>
 <div class="success">
 <p><strong>我们开始吧</strong><br>
 Let us go！！</p>
@@ -105,7 +105,7 @@ Let us go！！</p>
 <p>WHERE 子句类似于程序语言中的if条件，根据 MySQL 表中的字段值来读取指定的数据。</p>
 </li>
 </ul>
-<h1><span id="update-查询">UPDATE 查询</span></h1>
+<h2><span id="update-查询">UPDATE 查询</span></h2>
 <blockquote>
 <p>以下是 UPDATE 命令修改 MySQL 数据表数据的通用SQL语法：</p>
 </blockquote>
@@ -346,7 +346,7 @@ Let us go！！</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons AUTO_INCREMENT<span class="operator">=</span><span class="number">100</span></span><br></pre></td></tr></table></figure>
 <p>要在 “Persons” 表中插入新记录，我们不必为 “ID” 列规定值（会自动添加一个唯一的值）</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Persons (FirstName,LastName) <span class="keyword">VALUES</span> (<span class="string">&#x27;Lars&#x27;</span>,<span class="string">&#x27;Monsen&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2><span id="mysql多表操作一对一-一对多-多对多"></span></h2>
+<p><a href="https://www.cnblogs.com/minseo/p/14318464.html">MySQL多表操作(一对一 一对多 多对多)</a></p>
 ]]></content>
       <categories>
         <category>code</category>
@@ -837,7 +837,7 @@ Let us go！！</p>
 <blockquote>
 <p><a href="https://www.cnblogs.com/youxin/p/3279391.html">对单链表设置一个头结点的作用是什么？</a></p>
 </blockquote>
-<h2><span id="栈和队列">栈和队列</span></h2>
+<h2><span id="3-栈和队列">3、栈和队列</span></h2>
 <blockquote>
 <h3><span id="栈">栈</span></h3>
 </blockquote>
@@ -957,7 +957,7 @@ Let us go！！</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基本方法</span></span><br><span class="line"><span class="comment">//队空</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> front==<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//进队</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        front=rear=s;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        E e;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(rear==front)&#123;</span><br><span class="line">        <span class="comment">//只有一个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=rear=<span class="literal">null</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//多个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=front.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//取队头元素</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>(E)front.data;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="串">串</span></h1>
+<h2><span id="4-串">4、串</span></h2>
 <blockquote>
 <p>基本概念</p>
 </blockquote>
@@ -1012,7 +1012,7 @@ Let us go！！</p>
   
   3. 如果&#123;% _internal_math_placeholder 25 %&#125;有多个相同的前后缀，应该取最长的长度为其next[&#123;% _internal_math_placeholder 26 %&#125;]值；
 </code></pre>
-<h2><span id="递归">递归</span></h2>
+<h2><span id="5-递归">5、递归</span></h2>
 <blockquote>
 <p>条件</p>
 </blockquote>
@@ -1056,7 +1056,7 @@ Let us go！！</p>
 <p>根据递归深度得到（同时间复杂度求法，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mo>−</mo><mo>&gt;</mo><mi>S</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)--&gt;S(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>）</p>
 </li>
 </ul>
-<h2><span id="数组和稀疏矩阵">数组和稀疏矩阵</span></h2>
+<h2><span id="6-数组和稀疏矩阵">6、数组和稀疏矩阵</span></h2>
 <blockquote>
 <p>一维数组</p>
 </blockquote>
@@ -1120,7 +1120,7 @@ Let us go！！</p>
                 \end{matrix}
                 \right.
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:5.14em;vertical-align:-2.32em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-1.9em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-1.892em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.616em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.8889em" height="0.616em" style="width:0.8889em" viewbox="0 0 888.89 616" preserveaspectratio="xMinYMin"><path d="M384 0 H504 V616 H384z M384 0 H504 V616 H384z"/></svg></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.292em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.616em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.8889em" height="0.616em" style="width:0.8889em" viewbox="0 0 888.89 616" preserveaspectratio="xMinYMin"><path d="M384 0 H504 V616 H384z M384 0 H504 V616 H384z"/></svg></span></span><span style="top:-4.9em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.82em;"><span style="top:-4.82em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.62em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"></span></span><span style="top:-2.42em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"></span></span><span style="top:-1.05em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.32em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
-<h2><span id="树和二叉树">树和二叉树</span></h2>
+<h2><span id="7-树和二叉树">7、树和二叉树</span></h2>
 <blockquote>
 <p>树的基本术语</p>
 </blockquote>
@@ -1566,7 +1566,7 @@ Let us go！！</p>
 </ul>
 </li>
 </ul>
-<h2><span id="图">图</span></h2>
+<h2><span id="8-图">8、图</span></h2>
 <blockquote>
 <p>基本概念</p>
 </blockquote>
