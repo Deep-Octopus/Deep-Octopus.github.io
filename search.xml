@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>线性代数重要知识点</title>
-    <url>/2023/03/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <url>/Deep-Octopus/Deep-Octopus.github.io/2023/03/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>数学</category>
@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>MySQL数据库基本操作</title>
-    <url>/2023/03/23/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <url>/Deep-Octopus/Deep-Octopus.github.io/2023/03/23/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1><span id="mysql基本操作sql-快速参考-菜鸟教程-runoobcom">MySQL基本操作</span></h1>
 <div class="success">
 <p><strong>我们开始吧</strong><br>
@@ -357,7 +357,7 @@ Let us go！！</p>
   </entry>
   <entry>
     <title>Leetcode刷题笔记</title>
-    <url>/2023/03/23/Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <url>/Deep-Octopus/Deep-Octopus.github.io/2023/03/23/Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1><span id="leetcode刷题笔记">LeetCode刷题笔记</span></h1>
 <blockquote>
 <p>！！！</p>
@@ -431,7 +431,7 @@ Let us go！！</p>
 <p>​	给你一个整数 <code>n</code> ，返回所有不同的 <strong>n 皇后问题</strong> 的解决方案。</p>
 <p>​	每一种解法包含一个不同的 <strong>n 皇后问题</strong> 的棋子放置方案，该方案中 <code>'Q'</code> 和 <code>'.'</code> 分别代表了皇后和空位。</p>
 <p><strong>示例1：</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 4</span><br><span class="line">输出：[[&quot;.Q..&quot;,&quot;...Q&quot;,&quot;Q...&quot;,&quot;..Q.&quot;],[&quot;..Q.&quot;,&quot;Q...&quot;,&quot;...Q&quot;,&quot;.Q..&quot;]]</span><br><span class="line">解释：如上图所示，4 皇后问题存在两个不同的解法。</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 1</span><br><span class="line">输出：[[&quot;Q&quot;]]</span><br></pre></td></tr></table></figure>
@@ -523,8 +523,8 @@ Let us go！！</p>
 <p>​		说实话，我第一眼看见这个题，我有点懵，但是看见这只是一个简单题，心想：蛙趣，怎么搞的？简单题都看懵了（但是我确实没有想到很好的方法）。我沉思了一下……有了：我直接一个孩子一个孩子分配，每次都找大于孩子胃口且最接近孩子胃口的饼干，这样不就可以了。试一试</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findContentChildren</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; g, vector&lt;<span class="type">int</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 每次都找一个最接近孩子胃口的</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> countChild = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 最合适的下标</span></span><br><span class="line">        <span class="type">int</span> suIndex = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// 差值</span></span><br><span class="line">        <span class="type">int</span> delta = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; g.<span class="built_in">size</span>(); i ++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (s[j] &gt;= g[i] &amp;&amp; s[j] - g[i] &gt; delta) &#123;</span><br><span class="line">                    delta = s[j] - g[i];</span><br><span class="line">                    suIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (delta != <span class="number">-1</span>) &#123;</span><br><span class="line">                s[suIndex] = <span class="number">-1</span>;</span><br><span class="line">                countChild ++;</span><br><span class="line">                delta = <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> countChild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>直接运行：😄</p>
-<p><img src="/.io//image-20230327205517166.png" alt="image-20230327205517166" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/.io//image-20230327205530828.png" alt="image-20230327205530828" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/image-20230327205517166.png" alt="image-20230327205517166" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
+<p><img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/image-20230327205530828.png" alt="image-20230327205530828" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <p>😢😢😢😢😢😢</p>
 <p>错了……</p>
 <p>why？</p>
@@ -538,14 +538,14 @@ Let us go！！</p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findContentChildren</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; g, vector&lt;<span class="type">int</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(g.<span class="built_in">begin</span>(), g.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 优先满足胃口大的Child</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> countChild = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index_g = g.<span class="built_in">size</span>() - <span class="number">1</span>, index_s = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(index_g &gt;= <span class="number">0</span> &amp;&amp; index_s &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[index_s] &gt;= g[index_g]) &#123;</span><br><span class="line">                countChild++;</span><br><span class="line">                index_s--;   </span><br><span class="line">            &#125;</span><br><span class="line">            index_g--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> countChild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>过了：<img src="/.io//image-20230327211806716.png" alt="image-20230327211806716" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>过了：<img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/image-20230327211806716.png" alt="image-20230327211806716" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>先给胃口小的分配</p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findContentChildren</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; g, vector&lt;<span class="type">int</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(g.<span class="built_in">begin</span>(), g.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 优先满足胃口小的Child</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> countChild = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index_g = <span class="number">0</span>, index_s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index_g &lt; g.<span class="built_in">size</span>() &amp;&amp; index_s &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[index_s] &gt;= g[index_g]) &#123;</span><br><span class="line">                countChild++;</span><br><span class="line">                index_g++;   </span><br><span class="line">            &#125;</span><br><span class="line">            index_s++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> countChild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>也过了！！！<img src="/.io//image-20230327211826720.png" alt="image-20230327211826720" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>也过了！！！<img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/image-20230327211826720.png" alt="image-20230327211826720" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <p>nice！！！😸</p>
 <h2><span id="刷题记录">刷题记录</span></h2>
 <p><sub>2023/3/26</sub></p>
@@ -573,7 +573,7 @@ Let us go！！</p>
 <p>​	马上试试：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">findSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 先用最简单粗暴的方式</span></span><br><span class="line">        <span class="type">int</span> temp_sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() - <span class="number">2</span>; i ++) &#123;</span><br><span class="line">            temp_sum = nums[i] + nums[i + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; j ++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp_sum == nums[j] + nums[j + <span class="number">1</span>]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>​		感觉没问题，直接自信点击提交按钮。</p>
-<p><img src="/.io//0326_1.png" alt="image-20230326110858429" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/0326_1.png" alt="image-20230326110858429" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <p>​		直接就过了，但是我们肯定不能就这样妥协，这样根本达不到练题的目的，虽然这是一个简单题。这个时间花的也太多了吧，能不能压缩一下。</p>
 <p>​		这个题的本质不就是找到两个和相等的长度为2 的子数组吗？能不能值遍历一次，这样时间复杂度会大大降低。怎么办呢？突然，我灵光一现，仿佛有人点了我一下。</p>
 <blockquote>
@@ -583,7 +583,7 @@ Let us go！！</p>
 <p>​		想清楚了，直接写：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">findSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 用set</span></span><br><span class="line">        set&lt;<span class="type">int</span>&gt; set;</span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; i ++)&#123;</span><br><span class="line">            len = set.<span class="built_in">size</span>();</span><br><span class="line">            set.<span class="built_in">insert</span>(nums[i] + nums[i + <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (set.<span class="built_in">size</span>() == len) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>运行一下：</p>
-<p><img src="/.io//0326_2.png" alt="image-20230326112435936" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/Deep-Octopus/Deep-Octopus.github.io/Deep-Octopus/Deep-Octopus.github/0326_2.png" alt="image-20230326112435936" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 <p>呼，看见0ms我就开心，但是内存占用变多了。</p>
 <p>博主目前没有想到更好的方法可以同时兼顾时间和空间，如果你有好的点子，欢迎<code>pr</code></p>
 ]]></content>
@@ -597,7 +597,7 @@ Let us go！！</p>
   </entry>
   <entry>
     <title>Java数据结构与算法</title>
-    <url>/2023/03/24/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
+    <url>/Deep-Octopus/Deep-Octopus.github.io/2023/03/24/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<hr>
 <h2><span id>{}</span></h2>
 <h1><span id="java数据结构与算法">Java数据结构与算法</span></h1>
@@ -1221,7 +1221,7 @@ k=\left\{
 </li>
 <li class="lvl-6">
 <p>左右子树都不为空的二叉树<br>
-<img src="https://pdai.tech/_images/alg/alg-tree-3.png" alt="二叉树的5种状态" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<img src="https://pdai.tech/_images/alg/alg-tree-3.png" alt="二叉树的5种状态" loading="lazy" onerror='this.onerror=null;this.src="/Deep-Octopus/Deep-Octopus.github.io/img/404.jpg"'></p>
 </li>
 </ul>
 </li>
