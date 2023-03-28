@@ -15,49 +15,49 @@
   <entry>
     <title>MySQL数据库基本操作</title>
     <url>/2023/03/23/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1><span id="mysql-ji-ben-cao-zuo-sql-kuai-su-can-kao-cai-niao-jiao-cheng-runoob-com">MySQL基本操作</span><a href="#mysql-ji-ben-cao-zuo-sql-kuai-su-can-kao-cai-niao-jiao-cheng-runoob-com" class="header-anchor">#</a></h1>
+    <content><![CDATA[<h1><span id="mysql基本操作sql-快速参考-菜鸟教程-runoobcom">MySQL基本操作</span></h1>
 <div class="success">
 <p><strong>我们开始吧</strong><br>
 Let us go！！</p>
 </div>
-<h2><span id="lian-jie-shu-ju-ku">连接数据库</span><a href="#lian-jie-shu-ju-ku" class="header-anchor">#</a></h2>
+<h2><span id="连接数据库">连接数据库</span></h2>
 <blockquote>
 <p>以下是从命令行中连接mysql服务器的简单实例：</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
-<h2><span id="chuang-jian-shu-ju-ku">创建数据库</span><a href="#chuang-jian-shu-ju-ku" class="header-anchor">#</a></h2>
+<h2><span id="创建数据库">创建数据库</span></h2>
 <blockquote>
 <p>以下命令简单的演示了创建数据库的过程，数据名为 TUTORIALS:</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysqladmin -u root -p create TUTORIALS</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
-<h3><span id="shan-chu-shu-ju-ku">删除数据库</span><a href="#shan-chu-shu-ju-ku" class="header-anchor">#</a></h3>
+<h3><span id="删除数据库">删除数据库</span></h3>
 <blockquote>
 <p>以下实例删除数据库TUTORIALS</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">[<span class="type">root</span>@<span class="type">host</span>]<span class="comment"># mysqladmin -u root -p drop TUTORIALS</span></span><br><span class="line">Enter password:******</span><br></pre></td></tr></table></figure>
-<h3><span id="xuan-ze-shu-ju-ku">选择数据库</span><a href="#xuan-ze-shu-ju-ku" class="header-anchor">#</a></h3>
+<h3><span id="选择数据库">选择数据库</span></h3>
 <blockquote>
 <p>以下实例选取了数据库 TUTORIALS:</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">use TUTORIALS;</span><br></pre></td></tr></table></figure>
-<h3><span id="chuang-jian-shu-ju-biao">创建数据表</span><a href="#chuang-jian-shu-ju-biao" class="header-anchor">#</a></h3>
+<h3><span id="创建数据表">创建数据表</span></h3>
 <blockquote>
 <p>以下为创建MySQL数据表的SQL通用语法：</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CREATE TABLE table_name (column_name column_type);</span><br></pre></td></tr></table></figure>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CREATE TABLE tutorials_tbl(</span><br><span class="line">    tutorial_id INT NOT NULL AUTO_INCREMENT,</span><br><span class="line">    tutorial_title VARCHAR(<span class="number">100</span>) NOT NULL,</span><br><span class="line">    tutorial_author VARCHAR(<span class="number">40</span>) NOT NULL,</span><br><span class="line">    submission_date DATE,</span><br><span class="line">    PRIMARY KEY ( tutorial_id )</span><br><span class="line">    ); )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2><span id="shan-chu-shu-ju-biao">删除数据表</span><a href="#shan-chu-shu-ju-biao" class="header-anchor">#</a></h2>
+<h2><span id="删除数据表">删除数据表</span></h2>
 <blockquote>
 <p>以下实例删除了数据表tutorials_tbl:</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">root@host<span class="comment"># mysql -u root -p</span></span><br><span class="line">Enter password:*******</span><br><span class="line">mysql&gt; use TUTORIALS;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; DROP TABLE tutorials_tbl</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.8</span> sec)</span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
-<h2><span id="cha-ru-shu-ju">插入数据</span><a href="#cha-ru-shu-ju" class="header-anchor">#</a></h2>
+<h2><span id="插入数据">插入数据</span></h2>
 <blockquote>
 <p>以下为向MySQL数据表插入数据通用的 <strong>INSERT INTO</strong> SQL语法：</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
 <p>如果数据是字符型，必须使用单引号或者双引号，如：“value”。</p>
-<h2><span id="cha-xun-shu-ju">查询数据</span><a href="#cha-xun-shu-ju" class="header-anchor">#</a></h2>
+<h2><span id="查询数据">查询数据</span></h2>
 <blockquote>
 <p>以下为在MySQL数据库中查询数据通用的 SELECT 语法：</p>
 </blockquote>
@@ -82,7 +82,7 @@ Let us go！！</p>
 <p>你可以使用 LIMIT 属性来设定返回的记录数。</p>
 </li>
 </ul>
-<h2><span id="where-zi-ju">where 子句</span><a href="#where-zi-ju" class="header-anchor">#</a></h2>
+<h2><span id="where-子句">where 子句</span></h2>
 <blockquote>
 <p>以下是SQL SELECT 语句使用 WHERE 子句从数据表中读取数据的通用语法：</p>
 </blockquote>
@@ -104,7 +104,7 @@ Let us go！！</p>
 <p>WHERE 子句类似于程序语言中的if条件，根据 MySQL 表中的字段值来读取指定的数据。</p>
 </li>
 </ul>
-<h1><span id="update-cha-xun">UPDATE 查询</span><a href="#update-cha-xun" class="header-anchor">#</a></h1>
+<h1><span id="update-查询">UPDATE 查询</span></h1>
 <blockquote>
 <p>以下是 UPDATE 命令修改 MySQL 数据表数据的通用SQL语法：</p>
 </blockquote>
@@ -121,7 +121,7 @@ Let us go！！</p>
 </li>
 </ul>
 <p>当你需要更新数据表中指定行的数据时 WHERE 子句是非常有用的。</p>
-<h3><span id="delete-yu-ju">DELETE 语句</span><a href="#delete-yu-ju" class="header-anchor">#</a></h3>
+<h3><span id="delete-语句">DELETE 语句</span></h3>
 <blockquote>
 <p>以下是SQL DELETE 语句从MySQL数据表中删除数据的通用语法：</p>
 </blockquote>
@@ -138,7 +138,7 @@ Let us go！！</p>
 </li>
 </ul>
 <p>当你想删除数据表中指定的记录时 WHERE 子句是非常有用的。</p>
-<h3><span id="like-zi-ju-a">LIKE 子句(%a%)</span><a href="#like-zi-ju-a" class="header-anchor">#</a></h3>
+<h3><span id="like-子句a">LIKE 子句(%a%)</span></h3>
 <blockquote>
 <p>以下是SQL SELECT 语句使用 LIKE 子句从数据表中读取数据的通用语法：</p>
 </blockquote>
@@ -163,7 +163,7 @@ Let us go！！</p>
 <p>你可以在 DELETE 或 UPDATE 命令中使用 WHERE…LIKE 子句来指定条件。</p>
 </li>
 </ul>
-<h2><span id="pai-xu">排序</span><a href="#pai-xu" class="header-anchor">#</a></h2>
+<h2><span id="排序">排序</span></h2>
 <blockquote>
 <p>以下是SQL SELECT 语句使用 <code>ORDER BY </code>子句将查询数据排序后再返回数据：</p>
 </blockquote>
@@ -182,28 +182,28 @@ Let us go！！</p>
 <p>你可以添加 WHERE…LIKE 子句来设置条件。</p>
 </li>
 </ul>
-<h2><span id="join">Join</span><a href="#join" class="header-anchor">#</a></h2>
+<h2><span id="join">Join</span></h2>
 <blockquote>
 <p>你可以在SELECT, UPDATE 和 DELETE 语句中使用Mysql 的 join 来联合多表查询。</p>
 </blockquote>
 <p>接下来我们就使用MySQL的JOIN来连接以上两张表来读取tutorials_tbl表中所有tutorial_author字段在tcount_tbl表对应的tutorial_count字段值：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.tutorial_id, a.tutorial_author, b.tutorial_count</span><br><span class="line">     <span class="keyword">FROM</span> tutorials_tbl a, tcount_tbl b</span><br><span class="line">     <span class="keyword">WHERE</span> a.tutorial_author <span class="operator">=</span> b.tutorial_author;</span><br></pre></td></tr></table></figure>
-<h3><span id="inner-join-guan-jian-zi">INNER JOIN关键字</span><a href="#inner-join-guan-jian-zi" class="header-anchor">#</a></h3>
+<h3><span id="inner-join关键字">INNER JOIN关键字</span></h3>
 <blockquote>
 <p>INNER JOIN 关键字在表中存在至少一个匹配时返回行。</p>
 </blockquote>
-<h3><span id="sql-inner-join-yu-fa">SQL INNER JOIN 语法</span><a href="#sql-inner-join-yu-fa" class="header-anchor">#</a></h3>
+<h3><span id="sql-inner-join-语法">SQL INNER JOIN 语法</span></h3>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table1  </span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> table2 </span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br></pre></td></tr></table></figure>
 <p>或：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s) </span><br><span class="line"><span class="keyword">FROM</span> table1  </span><br><span class="line"><span class="keyword">JOIN</span> table2 </span><br><span class="line"><span class="keyword">ON</span> table1.column_name <span class="operator">=</span> table2.column_name;</span><br></pre></td></tr></table></figure>
 <p><strong>注释</strong> : INNER JOIN 与 JOIN 是相同的。</p>
-<h3><span id="left-join">LEFT JOIN</span><a href="#left-join" class="header-anchor">#</a></h3>
+<h3><span id="left-join">LEFT JOIN</span></h3>
 <blockquote>
 <p>MySQL left join 与 join 有所不同。 MySQL  LEFT  JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">SELECT</span> a.tutorial_id, a.tutorial_author, b.tutorial_count</span><br><span class="line">    -&gt; FROM tutorials_tbl a LEFT JOIN tcount_tbl b</span><br><span class="line">    -&gt; ON a.tutorial_author = b.tutorial_author;</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br><span class="line">| tutorial_id | tutorial_author | tutorial_count |</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br><span class="line">|           <span class="number">1</span> | John Poul       |              <span class="number">1</span> |</span><br><span class="line">|           <span class="number">2</span> | Abdul S         |           NULL |</span><br><span class="line">|           <span class="number">3</span> | Sanjay          |              <span class="number">1</span> |</span><br><span class="line">+<span class="literal">-------------</span>+<span class="literal">-----------------</span>+<span class="literal">----------------</span>+</span><br></pre></td></tr></table></figure>
 <p>以上实例中使用了LEFT JOIN，该语句会读取左边的数据表tutorials_tbl的所有选取的字段数据，即便在右侧表tcount_tbl中没有对应的tutorial_author字段值。</p>
-<h2><span id="null-zhi-chu-li">NULL 值处理</span><a href="#null-zhi-chu-li" class="header-anchor">#</a></h2>
+<h2><span id="null-值处理">NULL 值处理</span></h2>
 <p>我们已经知道MySQL使用 SQL <code>SELECT </code>命令及<code> WHERE</code> 子句来读取数据表中的数据,但是当提供的查询条件字段为 <code>NULL </code>时，该命令可能就无法正常工作。</p>
 <p>为了处理这种情况，MySQL提供了三大运算符:</p>
 <ul class="lvl-0">
@@ -222,7 +222,7 @@ Let us go！！</p>
 <p>MySQL中处理NULL使用IS NULL和IS NOT NULL运算符。</p>
 <p>查找数据表中 tutorial_count 列是否为 NULL，必须使用IS NULL和IS NOT NULL，如下实例：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT * FROM tcount_tbl</span> </span><br><span class="line">    -&gt; WHERE tutorial_count IS NULL;</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">| tutorial_author | tutorial_count |</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">| mahnaz          |           NULL |</span><br><span class="line">| Jen             |           NULL |</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT * from tcount_tbl</span> </span><br><span class="line">    -&gt; WHERE tutorial_count IS NOT NULL;</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">| tutorial_author | tutorial_count |</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">| mahran          |             20 |</span><br><span class="line">| Gill            |             20 |</span><br><span class="line">+-----------------+----------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<h2><span id="zheng-ze-biao-da-shi">正则表达式</span><a href="#zheng-ze-biao-da-shi" class="header-anchor">#</a></h2>
+<h2><span id="正则表达式">正则表达式</span></h2>
 <blockquote>
 <p>MySQL可以通过 <strong>LIKE …%</strong> 来进行模糊匹配。</p>
 </blockquote>
@@ -246,7 +246,7 @@ Let us go！！</p>
 <p>查找name字段中以元音字符开头且以’ok’字符串结尾的所有数据：</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT name FROM person_tbl WHERE name REGEXP <span class="string">&#x27;^[aeiou]|ok$&#x27;</span>;</span></span><br></pre></td></tr></table></figure>
-<h2><span id="shi-wu">事务</span><a href="#shi-wu" class="header-anchor">#</a></h2>
+<h2><span id="事务">事务</span></h2>
 <blockquote>
 <p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个<code>事务</code>！</p>
 </blockquote>
@@ -278,14 +278,14 @@ Let us go！！</p>
 <p>4、<strong>可靠性</strong>:    软、硬件崩溃后，InnoDB数据表驱动会利用日志文件重构修改。可靠性和高速度不可兼得， innodb_flush_log_at_trx_commit选项 决定什么时候吧事务保存到日志里。</p>
 </li>
 </ul>
-<h3><span id="zai-mysql-kong-zhi-tai-shi-yong-shi-wu-lai-cao-zuo">在Mysql控制台使用事务来操作</span><a href="#zai-mysql-kong-zhi-tai-shi-yong-shi-wu-lai-cao-zuo" class="header-anchor">#</a></h3>
+<h3><span id="在mysql控制台使用事务来操作">在Mysql控制台使用事务来操作</span></h3>
 <p>1，开始一个事务</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> transaction</span><br></pre></td></tr></table></figure>
 <p>2, 做保存点</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">save point 保存点名称</span><br></pre></td></tr></table></figure>
 <p>3, 操作</p>
 <p>4，可以回滚，可以提交，没有问题，就提交，有问题就回滚。</p>
-<h2><span id="alter-ming-ling">ALTER命令</span><a href="#alter-ming-ling" class="header-anchor">#</a></h2>
+<h2><span id="alter命令">ALTER命令</span></h2>
 <blockquote>
 <p>当我们需要<code>修改数据表名</code>或者<code>修改数据表字段</code>时，就需要使用到MySQL ALTER命令。</p>
 </blockquote>
@@ -299,7 +299,7 @@ Let us go！！</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl ADD i INT;</span><br></pre></td></tr></table></figure>
 <p>执行以上命令后，i 字段会自动添加到数据表字段的末尾。</p>
-<h3><span id="ru-guo-xu-yao-xiu-gai-zi-duan-lei-xing-ji-ming-cheng-ni-ke-yi-zai-alter-ming-ling-zhong-shi-yong-modify-huo-change-zi-ju">如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</span><a href="#ru-guo-xu-yao-xiu-gai-zi-duan-lei-xing-ji-ming-cheng-ni-ke-yi-zai-alter-ming-ling-zhong-shi-yong-modify-huo-change-zi-ju" class="header-anchor">#</a></h3>
+<h3><span id="如果需要修改字段类型及名称-你可以在alter命令中使用-modify-或-change-子句">如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。</span></h3>
 <blockquote>
 <p>把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:</p>
 </blockquote>
@@ -313,10 +313,10 @@ Let us go！！</p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl CHANGE j j INT;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h2><span id="xiu-gai-biao-ming">修改表名</span><a href="#xiu-gai-biao-ming" class="header-anchor">#</a></h2>
+<h2><span id="修改表名">修改表名</span></h2>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE testalter_tbl RENAME TO alter_tbl;</span><br></pre></td></tr></table></figure>
-<h2><span id="yue-shu">约束</span><a href="#yue-shu" class="header-anchor">#</a></h2>
+<h2><span id="约束">约束</span></h2>
 <blockquote>
 <p>NOT    NULL约束<a href="https://www.runoob.com/sql/sql-notnull.html">SQL NOT NULL 约束 | 菜鸟教程 (runoob.com)</a></p>
 </blockquote>
@@ -335,7 +335,7 @@ Let us go！！</p>
 <blockquote>
 <p>DEFAULT 约束<a href="https://www.runoob.com/sql/sql-default.html">SQL DEFAULT 约束 | 菜鸟教程 (runoob.com)</a></p>
 </blockquote>
-<h2><span id="auto-increment-zi-duan">AUTO INCREMENT 字段</span><a href="#auto-increment-zi-duan" class="header-anchor">#</a></h2>
+<h2><span id="auto-increment-字段">AUTO INCREMENT 字段</span></h2>
 <p>我们通常希望在每次插入新记录时，自动地创建主键字段的值。</p>
 <p>我们可以在表中创建一个 auto-increment 字段。</p>
 <p>下面的 SQL 语句把 “Persons” 表中的 “ID” 列定义为 auto-increment 主键字段：</p>
@@ -345,7 +345,7 @@ Let us go！！</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Persons AUTO_INCREMENT<span class="operator">=</span><span class="number">100</span></span><br></pre></td></tr></table></figure>
 <p>要在 “Persons” 表中插入新记录，我们不必为 “ID” 列规定值（会自动添加一个唯一的值）</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> Persons (FirstName,LastName) <span class="keyword">VALUES</span> (<span class="string">&#x27;Lars&#x27;</span>,<span class="string">&#x27;Monsen&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2><span id="mysql-duo-biao-cao-zuo-yi-dui-yi-yi-dui-duo-duo-dui-duo"></span><a href="#mysql-duo-biao-cao-zuo-yi-dui-yi-yi-dui-duo-duo-dui-duo" class="header-anchor">#</a></h2>
+<h2><span id="mysql多表操作一对一-一对多-多对多"></span></h2>
 ]]></content>
       <categories>
         <category>code</category>
@@ -358,14 +358,14 @@ Let us go！！</p>
   <entry>
     <title>Leetcode刷题笔记</title>
     <url>/2023/03/23/Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1><span id="leetcode-shua-ti-bi-ji">LeetCode刷题笔记</span><a href="#leetcode-shua-ti-bi-ji" class="header-anchor">#</a></h1>
+    <content><![CDATA[<h1><span id="leetcode刷题笔记">LeetCode刷题笔记</span></h1>
 <blockquote>
 <p>！！！</p>
 <p>注：本文不会对某一算法进行很深入，很细致的讲解，博主追求以最少的文字获得更深的理解，全文的都将按照<code>是什么（what？）``为什么（why？）``怎么做（how？）</code>来进行讲解，我们一直都坚持实践是检验认识真理性的唯一标准，好的算法要能真正解决实际问题，不能光是侃侃而谈。本文代码都根据<code>C++</code>来实现，我们一直秉承一个理念：<code>编程语言永远只是工具，重要的是思想</code>。若想细致了解某一算法，可进行专门的学习。</p>
 <p>！！！</p>
 </blockquote>
-<h2><span id="hui-su-suan-fa">回溯算法</span><a href="#hui-su-suan-fa" class="header-anchor">#</a></h2>
-<h3><span id="ren-shi">认识</span><a href="#ren-shi" class="header-anchor">#</a></h3>
+<h2><span id="回溯算法">回溯算法</span></h2>
+<h3><span id="认识">认识</span></h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>是什么：回溯算法也叫<code>回溯搜索法</code>，就是一种搜索方式，本质就是<code>穷举</code>或<code>枚举</code>所有可能，如果当前选择不符合条件，就<code>回退一步</code>，尝试其他选择，直到找到符合条件的解或枚举完所有情况。所以有时候<code>效率</code>也不会很高，一般都以<code>递归函数</code>实现，<code>回溯</code>和<code>递归</code>相辅相成。</p>
@@ -387,8 +387,8 @@ Let us go！！</p>
 </ul>
 <p>​	根据上述特点，我们很容易可以得到一个回溯算法的程序模板：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(参数)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (终止条件) &#123;</span><br><span class="line">        存放结果</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (一种情况 : 当前层的所有情况(若比作N叉树，就是当前层的所有结点)) &#123;</span><br><span class="line">        处理该情况</span><br><span class="line">        <span class="built_in">backtracking</span>(路径, 下一个选择列表);<span class="comment">//递归过程</span></span><br><span class="line">        回溯，撤销处理结果</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="shi-jian">实践</span><a href="#shi-jian" class="header-anchor">#</a></h3>
-<h4><span id="zu-he">组合</span><a href="#zu-he" class="header-anchor">#</a></h4>
+<h3><span id="实践">实践</span></h3>
+<h4><span id="组合">组合</span></h4>
 <p><strong><a href="https://leetcode.cn/problems/combinations/description/">题目链接</a></strong></p>
 <p><strong>题目：</strong></p>
 <p>​	给定两个整数 <code>n</code> 和 <code>k</code>，返回范围 <code>[1, n]</code> 中所有可能的 <code>k</code> 个数的组合。</p>
@@ -423,7 +423,7 @@ Let us go！！</p>
 <p>​		以下是具体的实现代码：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">combine</span>(<span class="type">int</span> n, <span class="type">int</span> k) &#123;</span><br><span class="line">        <span class="built_in">getGroup</span>(n, k, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">getGroup</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> k, <span class="type">int</span> startIndex)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (path.<span class="built_in">size</span>() == k) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = startIndex; i &lt;= n; i++) &#123;</span><br><span class="line">            path.<span class="built_in">push_back</span>(i);</span><br><span class="line">            <span class="built_in">getGroup</span>(n, k, i + <span class="number">1</span>);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>其实只要想清楚了整个流程，想好了用什么算法，代码并不需要很多，就能解决这个问题。</p>
-<h3><span id="n-huang-hou-wen-ti">N皇后问题</span><a href="#n-huang-hou-wen-ti" class="header-anchor">#</a></h3>
+<h3><span id="n皇后问题">N皇后问题</span></h3>
 <p><a href="https://leetcode.cn/problems/n-queens/description/">题目链接</a></p>
 <p><strong>题目：</strong></p>
 <p>​			按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。</p>
@@ -478,8 +478,8 @@ Let us go！！</p>
 <p><strong>附：</strong></p>
 <p>​		为了一些刚学习Java的同学理解，这里给出Java版本，希望不要被那个黑色厚书给击败，Java还是很有趣的，🙉🛩️</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; <span class="title function_">solveNQueens</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">char</span>[][] chessboard = <span class="keyword">new</span> <span class="title class_">char</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span>[] c : chessboard) &#123;</span><br><span class="line">            Arrays.fill(c, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        backTrack(n, <span class="number">0</span>, chessboard);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">backTrack</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> row, <span class="type">char</span>[][] chessboard)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (row == n) &#123;</span><br><span class="line">            res.add(Array2List(chessboard));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">col</span> <span class="operator">=</span> <span class="number">0</span>;col &lt; n; ++col) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isValid (row, col, n, chessboard)) &#123;</span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">                backTrack(n, row+<span class="number">1</span>, chessboard);</span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List <span class="title function_">Array2List</span><span class="params">(<span class="type">char</span>[][] chessboard)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span>[] c : chessboard) &#123;</span><br><span class="line">            list.add(String.copyValueOf(c));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isValid</span><span class="params">(<span class="type">int</span> row, <span class="type">int</span> col, <span class="type">int</span> n, <span class="type">char</span>[][] chessboard)</span> &#123;</span><br><span class="line">        <span class="comment">// 检查列</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;row; ++i) &#123; <span class="comment">// 相当于剪枝</span></span><br><span class="line">            <span class="keyword">if</span> (chessboard[i][col] == <span class="string">&#x27;Q&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查45度对角线</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=row-<span class="number">1</span>, j=col-<span class="number">1</span>; i&gt;=<span class="number">0</span> &amp;&amp; j&gt;=<span class="number">0</span>; i--, j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查135度对角线</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=row-<span class="number">1</span>, j=col+<span class="number">1</span>; i&gt;=<span class="number">0</span> &amp;&amp; j&lt;=n-<span class="number">1</span>; i--, j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="tan-xin-suan-fa">贪心算法</span><a href="#tan-xin-suan-fa" class="header-anchor">#</a></h2>
-<h3><span id="ren-shi">认识</span><a href="#ren-shi" class="header-anchor">#</a></h3>
+<h2><span id="贪心算法">贪心算法</span></h2>
+<h3><span id="认识">认识</span></h3>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>是什么：贪心算法是一种基于<code>贪心策略</code>的算法，它在<code>每个阶段</code>选择当前看起来最优的解决方案，以期望能够得到<code>全局最优解</code>。在贪心算法中，我们<code>不考虑</code>未来的决策所造成的影响，只关注<code>当前的最优解</code>。</p>
@@ -497,8 +497,8 @@ Let us go！！</p>
 <p>​		需要注意的是，在使用贪心算法时，需要满足<code>贪心选择性质</code>和<code>最优子结构性质</code>。如果问题不满足这些性质，则贪心算法可能无法得到正确的结果。</p>
 </li>
 </ul>
-<h3><span id="shi-jian">实践</span><a href="#shi-jian" class="header-anchor">#</a></h3>
-<h4><span id="fen-fa-bing-gan">分发饼干</span><a href="#fen-fa-bing-gan" class="header-anchor">#</a></h4>
+<h3><span id="实践">实践</span></h3>
+<h4><span id="分发饼干">分发饼干</span></h4>
 <p><a href="https://leetcode.cn/problems/assign-cookies/">题目链接</a></p>
 <p><strong>题目：</strong></p>
 <p>​		假设你是一位很棒的家长，想要给你的孩子们一些小饼干。但是，每个孩子最多只能给一块饼干。</p>
@@ -547,9 +547,9 @@ Let us go！！</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findContentChildren</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; g, vector&lt;<span class="type">int</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(g.<span class="built_in">begin</span>(), g.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 优先满足胃口小的Child</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> countChild = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index_g = <span class="number">0</span>, index_s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index_g &lt; g.<span class="built_in">size</span>() &amp;&amp; index_s &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[index_s] &gt;= g[index_g]) &#123;</span><br><span class="line">                countChild++;</span><br><span class="line">                index_g++;   </span><br><span class="line">            &#125;</span><br><span class="line">            index_s++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> countChild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>也过了！！！<img src="/.io//image-20230327211826720.png" alt="image-20230327211826720" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>nice！！！😸</p>
-<h2><span id="shua-ti-ji-lu">刷题记录</span><a href="#shua-ti-ji-lu" class="header-anchor">#</a></h2>
+<h2><span id="刷题记录">刷题记录</span></h2>
 <p><sub>2023/3/26</sub></p>
-<h3><span id="he-xiang-deng-de-zi-shu-zu">和相等的子数组</span><a href="#he-xiang-deng-de-zi-shu-zu" class="header-anchor">#</a></h3>
+<h3><span id="和相等的子数组">和相等的子数组</span></h3>
 <p><strong>题目描述：</strong></p>
 <p>​		给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> ，判断是否存在 <strong>两个</strong> 长度为 <code>2</code> 的子数组且它们的 <strong>和</strong> 相等。注意，这两个子数组起始位置的下标必须 <strong>不相同</strong> 。</p>
 <p>如果这样的子数组存在，请返回 <code>true</code>，否则返回 <code>false</code> 。</p>
@@ -599,9 +599,9 @@ Let us go！！</p>
     <title>Java数据结构与算法</title>
     <url>/2023/03/24/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<hr>
-<h2><span id>{}</span><a href="#" class="header-anchor">#</a></h2>
-<h1><span id="java-shu-ju-jie-gou-yu-suan-fa">Java数据结构与算法</span><a href="#java-shu-ju-jie-gou-yu-suan-fa" class="header-anchor">#</a></h1>
-<h2><span id="1-xu-lun">1、绪论</span><a href="#1-xu-lun" class="header-anchor">#</a></h2>
+<h2><span id>{}</span></h2>
+<h1><span id="java数据结构与算法">Java数据结构与算法</span></h1>
+<h2><span id="1-绪论">1、绪论</span></h2>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>k</mi><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mrow><mi>i</mi><mo stretchy="false">(</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac><mo>+</mo><mi>j</mi><mtext>       </mtext><mi>i</mi><mo>&gt;</mo><mo>=</mo><mi>j</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mfrac><mrow><mi>j</mi><mo stretchy="false">(</mo><mi>j</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></mfrac><mo>+</mo><mi>i</mi><mtext>       </mtext><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">
 k=\left\{
 \begin{matrix}
@@ -688,7 +688,7 @@ k=\left\{
 <p>最坏时间复杂度–》max{T(n)}</p>
 <p>平均时间复杂度–》概率</p>
 </blockquote>
-<h2><span id="2-xian-xing-biao">2、线性表</span><a href="#2-xian-xing-biao" class="header-anchor">#</a></h2>
+<h2><span id="2-线性表">2、线性表</span></h2>
 <blockquote>
 <p>线性表的顺序存储结构—顺序表</p>
 </blockquote>
@@ -846,9 +846,9 @@ k=\left\{
 <blockquote>
 <p><a href="https://www.cnblogs.com/youxin/p/3279391.html">对单链表设置一个头结点的作用是什么？</a></p>
 </blockquote>
-<h2><span id="zhan-he-dui-lie">栈和队列</span><a href="#zhan-he-dui-lie" class="header-anchor">#</a></h2>
+<h2><span id="栈和队列">栈和队列</span></h2>
 <blockquote>
-<h3><span id="zhan">栈</span><a href="#zhan" class="header-anchor">#</a></h3>
+<h3><span id="栈">栈</span></h3>
 </blockquote>
 <p>抽象来说，栈是一种只能在一段进行插入或者删除操作的线性表，允许插入和删除的一段叫做<code>栈顶</code>，另一端叫做<code>栈底</code>，插入操作通常称为<code>进栈</code>或<code>入栈</code>，删除操作通常称为<code>退栈</code>或<code>出栈</code></p>
 <p>设n个元素进栈顺序为1,2,3…n，出栈顺序为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,…<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">p_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,若<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = n,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = n-1,…,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">p_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>= 1,</p>
@@ -906,7 +906,7 @@ k=\left\{
 <p>中缀表达式转后缀表达式<a href="https://developer.aliyun.com/article/319924#:~:text=%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A%201.%E9%81%87%E5%88%B0%E6%93%8D%E4%BD%9C%E6%95%B0%EF%BC%9A%E7%9B%B4%E6%8E%A5%E8%BE%93%E5%87%BA%EF%BC%88%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%EF%BC%89,2.%E6%A0%88%E4%B8%BA%E7%A9%BA%E6%97%B6%EF%BC%8C%E9%81%87%E5%88%B0%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%85%A5%E6%A0%88%203.%E9%81%87%E5%88%B0%E5%B7%A6%E6%8B%AC%E5%8F%B7%EF%BC%9A%E5%B0%86%E5%85%B6%E5%85%A5%E6%A0%88%204.%E9%81%87%E5%88%B0%E5%8F%B3%E6%8B%AC%E5%8F%B7%EF%BC%9A%E6%89%A7%E8%A1%8C%E5%87%BA%E6%A0%88%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%B9%B6%E5%B0%86%E5%87%BA%E6%A0%88%E7%9A%84%E5%85%83%E7%B4%A0%E8%BE%93%E5%87%BA%EF%BC%8C%E7%9B%B4%E5%88%B0%E5%BC%B9%E5%87%BA%E6%A0%88%E7%9A%84%E6%98%AF%E5%B7%A6%E6%8B%AC%E5%8F%B7%EF%BC%8C%E5%B7%A6%E6%8B%AC%E5%8F%B7%E4%B8%8D%E8%BE%93%E5%87%BA%E3%80%82">【java】中缀表达式转后缀表达式 java实现-阿里云开发者社区 (aliyun.com)</a></p>
 </blockquote>
 <blockquote>
-<h2><span id="dui-lie">队列</span><a href="#dui-lie" class="header-anchor">#</a></h2>
+<h2><span id="队列">队列</span></h2>
 </blockquote>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -966,7 +966,7 @@ k=\left\{
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基本方法</span></span><br><span class="line"><span class="comment">//队空</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">empty</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> front==<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//进队</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(E e)</span>&#123;</span><br><span class="line">        LinkNode&lt;E&gt; s=<span class="keyword">new</span> <span class="title class_">LinkNode</span>&lt;&gt;(e);</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        front=rear=s;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">pop</span><span class="params">()</span>&#123;</span><br><span class="line">        E e;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(rear==front)&#123;</span><br><span class="line">        <span class="comment">//只有一个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=rear=<span class="literal">null</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//多个结点</span></span><br><span class="line">        e=(E)front.data;</span><br><span class="line">        front=front.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> e;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//取队头元素</span></span><br><span class="line"><span class="keyword">public</span> E <span class="title function_">peek</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(empty())&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArguementException</span>(<span class="string">&quot;队空&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>(E)front.data;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="chuan">串</span><a href="#chuan" class="header-anchor">#</a></h1>
+<h1><span id="串">串</span></h1>
 <blockquote>
 <p>基本概念</p>
 </blockquote>
@@ -1021,7 +1021,7 @@ k=\left\{
 
   3. 如果&#123;% _internal_math_placeholder 26 %&#125;有多个相同的前后缀，应该取最长的长度为其next[&#123;% _internal_math_placeholder 27 %&#125;]值；
 </code></pre>
-<h2><span id="di-gui">递归</span><a href="#di-gui" class="header-anchor">#</a></h2>
+<h2><span id="递归">递归</span></h2>
 <blockquote>
 <p>条件</p>
 </blockquote>
@@ -1065,7 +1065,7 @@ k=\left\{
 <p>根据递归深度得到（同时间复杂度求法，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mo>−</mo><mo>&gt;</mo><mi>S</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(n)--&gt;S(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>）</p>
 </li>
 </ul>
-<h2><span id="shu-zu-he-xi-shu-ju-zhen">数组和稀疏矩阵</span><a href="#shu-zu-he-xi-shu-ju-zhen" class="header-anchor">#</a></h2>
+<h2><span id="数组和稀疏矩阵">数组和稀疏矩阵</span></h2>
 <blockquote>
 <p>一维数组</p>
 </blockquote>
@@ -1129,7 +1129,7 @@ k=\left\{
                 \end{matrix}
                 \right.
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:5.14em;vertical-align:-2.32em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.65em;"><span style="top:-1.9em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-1.892em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.616em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.8889em" height="0.616em" style="width:0.8889em" viewbox="0 0 888.89 616" preserveaspectratio="xMinYMin"><path d="M384 0 H504 V616 H384z M384 0 H504 V616 H384z"/></svg></span></span><span style="top:-3.15em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.292em;"><span class="pstrut" style="height:3.15em;"></span><span style="height:0.616em;width:0.8889em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.8889em" height="0.616em" style="width:0.8889em" viewbox="0 0 888.89 616" preserveaspectratio="xMinYMin"><path d="M384 0 H504 V616 H384z M384 0 H504 V616 H384z"/></svg></span></span><span style="top:-4.9em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.82em;"><span style="top:-4.82em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.62em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"></span></span><span style="top:-2.42em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"></span></span><span style="top:-1.05em;"><span class="pstrut" style="height:3.01em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">i</span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mspace nobreak"> </span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.32em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
-<h2><span id="shu-he-er-cha-shu">树和二叉树</span><a href="#shu-he-er-cha-shu" class="header-anchor">#</a></h2>
+<h2><span id="树和二叉树">树和二叉树</span></h2>
 <blockquote>
 <p>树的基本术语</p>
 </blockquote>
@@ -1575,7 +1575,7 @@ k=\left\{
 </ul>
 </li>
 </ul>
-<h2><span id="tu">图</span><a href="#tu" class="header-anchor">#</a></h2>
+<h2><span id="图">图</span></h2>
 <blockquote>
 <p>基本概念</p>
 </blockquote>
