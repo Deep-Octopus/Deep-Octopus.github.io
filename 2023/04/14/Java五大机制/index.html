@@ -16,7 +16,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://deep-octopus.github.io/img/404.jpg">
 <meta property="article:published_time" content="2023-04-14T01:50:20.000Z">
-<meta property="article:modified_time" content="2023-04-14T02:48:05.863Z">
+<meta property="article:modified_time" content="2023-04-14T14:01:12.820Z">
 <meta property="article:author" content="Deep Octopus">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -69,7 +69,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"deep-octopus.github.io","author":"Deep Octopus","root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"images/energy32.png","icon16":"images/energy16.png","icon32":"images/energy32.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"images/energy16.png","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":10000}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-04-14 10:48:05"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-04-14 22:01:12"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
@@ -681,6 +681,281 @@
 <p>在这个例子中，我们定义了一个抽象类MyTypeReference，它继承了TypeReference&lt;MyGenericType<string>&gt;类。通过在MyTypeReference类中加入类型参数T并对其进行继承，就可以获取泛型的类型参数。</string></p>
 <p>总之，通过使用TypeToken和TypeReference等方式可以获取Java泛型的参数类型，使得泛型类型更具有灵活性和通用性。这些方式可以通过创建带泛型参数的子类获取泛型类型信息，使得泛型的使用更加灵活和类型安全。</p>
 <h1><span id="zhu-jie-ji-zhi">注解机制</span><a href="#zhu-jie-ji-zhi" class="header-anchor">#</a></h1>
+<blockquote>
+<p>注解是JDK1.5版本开始引入的一个特性，用于对代码进行说明，可以对包、类、接口、字段、方法参数、局部变量等进行注解。它是框架学习和设计者必须掌握的基础。</p>
+</blockquote>
+<h2><span id="fan-xing-ji-chu">泛型基础</span><a href="#fan-xing-ji-chu" class="header-anchor">#</a></h2>
+<ol>
+<li class="lvl-3">
+<p>内置注解</p>
+</li>
+</ol>
+<p>Java内置了许多注解，其中一些常见的注解包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Override：用于表示一个方法是覆盖了父类的方法。</p>
+</li>
+<li class="lvl-2">
+<p>@Deprecated：用于标记一个类、方法或字段已经过时，建议不再使用。</p>
+</li>
+<li class="lvl-2">
+<p>@SuppressWarnings：用于抑制编译器警告，可以用来禁止特定的警告或全部警告。</p>
+</li>
+</ul>
+<p>以下是这些常见内置注解的具体用法示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Override：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moving</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Moving...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Tiger</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moving</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Running...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>Tiger</code>类覆盖了<code>Animal</code>类的<code>moving()</code>方法，并使用了<code>@Override</code>注解来表示它们的关系，这样做在代码审查时可以更容易地发现代码中的错误。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Deprecated：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="meta">@Deprecated</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Tom&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>getName()</code>方法被标记为不推荐使用。在实际应用中，如果开发人员使用了<code>getName()</code>方法，开发工具将弹出一个警告窗口，提醒开发人员该方法已被弃用，需要使用其他替代方法。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@SuppressWarnings：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addAll</span><span class="params">(Collection books)</span> &#123;</span><br><span class="line">        books.add(<span class="keyword">new</span> <span class="title class_">Book</span>()); <span class="comment">// 这里会出现“未经检查的类型转换”警告</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>addAll()</code>方法将一个<code>Collection</code>对象作为参数，并使用了<code>@SuppressWarnings(&quot;unchecked&quot;)</code>注解来抑制Java编译器产生的“未经检查的类型转换”警告。由于Java的类型擦除机制，<code>Collection</code>对象的类型在运行时是不可知的，因此需要使用注解来提示编译器这是有意为之的。</p>
+<ol start="2">
+<li class="lvl-3">
+<p>元注解</p>
+</li>
+</ol>
+<p>元注解是用于注解其他注解的注解。Java中的元注解包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Target：指定注解可以用在哪些地方，如类、方法、字段等。</p>
+</li>
+<li class="lvl-2">
+<p>@Retention：指定注解保留的时间，可以是编译时、运行时或者源代码中。</p>
+</li>
+<li class="lvl-2">
+<p>@Documented：指定注解会被包含在Java文档中。</p>
+</li>
+<li class="lvl-2">
+<p>@Inherited：指定注解可以被子类继承。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：指定注解可以重复使用（Java8之后引入）。</p>
+</li>
+<li class="lvl-2">
+<p>@Native：指定本地方法的签名（Java8之后引入）。</p>
+</li>
+</ul>
+<p>以下是元注解的具体使用示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Target：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解只能用于方法上。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Retention：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解会被保留到运行时。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Documented：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解会被包含在Java文档中。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Inherited：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解可以被子类继承。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Repeatable：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repeatable(MyAnnos.class)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnno &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@interface</span> MyAnnos &#123;</span><br><span class="line">    MyAnno[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnno</code>注解可以多次使用，并使用<code>@MyAnnos</code>来包装它们。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Native：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyLibrary</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span>; <span class="comment">// method signature is declared as native</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>fun()</code>方法是一个本地方法，其方法签名被声明为<code>native</code>。这样编译器就会知道在编译期间需要为该方法生成本地代码。</p>
+<ol start="3">
+<li class="lvl-3">
+<p>自定义注解</p>
+</li>
+</ol>
+<p>除了内置注解之外，Java还支持自定义注解。自定义注解可以用于标记代码中的特定元素，例如类、方法、变量等，以实现各种功能，如配置、文档生成、代码分析等。自定义注解可以使用Java反射机制来访问和处理。</p>
+<p>以下是一个简单的Java自定义注解的示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span>[] numbers() <span class="keyword">default</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们使用了<code>@interface</code>来定义自己的注解，注解名字为<code>MyAnnotation</code>，注解内容包括一个<code>String</code>类型的属性<code>value</code>和一个整型数组类型的属性<code>numbers</code>。<code>@Retention</code>注解指定该注解在运行时保留，<code>@Target</code>注解指定该注解只能用于方法上。在使用<code>MyAnnotation</code>时，我们可以通过<code>value</code>属性设置该注解的值，在使用<code>numbers</code>属性时，我们可以通过赋值来给数组赋初值。以下是一个使用该自定义注解的示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="meta">@MyAnnotation(value = &quot;Hello, world!&quot;, numbers = &#123;1, 2, 3, 4&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// some code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们在<code>doSomething()</code>方法上应用了自定义注解<code>@MyAnnotation</code>，并设置了<code>value</code>和<code>numbers</code>属性的值。在实际应用中，我们可以通过反射机制来获取注解信息，并据此进行一些特定的操作，例如根据注解的值来判断是否执行某个方法，或者根据注解的信息来生成代码等。</p>
+<ol start="4">
+<li class="lvl-3">
+<p>Java8新的注解</p>
+</li>
+</ol>
+<p>Java8引入了一些新的注解，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@FunctionalInterface：用于标记一个接口是函数式接口，即只包含一个抽象方法的接口。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：用于标记一个注解可以重复使用。</p>
+</li>
+<li class="lvl-2">
+<p>@SafeVarargs：用于标记一个方法使用了可变参数，并且不会出现类型安全问题。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：用于标记一个接口是函数式接口，即只包含一个抽象方法的接口。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：用于标记一个注解可以重复使用。</p>
+</li>
+</ul>
+<ol start="5">
+<li class="lvl-3">
+<p>注解的应用场景</p>
+</li>
+</ol>
+<p>Java注解的应用场景很广泛，常见的应用场景包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>配置信息：例如Spring框架中的@Value注解，用于指定属性的值。</p>
+</li>
+<li class="lvl-2">
+<p>文档生成：例如JavaDoc注解，用于生成Java文档。</p>
+</li>
+<li class="lvl-2">
+<p>代码分析：例如JUnit框架中的@Test注解，用于标记测试方法。</p>
+</li>
+<li class="lvl-2">
+<p>依赖注入：例如Spring框架中的@Autowired注解，用于自动注入依赖对象。</p>
+</li>
+<li class="lvl-2">
+<p>AOP：例如Spring框架中的@Aspect注解，用于声明切面。</p>
+</li>
+</ul>
+<ol start="6">
+<li class="lvl-3">
+<p>配置化到注解化 - 框架的演进</p>
+</li>
+</ol>
+<p>随着软件开发的不断演进，从传统的配置文件到注解配置的转变成为趋势。例如Spring框架最初使用XML配置，但随着注解的发展，现在Spring框架可以通过注解配置。这种配置方式更加直观和简洁，也更容易维护。除了Spring框架之外，许多现代化的框架都支持使用注解进行配置，例如Hibernate、MyBatis、Struts2等。</p>
+<ol start="7">
+<li class="lvl-3">
+<p>自定义注解和AOP</p>
+</li>
+</ol>
+<p>自定义注解和AOP（面向切面编程）相结合，可以实现更加灵活和高效的编程。通过定义切点和切面，可以在代码中对特定的方法或类进行切入，从而实现各种功能，如事务管理、日志记录、性能监控等。</p>
+<ol start="8">
+<li class="lvl-3">
+<p>注解支持继承吗？</p>
+</li>
+</ol>
+<p>Java注解支持继承，子类可以继承父类的注解。如果一个注解被@Inherited修饰，那么它可以被子类继承。如果一个注解没有被@Inherited修饰，那么它不能被子类继承。</p>
+<p>以下是一个Java注解的继承案例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@interface</span> ParentAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@interface</span> ChildAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ParentAnnotation(value = &quot;Parent Annotation&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ChildAnnotation(value = &quot;Child Annotation&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们定义了两个注解: <code>ParentAnnotation</code>和<code>ChildAnnotation</code> 。 <code>Parent</code>类使用<code>ParentAnnotation</code>注解进行标记， <code>Child</code>继承了<code>Parent</code>，并使用了<code>ChildAnnotation</code>注解。我们还对<code>ParentAnnotation</code>注解用<code>@Inherited</code>进行修饰，使得这个注解可以从父类继承到子类。</p>
+<p>我们可以通过以下代码来获取类的注解信息：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Class&lt;Child&gt; childClass = Child.class;</span><br><span class="line"></span><br><span class="line">        <span class="type">ParentAnnotation</span> <span class="variable">parentAnnotation</span> <span class="operator">=</span> childClass.getAnnotation(ParentAnnotation.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;ParentAnnotation: &quot;</span> + parentAnnotation);</span><br><span class="line"></span><br><span class="line">        <span class="type">ChildAnnotation</span> <span class="variable">childAnnotation</span> <span class="operator">=</span> childClass.getAnnotation(ChildAnnotation.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;ChildAnnotation: &quot;</span> + childAnnotation);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们通过<code>getAnnotation()</code>方法分别获取了<code>Child</code>和<code>Parent</code>的注解信息。由于<code>ParentAnnotation</code>被标记为<code>@Inherited</code>，因此<code>ParentAnnotation</code>的信息会被<code>Child</code>类所继承 , 上述代码会输出以下内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ParentAnnotation: <span class="meta">@ParentAnnotation(value=Parent Annotation)</span></span><br><span class="line">ChildAnnotation: <span class="meta">@ChildAnnotation(value=Child Annotation)</span></span><br></pre></td></tr></table></figure>
+<p>从输出可以看到，<code>Child</code>类成功继承了<code>ParentAnnotation</code>注解。</p>
+<ol start="9">
+<li class="lvl-3">
+<p>注解实现的原理</p>
+</li>
+</ol>
+<p>Java注解的实现原理是使用反射机制来访问和处理注解。当程序使用注解时，编译器会将注解信息保存到编译后的.class文件中。在运行时，使用反射机制可以访问.class文件中的注解信息，并进行相应的处理。</p>
+<p>下面是一个具体的示例，将展示如何使用反射机制访问和处理Java注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="meta">@MyAnnotation(value = &quot;Hello, world!&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// some code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> NoSuchMethodException &#123;</span><br><span class="line">        <span class="type">MyClass</span> <span class="variable">myObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyClass</span>();</span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> myObj.getClass().getMethod(<span class="string">&quot;doSomething&quot;</span>);</span><br><span class="line">        <span class="type">MyAnnotation</span> <span class="variable">annotation</span> <span class="operator">=</span> method.getAnnotation(MyAnnotation.class);</span><br><span class="line">        System.out.println(annotation.value()); <span class="comment">// 输出: &quot;Hello, world!&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们定义了一个自定义的 <code>MyAnnotation</code>注解以及一个 <code>MyClass</code>类，其中 <code>doSomething()</code> 方法被标记了 <code>@MyAnnotation</code> 注解。</p>
+<p>在 <code>Test</code> 类的 <code>main()</code> 方法中，首先创建了 <code>MyClass</code> 的实例 <code>myObj</code>，然后使用反射机制获取了 <code>doSomething()</code> 方法的引用对象 <code>Method</code>。接着，通过 <code>Method</code> 的 <code>getAnnotation()</code> 方法读取了 <code>doSomething()</code> 方法标记的 <code>@MyAnnotation</code> 注解，并将注解信息存储在 <code>annotation</code> 变量中。</p>
+<p>最后，通过打印输出 <code>annotation.value()</code>，成功地将注解的值 “Hello, world!” 输出到了控制台。</p>
+<p>从上述分析中，我们可以看出，Java 注解的实现原理就是在编译器将注解信息保存到字节码文件中，并通过反射机制在运行时读取和处理注解信息。这种机制使开发者可以通过非常简单的语法来给代码添加元数据，从而在运行时得到更多的程序信息，进而实现更加灵活和高效的编程。</p>
+<ol start="10">
+<li class="lvl-4">
+<p>总结</p>
+</li>
+</ol>
+<p>Java注解是一种强大的元数据机制，可以用于标记和处理代码中的特定元素，如类、方法、变量等。Java注解可以通过反射机制来访问和处理，可以实现各种功能，如配置、文档生成、代码分析、依赖注入、AOP等。随着软件开发的不断演进，从传统的配置文件到注解配置的转变成为趋势，注解化的编程方式可以使代码更加简洁、灵活和高效。</p>
+<ol start="11">
+<li class="lvl-4">
+<p>Java8提供了哪些新的注解？</p>
+</li>
+</ol>
+<p>Java8提供了一些新的注解，例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Repeatable：可以用于声明一个注解可以重复使用多次。</p>
+</li>
+<li class="lvl-2">
+<p>@Native：可以用于声明一个本地方法（Native Method）。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：可以用于声明一个函数式接口。</p>
+</li>
+<li class="lvl-2">
+<p>@SafeVarargs：可以用于声明一个方法使用可变参数，但是不会产生类型安全问题。</p>
+</li>
+<li class="lvl-2">
+<p>@Deprecated：可以用于声明一个方法或类已经被弃用。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：可以用于声明一个函数式接口。</p>
+</li>
+</ul>
+<ol start="12">
+<li class="lvl-4">
+<p>注解的应用场景</p>
+</li>
+</ol>
+<p>Java注解的应用场景非常广泛，可以用于各种领域和用途，例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>配置文件：可以用注解代替XML或属性文件进行配置。</p>
+</li>
+<li class="lvl-2">
+<p>代码分析：可以用注解标记代码中的特定元素，如不安全的方法、过时的方法等。</p>
+</li>
+<li class="lvl-2">
+<p>依赖注入：可以用注解注入对象或属性，如Spring框架的@Autowired注解。</p>
+</li>
+<li class="lvl-2">
+<p>日志记录：可以用注解标记需要记录日志的方法或类，如Log4j框架的@Log注解。</p>
+</li>
+<li class="lvl-2">
+<p>AOP：可以用注解实现面向切面编程，如Spring框架的@Aspect注解。</p>
+</li>
+</ul>
+<ol start="13">
+<li class="lvl-4">
+<p>配置化到注解化 - 框架的演进</p>
+</li>
+</ol>
+<p>在软件开发的不同阶段，从配置化到注解化的演进是非常明显的趋势。传统的配置文件方式，比如XML、属性文件等，存在很多弊端，如复杂、容易出错、难以维护等。而注解化的方式更加直观、简洁、灵活，使得代码更加易于阅读和维护。</p>
+<p>随着框架的不断演进，从继承实现到注解实现，是一个非常明显的趋势。比如，JUnit3是通过继承TestCase类来实现单元测试的，而JUnit4则是通过注解来实现单元测试。这种方式不仅使得测试代码更加简洁、易读，还可以将测试代码和被测试代码分离，使得代码更加松耦合。</p>
+<ol start="14">
+<li class="lvl-4">
+<p>自定义注解和AOP - 通过切面实现解耦</p>
+</li>
+</ol>
+<p>自定义注解和AOP结合起来，可以实现更加灵活、高效的编程方式。通过定义切点和切面，可以对特定的方法或类进行切入，从而实现各种功能，如事务管理、日志记录、性能监控等。这种方式可以将关注点从业务逻辑中分离出来，提高代码的可维护性和可扩展性。</p>
 
 </article>
     

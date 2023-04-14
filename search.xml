@@ -703,283 +703,6 @@ Let us go！！</p>
       </tags>
   </entry>
   <entry>
-    <title>Java五大机制</title>
-    <url>/2023/04/14/Java%E4%BA%94%E5%A4%A7%E6%9C%BA%E5%88%B6/</url>
-    <content><![CDATA[<h1><span id="fan-xing-ji-zhi">泛型机制</span><a href="#fan-xing-ji-zhi" class="header-anchor">#</a></h1>
-<h2><span id="wei-shi-me-hui-you-fan-xing">为什么会有泛型</span><a href="#wei-shi-me-hui-you-fan-xing" class="header-anchor">#</a></h2>
-<p>​		为了实现参数化类型的控制，引入了泛型。泛型能够使得不同的类型在执行相同的代码时得到重复利用（代码复用）。泛型可以用在类、接口和方法中，分别称为泛型类、泛型接口和泛型方法。通过一个例子来解释，以多个加法方法为例，如果没有泛型，我们需要为每种类型都写一个加法方法。但是，通过泛型，我们可以使用一个加法方法实现多种数据类型的加法。</p>
-<p>下面是一个使用泛型的示例代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Number</span>&gt; <span class="type">double</span> <span class="title function_">add</span><span class="params">(T a, T b)</span> &#123;</span><br><span class="line">		System.out.println(a + “+” + b + “=” + (a.doubleValue() + b.doubleValue()));</span><br><span class="line">		<span class="keyword">return</span> a.doubleValue() + b.doubleValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​		在这个示例中，泛型的类型在实际使用时进行指定，从而避免了需要进行强制类型转换的问题，同时由于编译期进行类型检查，也可以保证程序的类型安全。</p>
-<p>​		以一个List集合为例，如果不使用泛型，其中的元素类型不受约束，需要开发者手动进行类型转换，从而容易引发ClassCastException异常。但是，使用泛型后，集合中仅允许存储指定类型的元素，可以在编译前自动检查类型，确保类型安全：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>list中只能放String, 不能放其它类型的元素</p>
-</blockquote>
-<h2><span id="fan-xing-ji-ben-shi-yong">泛型基本使用</span><a href="#fan-xing-ji-ben-shi-yong" class="header-anchor">#</a></h2>
-<p>当你编写一些通用代码时，你可能想要编写可以适用于多种不同类型的数据的函数或类。泛型是一种编程技术，它允许你编写这样的代码。</p>
-<p>在大多数编程语言中，泛型使用尖括号来指定类型参数。例如，在Java中，你可以编写一个泛型类如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyGenericClass</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T myField;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getMyField</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> myField;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setMyField</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        myField = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>&lt;T&gt;</code>表示这是一个泛型类，<code>T</code>是类型参数的名称。这个类有一个<code>myField</code>属性，类型为<code>T</code>，并且有一个可以设置和获取这个属性的方法。</p>
-<p>你可以创建一个<code>MyGenericClass</code>对象，并指定类型参数的实际类型，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MyGenericClass&lt;String&gt; myString = <span class="keyword">new</span> <span class="title class_">MyGenericClass</span>&lt;String&gt;();</span><br><span class="line">myString.setMyField(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> myString.getMyField(); <span class="comment">// value is &quot;Hello, world!&quot;</span></span><br></pre></td></tr></table></figure>
-<p>在这个例子中，<code>&lt;String&gt;</code>指定了<code>MyGenericClass</code>的类型参数为<code>String</code>，因此你可以在<code>myField</code>中存储字符串，并使用<code>getMyField</code>方法来获取它。</p>
-<p>泛型主要有泛型类、泛型方法、泛型接口、泛型数组几种最为常见的用法</p>
-<h3><span id="fan-xing-lei">泛型类</span><a href="#fan-xing-lei" class="header-anchor">#</a></h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>简单的泛型</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Box</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T contents;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setContents</span><span class="params">(T contents)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.contents = contents;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getContents</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> contents;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个示例中，我们定义了一个Box类，它只包含一个泛型类型T。Box类有两个方法：setContents和getContents，它们分别用于设置和获取Box对象的内容。这个内容的类型为T，也就是泛型类型参数。</p>
-<p>使用Box类时，可以指定泛型类型参数的具体类型。例如，下面的代码创建了两个Box对象，它们的泛型类型分别为String和Integer：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Box&lt;String&gt; boxOfStrings = <span class="keyword">new</span> <span class="title class_">Box</span>&lt;&gt;();</span><br><span class="line">boxOfStrings.setContents(<span class="string">&quot;Hello, Generic Types!&quot;</span>);</span><br><span class="line"></span><br><span class="line">Box&lt;Integer&gt; boxOfIntegers = <span class="keyword">new</span> <span class="title class_">Box</span>&lt;&gt;();</span><br><span class="line">boxOfIntegers.setContents(<span class="number">42</span>);</span><br></pre></td></tr></table></figure>
-<p>可以通过调用getContents方法来获取Box对象的内容，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">contentsString</span> <span class="operator">=</span> boxOfStrings.getContents();</span><br><span class="line"><span class="type">Integer</span> <span class="variable">contentsInteger</span> <span class="operator">=</span> boxOfIntegers.getContents();</span><br></pre></td></tr></table></figure>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>多元泛型</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Map</span>&lt;K, V&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Entry&lt;K, V&gt;&gt; entries;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Map</span><span class="params">()</span> &#123;</span><br><span class="line">        entries = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">        entries.add(<span class="keyword">new</span> <span class="title class_">Entry</span>&lt;&gt;(key, value));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> V <span class="title function_">get</span><span class="params">(K key)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;K, V&gt; entry : entries) &#123;</span><br><span class="line">            <span class="keyword">if</span> (entry.getKey().equals(key)) &#123;</span><br><span class="line">                <span class="keyword">return</span> entry.getValue();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">Entry</span>&lt;K, V&gt; &#123;</span><br><span class="line">        <span class="keyword">private</span> K key;</span><br><span class="line">        <span class="keyword">private</span> V value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Entry</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.key = key;</span><br><span class="line">            <span class="built_in">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> K <span class="title function_">getKey</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> key;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> V <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个示例中，我们定义了一个Map类，使用K和V表示泛型类型。类内部使用List来存储键值对，其中键类型为K，值类型为V。put方法将一个键值对添加到Map中，get方法则根据指定的键返回相应的值。此外，Map类内部还定义了一个Entry类，用来表示键值对。</p>
-<h3><span id="fan-xing-fang-fa">泛型方法</span><a href="#fan-xing-fang-fa" class="header-anchor">#</a></h3>
-<p>泛型方法，是在调用方法的时候指明泛型的具体类型。重点看下泛型的方法（图参考自：<a href="https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html%EF%BC%89">https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html）</a></p>
-<p><img src="./images/2023-04-14-Java%E4%BA%94%E5%A4%A7%E6%9C%BA%E5%88%B6/java-basic-generic-4.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>下面是一个简单的Java泛型方法的示例，它用于判断一个元素是否存在于一个数组中：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(T[] array, T element)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (T item : array) &#123;</span><br><span class="line">            <span class="keyword">if</span> (item.equals(element)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个示例中，我们声明了一个泛型方法contains，它接受一个泛型类型为T的数组array和一个泛型类型为T的元素element作为参数，并返回一个boolean值，表示数组中是否存在该元素。</p>
-<p>在方法实现中，我们使用了for-each循环遍历数组中的每一个元素，然后使用equals方法判断该元素是否与指定元素相等。由于在声明泛型方法时没有使用 extends 关键字来限制泛型类型参数，因此该方法适用于任何类型的数组和元素。</p>
-<p>可以通过以下代码来使用该泛型方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String[] array1 = &#123;&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;&#125;;</span><br><span class="line">boolean result1 = Utils.contains(array1, &quot;banana&quot;);  // 返回true</span><br><span class="line"></span><br><span class="line">Integer[] array2 = &#123;1, 2, 3&#125;;</span><br><span class="line">boolean result2 = Utils.contains(array2, 4);  // 返回false</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们分别用一个字符串数组和一个整数数组来调用contains方法，检查指定元素是否存在于数组中。由于在方法实现中使用了泛型，因此可以处理不同类型的数组和元素。</p>
-<p>下面是一个复杂一点的Java泛型方法的示例，用于比较两个对象的大小：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;T&gt;&gt; <span class="type">int</span> <span class="title function_">compare</span><span class="params">(T a, T b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a.compareTo(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们声明了一个泛型方法compare，它接受两个泛型类型相同的参数a和b，并返回它们之间的比较结果。这里使用了 extends 关键字限制泛型类型参数为 Comparable 接口的子类型，即要求 T 必须能够进行比较。</p>
-<p>使用泛型方法时，编译器会根据实际参数的类型自动推断出泛型类型参数的具体类型，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result1</span> <span class="operator">=</span> Utils.compare(<span class="number">1</span>, <span class="number">2</span>);          <span class="comment">// 返回-1，即1 &lt; 2</span></span><br><span class="line"><span class="type">int</span> <span class="variable">result2</span> <span class="operator">=</span> Utils.compare(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);  <span class="comment">// 返回负数，即&quot;hello&quot; &lt; &quot;world&quot;</span></span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们分别比较了两个整数和两个字符串的大小。由于整数和字符串都实现了 Comparable 接口，所以它们可以作为泛型类型参数传递给compare方法。</p>
-<h3><span id="fan-xing-jie-kou">泛型接口</span><a href="#fan-xing-jie-kou" class="header-anchor">#</a></h3>
-<p>下面是一个简单的Java泛型接口的示例，它定义了一个通用的栈（stack）接口，其中的元素可以是任何类型：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Stack</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(T element)</span>;</span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">pop</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们定义了一个Stack接口，使用泛型类型T表示栈中元素的类型。接口中定义了三个方法：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>push方法：将一个元素压入栈中；</p>
-</li>
-<li class="lvl-2">
-<p>pop方法：从栈中弹出一个元素，并返回该元素；</p>
-</li>
-<li class="lvl-2">
-<p>isEmpty方法：判断栈是否为空。</p>
-</li>
-</ul>
-<p>由于在声明接口时使用了泛型类型参数，因此实现该接口的类可以针对不同的类型进行栈的操作。</p>
-<p>例如，可以定义一个String类型的栈：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringStack</span> <span class="keyword">implements</span> <span class="title class_">Stack</span>&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; elements;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">StringStack</span><span class="params">()</span> &#123;</span><br><span class="line">        elements = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(String element)</span> &#123;</span><br><span class="line">        elements.add(<span class="number">0</span>, element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.remove(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们实现了一个String类型的栈StringStack，它针对字符串类型进行栈的操作。在类定义中使用了implements关键字来表示实现了Stack接口，并且在声明时使用了具体的泛型类型参数String。然后，定义了三个方法来实现Stack接口中定义的方法。</p>
-<p>可以使用以下代码来对该栈进行操作：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringStack</span> <span class="variable">stack</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringStack</span>();</span><br><span class="line">stack.push(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">stack.push(<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">    System.out.println(stack.pop());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在上述代码中，我们创建一个StringStack对象，并使用push方法将两个字符串压入栈中。然后使用while循环依次弹出栈中的元素，并将它们输出到控制台。由于在定义StringStack类时指定了泛型类型参数String，因此该类只能处理字符串类型的元素。如果想要处理其他类型的元素，可以定义其他类型的栈类并实现Stack接口。</p>
-<h3><span id="fan-xing-shu-zu">泛型数组</span><a href="#fan-xing-shu-zu" class="header-anchor">#</a></h3>
-<p>Java 中的泛型数组有些限制，无法用具体类型参数直接创建泛型数组。一种常见的解决方案是定义一个类型为 Object 的数组，并将其转换为泛型数组。下面是一个简单的Java泛型数组的示例，演示了如何创建一个指定类型的泛型数组：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T[] createArray(<span class="type">int</span> length, T sample) &#123;</span><br><span class="line">        T[] array = (T[]) <span class="keyword">new</span> <span class="title class_">Object</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            array[i] = sample;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们定义了一个泛型方法 createArray，它接受两个参数：一个整数length，表示数组的长度；一个泛型类型参数sample，表示数组中的元素类型和默认值。在方法实现中，我们首先创建了一个类型为 Object 的数组，然后将其转换为泛型类型数组。</p>
-<p>使用泛型数组时，可以通过传递一个示例元素来确定元素的具体类型。例如，可以使用以下代码创建一个字符串类型的数组：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String[] strings = ArrayUtils.createArray(<span class="number">5</span>, <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们使用 createArray 方法来生成一个长度为 5 的字符串类型的数组，其初始值均为 “”。</p>
-<p>需要注意的是，Java 中的泛型数组存在与类型擦除相关的限制，具体实现时需要考虑到类型安全和性能问题。在实际应用中，需要权衡使用泛型数组和其他数据结构的优缺点。</p>
-<h2><span id="fan-xing-shang-xia-xian">泛型上下限</span><a href="#fan-xing-shang-xia-xian" class="header-anchor">#</a></h2>
-<p>Java中的泛型上限（Upper Bound）和下限（Lower Bound）指的是限制泛型参数类型的范围，可以用在泛型方法、泛型接口、泛型类等多种场景中。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>上限（Upper Bound）：使用 extends 关键字，表示泛型参数必须是指定类型或者其子类型。例如，&lt;? extends Number&gt; 表示泛型参数必须是 Number 类型或其子类的类型。</p>
-<ul class="lvl-2">
-<li class="lvl-6">数组 <code>T[]</code> 是一个特殊的类型，它没有上限，也就是说，不能声明为 <code>T extends E[]</code> 的形式。如果需要声明一个可以包含数组元素的泛型类或者泛型方法，可以将其定义为 <code>T[]</code> 类型。</li>
-</ul>
-</li>
-<li class="lvl-2">
-<p>下限（Lower Bound）：使用 super 关键字，表示泛型参数必须是指定类型或者其父类型。例如，&lt;? super Integer&gt; 表示泛型参数必须是 Integer 类型或其父类的类型。</p>
-</li>
-</ul>
-<p>下面是一个简单的示例，演示了上限和下限的用法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BoundExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;T&gt;&gt; T <span class="title function_">max</span><span class="params">(T[] array)</span> &#123;</span><br><span class="line">        <span class="type">T</span> <span class="variable">max</span> <span class="operator">=</span> array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[i].compareTo(max) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                max = array[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addNumbers</span><span class="params">(List&lt;? <span class="built_in">super</span> Integer&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">            list.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了两个示例方法：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>max方法：接受一个泛型类型为T的数组，使用 extends 关键字来限定泛型参数类型必须是Comparable接口的子类。该方法返回数组中最大的元素。</p>
-</li>
-<li class="lvl-2">
-<p>addNumbers方法：接受一个泛型类型为List&lt;? super Integer&gt;的参数，使用 super 关键字限制泛型参数类型必须是Integer类型或其父类。该方法用于向列表中添加数字。</p>
-</li>
-</ul>
-<p>可以使用以下代码来调用这些方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer[] integers = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">String[] strings = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;orange&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;Max integer: &quot;</span> + BoundExample.max(integers)); <span class="comment">// 输出：Max integer: 5</span></span><br><span class="line"><span class="comment">// 下行中不能将`strs`传给`max`方法, 因为泛型参数必须是 Comparable&lt;T&gt; 的子类型</span></span><br><span class="line"><span class="comment">// System.out.println(&quot;Max string: &quot; + BoundExample.max(strings));</span></span><br><span class="line"></span><br><span class="line">List&lt;Number&gt; numbers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">BoundExample.addNumbers(numbers);</span><br><span class="line">System.out.println(<span class="string">&quot;Numbers: &quot;</span> + numbers); <span class="comment">// 输出：Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们分别使用 Integer 和 String 类型的数组来调用 max 方法，说明了使用 extends 关键字时的限制。在调用 addNumbers 方法时，我们使用了 List<number> 类型的参数，演示了使用 super 关键字时的限制。</number></p>
-<h2><span id="fan-xing-de-yi-xie-qi-ta-zhi-shi">泛型的一些其他知识</span><a href="#fan-xing-de-yi-xie-qi-ta-zhi-shi" class="header-anchor">#</a></h2>
-<ol>
-<li class="lvl-3">
-<p>泛型的类型擦除</p>
-</li>
-</ol>
-<p>Java 中的泛型本身并不是一种运行时的机制，它仅仅是一种编译时的类型检查机制。在 Java 代码被编译成字节码后，泛型信息被擦除了，也就是说，编译器在编译时会自动将泛型转换为相应的较低类型，比如 Object 类型。例如，一个<code>List&lt;Integer&gt;</code>在运行时会成为一个<code>List</code>类型。</p>
-<p>由于类型擦除的存在，有时候在泛型类和泛型方法中，我们并不能直接获取到泛型类型的具体信息。为了解决这个问题，可以使用反射机制来获取泛型类型的信息。</p>
-<ol start="2">
-<li class="lvl-3">
-<p>关于类型通配符</p>
-</li>
-</ol>
-<p>在 Java 中，我们使用通配符（wildcard）来表示通用类型，通配符可以用来声明泛型的上限和下限。有三种使用通配符的方式：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>&lt;?&gt;</code>：表示未知类型，相当于不限定泛型类型；</p>
-</li>
-<li class="lvl-2">
-<p><code>&lt;? extends T&gt;</code>：表示泛型类型必须是T类型或其子类类型；</p>
-</li>
-<li class="lvl-2">
-<p><code>&lt;? super T&gt;</code>：表示泛型类型必须是T类型或其父类类型。</p>
-</li>
-</ul>
-<p>需要注意的是，类型通配符是一种泛型限制，只能使用在参数中，不能用于类、方法的定义上。</p>
-<ol start="3">
-<li class="lvl-3">
-<p>泛型和继承的关系</p>
-</li>
-</ol>
-<p>泛型和继承都是 Java 中的重要特性，它们之间有着紧密的联系。Java 中的泛型可以用来实现多态，而继承则是 Java 中的一种多态机制。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>父类的泛型可以传递给子类：如果一个类使用了泛型，那么它的子类可以继承它，并且子类也可以使用泛型，这样就可以实现泛型的传递。例如，<code>List&lt;String&gt;</code>是<code>List&lt;?&gt;</code>的子类型。</p>
-</li>
-<li class="lvl-2">
-<p>泛型类型不能区分父类与子类：Java 中的泛型是通过类型擦除来实现的，因此在泛型类或方法的继承关系中，子类不能区分父类与子类的类型。</p>
-</li>
-</ul>
-<ol start="4">
-<li class="lvl-3">
-<p>泛型和数组的区别</p>
-</li>
-</ol>
-<p>Java 的泛型和数组有些相似，但也有不同之处：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>泛型与数组都能够对元素进行类型检查，并提供相关的方法和操作；</p>
-</li>
-<li class="lvl-2">
-<p>与数组不同，泛型不能直接创建具体的类型，只能创建通用类型；</p>
-</li>
-<li class="lvl-2">
-<p>与泛型不同，数组可以定义具体类型的多维数组，而泛型无法直接实现多维泛型数组。</p>
-</li>
-</ul>
-<p>需要注意的是，Java 中的泛型是在编译时进行类型擦除的，而数组则是在运行时进行类型检查的。因此，在使用泛型和数组时，需要根据具体的情况进行选择。</p>
-<ol start="5">
-<li class="lvl-3">
-<p>泛型和反射的结合应用</p>
-</li>
-</ol>
-<p>Java 中的泛型和反射是两个非常强大的特性，在实际应用时可以结合使用，实现更高级、更灵活的编程技巧。例如：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>使用反射获取泛型类型信息：由于泛型的类型信息在编译时被擦除了，因此我们可以使用反射机制来获取泛型类型的信息，包括类、方法、字段等级别的泛型类型信息。使用反射的泛型信息可以在运行时做到更加灵活和高效地处理对象和数据。</p>
-</li>
-<li class="lvl-2">
-<p>通过反射操作泛型数组：Java 中的泛型数组有一些限制，不能用具体类型参数数组直接创建泛型数组。但是通过反射，我们可以使用 Java 提供的 Array 类来创建特定的泛型数组，并进行相关的操作。</p>
-</li>
-</ul>
-<p>下面是一个使用反射操作泛型数组的示例代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenericArray</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T[] array;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">GenericArray</span><span class="params">(<span class="type">int</span> length)</span> &#123;</span><br><span class="line">        array = (T[]) <span class="keyword">new</span> <span class="title class_">Object</span>[length];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, T item)</span> &#123;</span><br><span class="line">        array[index] = item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T[] getArray() &#123;</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GenericArray&lt;String&gt; ga = <span class="keyword">new</span> <span class="title class_">GenericArray</span>&lt;&gt;(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用反射设置元素</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Method</span> <span class="variable">m</span> <span class="operator">=</span> ga.getClass().getMethod(<span class="string">&quot;set&quot;</span>, <span class="type">int</span>.class, Object.class);</span><br><span class="line">            m.invoke(ga, <span class="number">0</span>, <span class="string">&quot;Hello, Generic Array!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取一个Object[]数组</span></span><br><span class="line">        Object[] objects = ga.getArray();</span><br><span class="line">        objects[<span class="number">1</span>] = <span class="number">123</span>; <span class="comment">// 运行时错误：ArrayStoreException</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了一个泛型类 GenericArray，并使用反射来操作它的元素，并演示了泛型数组的限制。</p>
-<p>需要注意的是，泛型数组在 Java 中有其局限性，因此在实际使用时需要谨慎开发。</p>
-<ol start="6">
-<li class="lvl-3">
-<p>泛型与静态方法和静态属性</p>
-</li>
-</ol>
-<p>Java泛型不能用在静态方法或静态属性上面，是因为泛型类型的擦除机制在这种情况下会导致类型信息的丢失。由于静态方法和静态属性是属于类本身的，不属于类的实例，因此在使用泛型时，它们并没有明确的实例化对象来指定类型。这就导致在编译时，JVM无法确定泛型类型的具体信息，只能使用Object类型来代替，而这样会导致编译错误或者运行时类型错误的出现。</p>
-<p>例如，我们考虑下面这个不合法的例子：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setValue</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        Test.value = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了一个静态变量value和两个静态方法setValue和getValue，其中value的类型参数为T。由于静态变量和静态方法是属于类本身的，而非类的实例，因此在静态方法中并不能访问泛型的类型参数T。这就会导致编译时出现错误，提示无法引用非静态变量T。</p>
-<p>虽然Java中不能直接在静态方法或静态属性上使用泛型，但可以通过传递类类型做为参数，实现在静态方法中使用泛型的目的。例如，可以将类型参数传递给静态方法，或将类型参数传递给泛型类的构造函数来实现泛型的静态方法或属性使用。</p>
-<ol start="7">
-<li class="lvl-3">
-<p>异常与泛型</p>
-</li>
-</ol>
-<p>Java中的异常处理机制允许我们在throw和catch语句中使用泛型，从而实现异常信息的类型安全和灵活性。Java的异常层次结构中定义了一些通用的异常类，例如Exception、RuntimeException、Error等，这些异常类能够用于处理不同类型的异常情况。使用泛型可以使异常处理更加具有通用性、灵活性和类型安全性。</p>
-<p>Java泛型与异常处理通常需要结合在一起使用，其主要使用方式包括以下几点：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>使用泛型来定义异常类</p>
-</li>
-</ul>
-<p>在Java中，可以使用泛型来定义异常类，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyException</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">Exception</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> T detail;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyException</span><span class="params">(T detail)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.detail = detail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getDetail</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> detail;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了一个泛型异常类MyException，它继承了Exception类。在MyException类中，我们定义了一个泛型变量detail，用于存储异常的详细信息。使用泛型定义异常类，可以使得异常类的使用更加的通用和灵活。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>抛出泛型异常</p>
-</li>
-</ul>
-<p>在Java中，我们可以使用throw关键字来抛出一个异常，如果该异常是一个泛型异常，我们也需要使用泛型类型传递异常信息，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">someMethod</span><span class="params">()</span> <span class="keyword">throws</span> MyException&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">MyException</span>&lt;&gt;(<span class="string">&quot;An error occurred&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们使用MyException泛型异常类抛出了一个异常，并使用泛型类型String传递了异常信息。这样可以使得异常信息更具有类型安全性。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>捕获泛型异常</p>
-</li>
-</ul>
-<p>在Java中，我们可以使用catch关键字来捕获一个异常，如果该异常是一个泛型异常，我们也需要使用泛型类型对异常进行捕获，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Some code that may throw an exception</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (MyException&lt;String&gt; ex) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Error: &quot;</span> + ex.getDetail());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们捕获了一个MyException类型的泛型异常，并使用泛型类型String来处理异常信息。这样可以使得异常处理更加类型安全和灵活。</p>
-<p>总之，Java中的异常处理机制允许我们使用泛型来实现更具类型安全和灵活性的异常处理。通过使用泛型，可以让异常处理更加通用和灵活，同时防止出现类型错误，使程序更加健壮和安全。</p>
-<ol start="8">
-<li class="lvl-3">
-<p>获取java泛型的参数类型</p>
-</li>
-</ol>
-<p>在Java中，我们可以使用反射机制获取泛型参数的类型。Java泛型在编译时会进行类型擦除，将泛型类型的所有参数都替换成它们的上界类型或Object类型，这可能会导致实例化时无法获取泛型的具体类型。但是，在通过反射机制访问类的内容时，可以获取泛型的类型参数。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>原生反射</p>
-<p><code>java.lang.reflect.Type</code>是Java中所有类型的公共高级接口, 代表了Java中的所有类型. Type体系中类型的包括：数组类型(GenericArrayType)、参数化类型(ParameterizedType)、类型变量(TypeVariable)、通配符类型(WildcardType)、原始类型(Class)、基本类型(Class), 以上这些类型都实现Type接口。</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenericType</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setData</span><span class="params">(T data)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GenericType&lt;String&gt; genericType = <span class="keyword">new</span> <span class="title class_">GenericType</span>&lt;String&gt;() &#123;&#125;;</span><br><span class="line">        <span class="type">Type</span> <span class="variable">superclass</span> <span class="operator">=</span> genericType.getClass().getGenericSuperclass();</span><br><span class="line">        <span class="comment">//getActualTypeArguments 返回确切的泛型参数, 如Map&lt;String, Integer&gt;返回[String, Integer]</span></span><br><span class="line">        <span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> ((ParameterizedType) superclass).getActualTypeArguments()[<span class="number">0</span>]; </span><br><span class="line">        System.out.println(type);<span class="comment">//class java.lang.String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中 <code>ParameterizedType</code>:</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ParameterizedType</span> <span class="keyword">extends</span> <span class="title class_">Type</span> &#123;</span><br><span class="line">    <span class="comment">// 返回确切的泛型参数, 如Map&lt;String, Integer&gt;返回[String, Integer]</span></span><br><span class="line">    Type[] getActualTypeArguments();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回当前class或interface声明的类型, 如List&lt;?&gt;返回List</span></span><br><span class="line">    Type <span class="title function_">getRawType</span><span class="params">()</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回所属类型. 如,当前类型为O&lt;T&gt;.I&lt;S&gt;, 则返回O&lt;T&gt;. 顶级类型将返回null </span></span><br><span class="line">    Type <span class="title function_">getOwnerType</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>参考链接：<a href="https://pdai.tech/md/java/basic/java-basic-x-generic.html">https://pdai.tech/md/java/basic/java-basic-x-generic.html</a></p>
-</li>
-</ul>
-<p>还可以使用TypeToken和TypeReference两种方式获取泛型参数的类型，这两种方式都是通过创建带泛型参数的子类并提取类型信息来实现的。以下是两种方式的介绍及代码示例：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>TypeToken方式获取泛型参数的类型</p>
-</li>
-</ul>
-<p>TypeToken是Gson库中的一个类，可以用来获取泛型的类型信息。可以通过继承TypeToken类来获取泛型参数的类型信息，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyTypeToken</span> <span class="keyword">extends</span> <span class="title class_">TypeToken</span>&lt;MyGenericType&lt;String&gt;&gt; &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTypeToken</span>().getType();</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了一个MyTypeToken类，它继承了TypeToken&lt;MyGenericType<string>&gt;类，其中MyGenericType是一个泛型类，String是它的类型参数。通过调用getType方法可以获取泛型的类型参数。</string></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>TypeReference方式获取泛型参数的类型</p>
-</li>
-</ul>
-<p>TypeReference是jackson库中的一个类，也可以用来获取泛型参数的类型信息。与TypeToken类似，可以通过继承TypeReference类来获取泛型参数的类型信息，例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">MyTypeReference</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">TypeReference</span>&lt;T&gt; &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTypeReference</span>&lt;MyGenericType&lt;String&gt;&gt;()&#123;&#125;.getType();</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们定义了一个抽象类MyTypeReference，它继承了TypeReference&lt;MyGenericType<string>&gt;类。通过在MyTypeReference类中加入类型参数T并对其进行继承，就可以获取泛型的类型参数。</string></p>
-<p>总之，通过使用TypeToken和TypeReference等方式可以获取Java泛型的参数类型，使得泛型类型更具有灵活性和通用性。这些方式可以通过创建带泛型参数的子类获取泛型类型信息，使得泛型的使用更加灵活和类型安全。</p>
-<h1><span id="zhu-jie-ji-zhi">注解机制</span><a href="#zhu-jie-ji-zhi" class="header-anchor">#</a></h1>
-]]></content>
-      <categories>
-        <category>code</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java数据结构与算法</title>
     <url>/2023/03/24/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h1><span id="java-shu-ju-jie-gou-yu-suan-fa">Java数据结构与算法</span><a href="#java-shu-ju-jie-gou-yu-suan-fa" class="header-anchor">#</a></h1>
@@ -2149,6 +1872,558 @@ A_1=\begin{bmatrix}
       <tags>
         <tag>笔记</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java五大机制</title>
+    <url>/2023/04/14/Java%E4%BA%94%E5%A4%A7%E6%9C%BA%E5%88%B6/</url>
+    <content><![CDATA[<h1><span id="fan-xing-ji-zhi">泛型机制</span><a href="#fan-xing-ji-zhi" class="header-anchor">#</a></h1>
+<h2><span id="wei-shi-me-hui-you-fan-xing">为什么会有泛型</span><a href="#wei-shi-me-hui-you-fan-xing" class="header-anchor">#</a></h2>
+<p>​		为了实现参数化类型的控制，引入了泛型。泛型能够使得不同的类型在执行相同的代码时得到重复利用（代码复用）。泛型可以用在类、接口和方法中，分别称为泛型类、泛型接口和泛型方法。通过一个例子来解释，以多个加法方法为例，如果没有泛型，我们需要为每种类型都写一个加法方法。但是，通过泛型，我们可以使用一个加法方法实现多种数据类型的加法。</p>
+<p>下面是一个使用泛型的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Number</span>&gt; <span class="type">double</span> <span class="title function_">add</span><span class="params">(T a, T b)</span> &#123;</span><br><span class="line">		System.out.println(a + “+” + b + “=” + (a.doubleValue() + b.doubleValue()));</span><br><span class="line">		<span class="keyword">return</span> a.doubleValue() + b.doubleValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​		在这个示例中，泛型的类型在实际使用时进行指定，从而避免了需要进行强制类型转换的问题，同时由于编译期进行类型检查，也可以保证程序的类型安全。</p>
+<p>​		以一个List集合为例，如果不使用泛型，其中的元素类型不受约束，需要开发者手动进行类型转换，从而容易引发ClassCastException异常。但是，使用泛型后，集合中仅允许存储指定类型的元素，可以在编译前自动检查类型，确保类型安全：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>list中只能放String, 不能放其它类型的元素</p>
+</blockquote>
+<h2><span id="fan-xing-ji-ben-shi-yong">泛型基本使用</span><a href="#fan-xing-ji-ben-shi-yong" class="header-anchor">#</a></h2>
+<p>当你编写一些通用代码时，你可能想要编写可以适用于多种不同类型的数据的函数或类。泛型是一种编程技术，它允许你编写这样的代码。</p>
+<p>在大多数编程语言中，泛型使用尖括号来指定类型参数。例如，在Java中，你可以编写一个泛型类如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyGenericClass</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T myField;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getMyField</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> myField;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setMyField</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        myField = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>&lt;T&gt;</code>表示这是一个泛型类，<code>T</code>是类型参数的名称。这个类有一个<code>myField</code>属性，类型为<code>T</code>，并且有一个可以设置和获取这个属性的方法。</p>
+<p>你可以创建一个<code>MyGenericClass</code>对象，并指定类型参数的实际类型，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MyGenericClass&lt;String&gt; myString = <span class="keyword">new</span> <span class="title class_">MyGenericClass</span>&lt;String&gt;();</span><br><span class="line">myString.setMyField(<span class="string">&quot;Hello, world!&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> myString.getMyField(); <span class="comment">// value is &quot;Hello, world!&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>&lt;String&gt;</code>指定了<code>MyGenericClass</code>的类型参数为<code>String</code>，因此你可以在<code>myField</code>中存储字符串，并使用<code>getMyField</code>方法来获取它。</p>
+<p>泛型主要有泛型类、泛型方法、泛型接口、泛型数组几种最为常见的用法</p>
+<h3><span id="fan-xing-lei">泛型类</span><a href="#fan-xing-lei" class="header-anchor">#</a></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>简单的泛型</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Box</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T contents;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setContents</span><span class="params">(T contents)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.contents = contents;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getContents</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> contents;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例中，我们定义了一个Box类，它只包含一个泛型类型T。Box类有两个方法：setContents和getContents，它们分别用于设置和获取Box对象的内容。这个内容的类型为T，也就是泛型类型参数。</p>
+<p>使用Box类时，可以指定泛型类型参数的具体类型。例如，下面的代码创建了两个Box对象，它们的泛型类型分别为String和Integer：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Box&lt;String&gt; boxOfStrings = <span class="keyword">new</span> <span class="title class_">Box</span>&lt;&gt;();</span><br><span class="line">boxOfStrings.setContents(<span class="string">&quot;Hello, Generic Types!&quot;</span>);</span><br><span class="line"></span><br><span class="line">Box&lt;Integer&gt; boxOfIntegers = <span class="keyword">new</span> <span class="title class_">Box</span>&lt;&gt;();</span><br><span class="line">boxOfIntegers.setContents(<span class="number">42</span>);</span><br></pre></td></tr></table></figure>
+<p>可以通过调用getContents方法来获取Box对象的内容，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">contentsString</span> <span class="operator">=</span> boxOfStrings.getContents();</span><br><span class="line"><span class="type">Integer</span> <span class="variable">contentsInteger</span> <span class="operator">=</span> boxOfIntegers.getContents();</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>多元泛型</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Map</span>&lt;K, V&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Entry&lt;K, V&gt;&gt; entries;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Map</span><span class="params">()</span> &#123;</span><br><span class="line">        entries = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">        entries.add(<span class="keyword">new</span> <span class="title class_">Entry</span>&lt;&gt;(key, value));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> V <span class="title function_">get</span><span class="params">(K key)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;K, V&gt; entry : entries) &#123;</span><br><span class="line">            <span class="keyword">if</span> (entry.getKey().equals(key)) &#123;</span><br><span class="line">                <span class="keyword">return</span> entry.getValue();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">Entry</span>&lt;K, V&gt; &#123;</span><br><span class="line">        <span class="keyword">private</span> K key;</span><br><span class="line">        <span class="keyword">private</span> V value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Entry</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.key = key;</span><br><span class="line">            <span class="built_in">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> K <span class="title function_">getKey</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> key;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> V <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例中，我们定义了一个Map类，使用K和V表示泛型类型。类内部使用List来存储键值对，其中键类型为K，值类型为V。put方法将一个键值对添加到Map中，get方法则根据指定的键返回相应的值。此外，Map类内部还定义了一个Entry类，用来表示键值对。</p>
+<h3><span id="fan-xing-fang-fa">泛型方法</span><a href="#fan-xing-fang-fa" class="header-anchor">#</a></h3>
+<p>泛型方法，是在调用方法的时候指明泛型的具体类型。重点看下泛型的方法（图参考自：<a href="https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html%EF%BC%89">https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html）</a></p>
+<p><img src="./images/2023-04-14-Java%E4%BA%94%E5%A4%A7%E6%9C%BA%E5%88%B6/java-basic-generic-4.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>下面是一个简单的Java泛型方法的示例，它用于判断一个元素是否存在于一个数组中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(T[] array, T element)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (T item : array) &#123;</span><br><span class="line">            <span class="keyword">if</span> (item.equals(element)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例中，我们声明了一个泛型方法contains，它接受一个泛型类型为T的数组array和一个泛型类型为T的元素element作为参数，并返回一个boolean值，表示数组中是否存在该元素。</p>
+<p>在方法实现中，我们使用了for-each循环遍历数组中的每一个元素，然后使用equals方法判断该元素是否与指定元素相等。由于在声明泛型方法时没有使用 extends 关键字来限制泛型类型参数，因此该方法适用于任何类型的数组和元素。</p>
+<p>可以通过以下代码来使用该泛型方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String[] array1 = &#123;&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;&#125;;</span><br><span class="line">boolean result1 = Utils.contains(array1, &quot;banana&quot;);  // 返回true</span><br><span class="line"></span><br><span class="line">Integer[] array2 = &#123;1, 2, 3&#125;;</span><br><span class="line">boolean result2 = Utils.contains(array2, 4);  // 返回false</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们分别用一个字符串数组和一个整数数组来调用contains方法，检查指定元素是否存在于数组中。由于在方法实现中使用了泛型，因此可以处理不同类型的数组和元素。</p>
+<p>下面是一个复杂一点的Java泛型方法的示例，用于比较两个对象的大小：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;T&gt;&gt; <span class="type">int</span> <span class="title function_">compare</span><span class="params">(T a, T b)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a.compareTo(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我们声明了一个泛型方法compare，它接受两个泛型类型相同的参数a和b，并返回它们之间的比较结果。这里使用了 extends 关键字限制泛型类型参数为 Comparable 接口的子类型，即要求 T 必须能够进行比较。</p>
+<p>使用泛型方法时，编译器会根据实际参数的类型自动推断出泛型类型参数的具体类型，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result1</span> <span class="operator">=</span> Utils.compare(<span class="number">1</span>, <span class="number">2</span>);          <span class="comment">// 返回-1，即1 &lt; 2</span></span><br><span class="line"><span class="type">int</span> <span class="variable">result2</span> <span class="operator">=</span> Utils.compare(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);  <span class="comment">// 返回负数，即&quot;hello&quot; &lt; &quot;world&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们分别比较了两个整数和两个字符串的大小。由于整数和字符串都实现了 Comparable 接口，所以它们可以作为泛型类型参数传递给compare方法。</p>
+<h3><span id="fan-xing-jie-kou">泛型接口</span><a href="#fan-xing-jie-kou" class="header-anchor">#</a></h3>
+<p>下面是一个简单的Java泛型接口的示例，它定义了一个通用的栈（stack）接口，其中的元素可以是任何类型：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Stack</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(T element)</span>;</span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">pop</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我们定义了一个Stack接口，使用泛型类型T表示栈中元素的类型。接口中定义了三个方法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>push方法：将一个元素压入栈中；</p>
+</li>
+<li class="lvl-2">
+<p>pop方法：从栈中弹出一个元素，并返回该元素；</p>
+</li>
+<li class="lvl-2">
+<p>isEmpty方法：判断栈是否为空。</p>
+</li>
+</ul>
+<p>由于在声明接口时使用了泛型类型参数，因此实现该接口的类可以针对不同的类型进行栈的操作。</p>
+<p>例如，可以定义一个String类型的栈：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringStack</span> <span class="keyword">implements</span> <span class="title class_">Stack</span>&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; elements;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">StringStack</span><span class="params">()</span> &#123;</span><br><span class="line">        elements = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(String element)</span> &#123;</span><br><span class="line">        elements.add(<span class="number">0</span>, element);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.remove(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> elements.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我们实现了一个String类型的栈StringStack，它针对字符串类型进行栈的操作。在类定义中使用了implements关键字来表示实现了Stack接口，并且在声明时使用了具体的泛型类型参数String。然后，定义了三个方法来实现Stack接口中定义的方法。</p>
+<p>可以使用以下代码来对该栈进行操作：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">StringStack</span> <span class="variable">stack</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringStack</span>();</span><br><span class="line">stack.push(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">stack.push(<span class="string">&quot;world&quot;</span>);</span><br><span class="line"><span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">    System.out.println(stack.pop());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们创建一个StringStack对象，并使用push方法将两个字符串压入栈中。然后使用while循环依次弹出栈中的元素，并将它们输出到控制台。由于在定义StringStack类时指定了泛型类型参数String，因此该类只能处理字符串类型的元素。如果想要处理其他类型的元素，可以定义其他类型的栈类并实现Stack接口。</p>
+<h3><span id="fan-xing-shu-zu">泛型数组</span><a href="#fan-xing-shu-zu" class="header-anchor">#</a></h3>
+<p>Java 中的泛型数组有些限制，无法用具体类型参数直接创建泛型数组。一种常见的解决方案是定义一个类型为 Object 的数组，并将其转换为泛型数组。下面是一个简单的Java泛型数组的示例，演示了如何创建一个指定类型的泛型数组：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayUtils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T[] createArray(<span class="type">int</span> length, T sample) &#123;</span><br><span class="line">        T[] array = (T[]) <span class="keyword">new</span> <span class="title class_">Object</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            array[i] = sample;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我们定义了一个泛型方法 createArray，它接受两个参数：一个整数length，表示数组的长度；一个泛型类型参数sample，表示数组中的元素类型和默认值。在方法实现中，我们首先创建了一个类型为 Object 的数组，然后将其转换为泛型类型数组。</p>
+<p>使用泛型数组时，可以通过传递一个示例元素来确定元素的具体类型。例如，可以使用以下代码创建一个字符串类型的数组：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String[] strings = ArrayUtils.createArray(<span class="number">5</span>, <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，我们使用 createArray 方法来生成一个长度为 5 的字符串类型的数组，其初始值均为 “”。</p>
+<p>需要注意的是，Java 中的泛型数组存在与类型擦除相关的限制，具体实现时需要考虑到类型安全和性能问题。在实际应用中，需要权衡使用泛型数组和其他数据结构的优缺点。</p>
+<h2><span id="fan-xing-shang-xia-xian">泛型上下限</span><a href="#fan-xing-shang-xia-xian" class="header-anchor">#</a></h2>
+<p>Java中的泛型上限（Upper Bound）和下限（Lower Bound）指的是限制泛型参数类型的范围，可以用在泛型方法、泛型接口、泛型类等多种场景中。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>上限（Upper Bound）：使用 extends 关键字，表示泛型参数必须是指定类型或者其子类型。例如，&lt;? extends Number&gt; 表示泛型参数必须是 Number 类型或其子类的类型。</p>
+<ul class="lvl-2">
+<li class="lvl-6">数组 <code>T[]</code> 是一个特殊的类型，它没有上限，也就是说，不能声明为 <code>T extends E[]</code> 的形式。如果需要声明一个可以包含数组元素的泛型类或者泛型方法，可以将其定义为 <code>T[]</code> 类型。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>下限（Lower Bound）：使用 super 关键字，表示泛型参数必须是指定类型或者其父类型。例如，&lt;? super Integer&gt; 表示泛型参数必须是 Integer 类型或其父类的类型。</p>
+</li>
+</ul>
+<p>下面是一个简单的示例，演示了上限和下限的用法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BoundExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T <span class="keyword">extends</span> <span class="title class_">Comparable</span>&lt;T&gt;&gt; T <span class="title function_">max</span><span class="params">(T[] array)</span> &#123;</span><br><span class="line">        <span class="type">T</span> <span class="variable">max</span> <span class="operator">=</span> array[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[i].compareTo(max) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                max = array[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addNumbers</span><span class="params">(List&lt;? <span class="built_in">super</span> Integer&gt; list)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">            list.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了两个示例方法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>max方法：接受一个泛型类型为T的数组，使用 extends 关键字来限定泛型参数类型必须是Comparable接口的子类。该方法返回数组中最大的元素。</p>
+</li>
+<li class="lvl-2">
+<p>addNumbers方法：接受一个泛型类型为List&lt;? super Integer&gt;的参数，使用 super 关键字限制泛型参数类型必须是Integer类型或其父类。该方法用于向列表中添加数字。</p>
+</li>
+</ul>
+<p>可以使用以下代码来调用这些方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer[] integers = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">String[] strings = &#123;<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;orange&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;Max integer: &quot;</span> + BoundExample.max(integers)); <span class="comment">// 输出：Max integer: 5</span></span><br><span class="line"><span class="comment">// 下行中不能将`strs`传给`max`方法, 因为泛型参数必须是 Comparable&lt;T&gt; 的子类型</span></span><br><span class="line"><span class="comment">// System.out.println(&quot;Max string: &quot; + BoundExample.max(strings));</span></span><br><span class="line"></span><br><span class="line">List&lt;Number&gt; numbers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">BoundExample.addNumbers(numbers);</span><br><span class="line">System.out.println(<span class="string">&quot;Numbers: &quot;</span> + numbers); <span class="comment">// 输出：Numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们分别使用 Integer 和 String 类型的数组来调用 max 方法，说明了使用 extends 关键字时的限制。在调用 addNumbers 方法时，我们使用了 List<number> 类型的参数，演示了使用 super 关键字时的限制。</number></p>
+<h2><span id="fan-xing-de-yi-xie-qi-ta-zhi-shi">泛型的一些其他知识</span><a href="#fan-xing-de-yi-xie-qi-ta-zhi-shi" class="header-anchor">#</a></h2>
+<ol>
+<li class="lvl-3">
+<p>泛型的类型擦除</p>
+</li>
+</ol>
+<p>Java 中的泛型本身并不是一种运行时的机制，它仅仅是一种编译时的类型检查机制。在 Java 代码被编译成字节码后，泛型信息被擦除了，也就是说，编译器在编译时会自动将泛型转换为相应的较低类型，比如 Object 类型。例如，一个<code>List&lt;Integer&gt;</code>在运行时会成为一个<code>List</code>类型。</p>
+<p>由于类型擦除的存在，有时候在泛型类和泛型方法中，我们并不能直接获取到泛型类型的具体信息。为了解决这个问题，可以使用反射机制来获取泛型类型的信息。</p>
+<ol start="2">
+<li class="lvl-3">
+<p>关于类型通配符</p>
+</li>
+</ol>
+<p>在 Java 中，我们使用通配符（wildcard）来表示通用类型，通配符可以用来声明泛型的上限和下限。有三种使用通配符的方式：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>&lt;?&gt;</code>：表示未知类型，相当于不限定泛型类型；</p>
+</li>
+<li class="lvl-2">
+<p><code>&lt;? extends T&gt;</code>：表示泛型类型必须是T类型或其子类类型；</p>
+</li>
+<li class="lvl-2">
+<p><code>&lt;? super T&gt;</code>：表示泛型类型必须是T类型或其父类类型。</p>
+</li>
+</ul>
+<p>需要注意的是，类型通配符是一种泛型限制，只能使用在参数中，不能用于类、方法的定义上。</p>
+<ol start="3">
+<li class="lvl-3">
+<p>泛型和继承的关系</p>
+</li>
+</ol>
+<p>泛型和继承都是 Java 中的重要特性，它们之间有着紧密的联系。Java 中的泛型可以用来实现多态，而继承则是 Java 中的一种多态机制。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>父类的泛型可以传递给子类：如果一个类使用了泛型，那么它的子类可以继承它，并且子类也可以使用泛型，这样就可以实现泛型的传递。例如，<code>List&lt;String&gt;</code>是<code>List&lt;?&gt;</code>的子类型。</p>
+</li>
+<li class="lvl-2">
+<p>泛型类型不能区分父类与子类：Java 中的泛型是通过类型擦除来实现的，因此在泛型类或方法的继承关系中，子类不能区分父类与子类的类型。</p>
+</li>
+</ul>
+<ol start="4">
+<li class="lvl-3">
+<p>泛型和数组的区别</p>
+</li>
+</ol>
+<p>Java 的泛型和数组有些相似，但也有不同之处：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>泛型与数组都能够对元素进行类型检查，并提供相关的方法和操作；</p>
+</li>
+<li class="lvl-2">
+<p>与数组不同，泛型不能直接创建具体的类型，只能创建通用类型；</p>
+</li>
+<li class="lvl-2">
+<p>与泛型不同，数组可以定义具体类型的多维数组，而泛型无法直接实现多维泛型数组。</p>
+</li>
+</ul>
+<p>需要注意的是，Java 中的泛型是在编译时进行类型擦除的，而数组则是在运行时进行类型检查的。因此，在使用泛型和数组时，需要根据具体的情况进行选择。</p>
+<ol start="5">
+<li class="lvl-3">
+<p>泛型和反射的结合应用</p>
+</li>
+</ol>
+<p>Java 中的泛型和反射是两个非常强大的特性，在实际应用时可以结合使用，实现更高级、更灵活的编程技巧。例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用反射获取泛型类型信息：由于泛型的类型信息在编译时被擦除了，因此我们可以使用反射机制来获取泛型类型的信息，包括类、方法、字段等级别的泛型类型信息。使用反射的泛型信息可以在运行时做到更加灵活和高效地处理对象和数据。</p>
+</li>
+<li class="lvl-2">
+<p>通过反射操作泛型数组：Java 中的泛型数组有一些限制，不能用具体类型参数数组直接创建泛型数组。但是通过反射，我们可以使用 Java 提供的 Array 类来创建特定的泛型数组，并进行相关的操作。</p>
+</li>
+</ul>
+<p>下面是一个使用反射操作泛型数组的示例代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenericArray</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T[] array;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">GenericArray</span><span class="params">(<span class="type">int</span> length)</span> &#123;</span><br><span class="line">        array = (T[]) <span class="keyword">new</span> <span class="title class_">Object</span>[length];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, T item)</span> &#123;</span><br><span class="line">        array[index] = item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> array[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T[] getArray() &#123;</span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GenericArray&lt;String&gt; ga = <span class="keyword">new</span> <span class="title class_">GenericArray</span>&lt;&gt;(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用反射设置元素</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Method</span> <span class="variable">m</span> <span class="operator">=</span> ga.getClass().getMethod(<span class="string">&quot;set&quot;</span>, <span class="type">int</span>.class, Object.class);</span><br><span class="line">            m.invoke(ga, <span class="number">0</span>, <span class="string">&quot;Hello, Generic Array!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取一个Object[]数组</span></span><br><span class="line">        Object[] objects = ga.getArray();</span><br><span class="line">        objects[<span class="number">1</span>] = <span class="number">123</span>; <span class="comment">// 运行时错误：ArrayStoreException</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了一个泛型类 GenericArray，并使用反射来操作它的元素，并演示了泛型数组的限制。</p>
+<p>需要注意的是，泛型数组在 Java 中有其局限性，因此在实际使用时需要谨慎开发。</p>
+<ol start="6">
+<li class="lvl-3">
+<p>泛型与静态方法和静态属性</p>
+</li>
+</ol>
+<p>Java泛型不能用在静态方法或静态属性上面，是因为泛型类型的擦除机制在这种情况下会导致类型信息的丢失。由于静态方法和静态属性是属于类本身的，不属于类的实例，因此在使用泛型时，它们并没有明确的实例化对象来指定类型。这就导致在编译时，JVM无法确定泛型类型的具体信息，只能使用Object类型来代替，而这样会导致编译错误或者运行时类型错误的出现。</p>
+<p>例如，我们考虑下面这个不合法的例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> T value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">setValue</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        Test.value = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> T <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了一个静态变量value和两个静态方法setValue和getValue，其中value的类型参数为T。由于静态变量和静态方法是属于类本身的，而非类的实例，因此在静态方法中并不能访问泛型的类型参数T。这就会导致编译时出现错误，提示无法引用非静态变量T。</p>
+<p>虽然Java中不能直接在静态方法或静态属性上使用泛型，但可以通过传递类类型做为参数，实现在静态方法中使用泛型的目的。例如，可以将类型参数传递给静态方法，或将类型参数传递给泛型类的构造函数来实现泛型的静态方法或属性使用。</p>
+<ol start="7">
+<li class="lvl-3">
+<p>异常与泛型</p>
+</li>
+</ol>
+<p>Java中的异常处理机制允许我们在throw和catch语句中使用泛型，从而实现异常信息的类型安全和灵活性。Java的异常层次结构中定义了一些通用的异常类，例如Exception、RuntimeException、Error等，这些异常类能够用于处理不同类型的异常情况。使用泛型可以使异常处理更加具有通用性、灵活性和类型安全性。</p>
+<p>Java泛型与异常处理通常需要结合在一起使用，其主要使用方式包括以下几点：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用泛型来定义异常类</p>
+</li>
+</ul>
+<p>在Java中，可以使用泛型来定义异常类，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyException</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">Exception</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> T detail;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyException</span><span class="params">(T detail)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.detail = detail;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getDetail</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> detail;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了一个泛型异常类MyException，它继承了Exception类。在MyException类中，我们定义了一个泛型变量detail，用于存储异常的详细信息。使用泛型定义异常类，可以使得异常类的使用更加的通用和灵活。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>抛出泛型异常</p>
+</li>
+</ul>
+<p>在Java中，我们可以使用throw关键字来抛出一个异常，如果该异常是一个泛型异常，我们也需要使用泛型类型传递异常信息，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">someMethod</span><span class="params">()</span> <span class="keyword">throws</span> MyException&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">MyException</span>&lt;&gt;(<span class="string">&quot;An error occurred&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们使用MyException泛型异常类抛出了一个异常，并使用泛型类型String传递了异常信息。这样可以使得异常信息更具有类型安全性。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>捕获泛型异常</p>
+</li>
+</ul>
+<p>在Java中，我们可以使用catch关键字来捕获一个异常，如果该异常是一个泛型异常，我们也需要使用泛型类型对异常进行捕获，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Some code that may throw an exception</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (MyException&lt;String&gt; ex) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Error: &quot;</span> + ex.getDetail());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们捕获了一个MyException类型的泛型异常，并使用泛型类型String来处理异常信息。这样可以使得异常处理更加类型安全和灵活。</p>
+<p>总之，Java中的异常处理机制允许我们使用泛型来实现更具类型安全和灵活性的异常处理。通过使用泛型，可以让异常处理更加通用和灵活，同时防止出现类型错误，使程序更加健壮和安全。</p>
+<ol start="8">
+<li class="lvl-3">
+<p>获取java泛型的参数类型</p>
+</li>
+</ol>
+<p>在Java中，我们可以使用反射机制获取泛型参数的类型。Java泛型在编译时会进行类型擦除，将泛型类型的所有参数都替换成它们的上界类型或Object类型，这可能会导致实例化时无法获取泛型的具体类型。但是，在通过反射机制访问类的内容时，可以获取泛型的类型参数。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>原生反射</p>
+<p><code>java.lang.reflect.Type</code>是Java中所有类型的公共高级接口, 代表了Java中的所有类型. Type体系中类型的包括：数组类型(GenericArrayType)、参数化类型(ParameterizedType)、类型变量(TypeVariable)、通配符类型(WildcardType)、原始类型(Class)、基本类型(Class), 以上这些类型都实现Type接口。</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GenericType</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">getData</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setData</span><span class="params">(T data)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        GenericType&lt;String&gt; genericType = <span class="keyword">new</span> <span class="title class_">GenericType</span>&lt;String&gt;() &#123;&#125;;</span><br><span class="line">        <span class="type">Type</span> <span class="variable">superclass</span> <span class="operator">=</span> genericType.getClass().getGenericSuperclass();</span><br><span class="line">        <span class="comment">//getActualTypeArguments 返回确切的泛型参数, 如Map&lt;String, Integer&gt;返回[String, Integer]</span></span><br><span class="line">        <span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> ((ParameterizedType) superclass).getActualTypeArguments()[<span class="number">0</span>]; </span><br><span class="line">        System.out.println(type);<span class="comment">//class java.lang.String</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>ParameterizedType</code>:</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ParameterizedType</span> <span class="keyword">extends</span> <span class="title class_">Type</span> &#123;</span><br><span class="line">    <span class="comment">// 返回确切的泛型参数, 如Map&lt;String, Integer&gt;返回[String, Integer]</span></span><br><span class="line">    Type[] getActualTypeArguments();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回当前class或interface声明的类型, 如List&lt;?&gt;返回List</span></span><br><span class="line">    Type <span class="title function_">getRawType</span><span class="params">()</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//返回所属类型. 如,当前类型为O&lt;T&gt;.I&lt;S&gt;, 则返回O&lt;T&gt;. 顶级类型将返回null </span></span><br><span class="line">    Type <span class="title function_">getOwnerType</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>参考链接：<a href="https://pdai.tech/md/java/basic/java-basic-x-generic.html">https://pdai.tech/md/java/basic/java-basic-x-generic.html</a></p>
+</li>
+</ul>
+<p>还可以使用TypeToken和TypeReference两种方式获取泛型参数的类型，这两种方式都是通过创建带泛型参数的子类并提取类型信息来实现的。以下是两种方式的介绍及代码示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>TypeToken方式获取泛型参数的类型</p>
+</li>
+</ul>
+<p>TypeToken是Gson库中的一个类，可以用来获取泛型的类型信息。可以通过继承TypeToken类来获取泛型参数的类型信息，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyTypeToken</span> <span class="keyword">extends</span> <span class="title class_">TypeToken</span>&lt;MyGenericType&lt;String&gt;&gt; &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTypeToken</span>().getType();</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了一个MyTypeToken类，它继承了TypeToken&lt;MyGenericType<string>&gt;类，其中MyGenericType是一个泛型类，String是它的类型参数。通过调用getType方法可以获取泛型的类型参数。</string></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>TypeReference方式获取泛型参数的类型</p>
+</li>
+</ul>
+<p>TypeReference是jackson库中的一个类，也可以用来获取泛型参数的类型信息。与TypeToken类似，可以通过继承TypeReference类来获取泛型参数的类型信息，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">MyTypeReference</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">TypeReference</span>&lt;T&gt; &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Type</span> <span class="variable">type</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyTypeReference</span>&lt;MyGenericType&lt;String&gt;&gt;()&#123;&#125;.getType();</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，我们定义了一个抽象类MyTypeReference，它继承了TypeReference&lt;MyGenericType<string>&gt;类。通过在MyTypeReference类中加入类型参数T并对其进行继承，就可以获取泛型的类型参数。</string></p>
+<p>总之，通过使用TypeToken和TypeReference等方式可以获取Java泛型的参数类型，使得泛型类型更具有灵活性和通用性。这些方式可以通过创建带泛型参数的子类获取泛型类型信息，使得泛型的使用更加灵活和类型安全。</p>
+<h1><span id="zhu-jie-ji-zhi">注解机制</span><a href="#zhu-jie-ji-zhi" class="header-anchor">#</a></h1>
+<blockquote>
+<p>注解是JDK1.5版本开始引入的一个特性，用于对代码进行说明，可以对包、类、接口、字段、方法参数、局部变量等进行注解。它是框架学习和设计者必须掌握的基础。</p>
+</blockquote>
+<h2><span id="fan-xing-ji-chu">泛型基础</span><a href="#fan-xing-ji-chu" class="header-anchor">#</a></h2>
+<ol>
+<li class="lvl-3">
+<p>内置注解</p>
+</li>
+</ol>
+<p>Java内置了许多注解，其中一些常见的注解包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Override：用于表示一个方法是覆盖了父类的方法。</p>
+</li>
+<li class="lvl-2">
+<p>@Deprecated：用于标记一个类、方法或字段已经过时，建议不再使用。</p>
+</li>
+<li class="lvl-2">
+<p>@SuppressWarnings：用于抑制编译器警告，可以用来禁止特定的警告或全部警告。</p>
+</li>
+</ul>
+<p>以下是这些常见内置注解的具体用法示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Override：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moving</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Moving...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Tiger</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">moving</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Running...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>Tiger</code>类覆盖了<code>Animal</code>类的<code>moving()</code>方法，并使用了<code>@Override</code>注解来表示它们的关系，这样做在代码审查时可以更容易地发现代码中的错误。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Deprecated：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="meta">@Deprecated</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Tom&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>getName()</code>方法被标记为不推荐使用。在实际应用中，如果开发人员使用了<code>getName()</code>方法，开发工具将弹出一个警告窗口，提醒开发人员该方法已被弃用，需要使用其他替代方法。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@SuppressWarnings：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addAll</span><span class="params">(Collection books)</span> &#123;</span><br><span class="line">        books.add(<span class="keyword">new</span> <span class="title class_">Book</span>()); <span class="comment">// 这里会出现“未经检查的类型转换”警告</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>addAll()</code>方法将一个<code>Collection</code>对象作为参数，并使用了<code>@SuppressWarnings(&quot;unchecked&quot;)</code>注解来抑制Java编译器产生的“未经检查的类型转换”警告。由于Java的类型擦除机制，<code>Collection</code>对象的类型在运行时是不可知的，因此需要使用注解来提示编译器这是有意为之的。</p>
+<ol start="2">
+<li class="lvl-3">
+<p>元注解</p>
+</li>
+</ol>
+<p>元注解是用于注解其他注解的注解。Java中的元注解包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Target：指定注解可以用在哪些地方，如类、方法、字段等。</p>
+</li>
+<li class="lvl-2">
+<p>@Retention：指定注解保留的时间，可以是编译时、运行时或者源代码中。</p>
+</li>
+<li class="lvl-2">
+<p>@Documented：指定注解会被包含在Java文档中。</p>
+</li>
+<li class="lvl-2">
+<p>@Inherited：指定注解可以被子类继承。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：指定注解可以重复使用（Java8之后引入）。</p>
+</li>
+<li class="lvl-2">
+<p>@Native：指定本地方法的签名（Java8之后引入）。</p>
+</li>
+</ul>
+<p>以下是元注解的具体使用示例：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Target：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解只能用于方法上。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Retention：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解会被保留到运行时。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Documented：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解会被包含在Java文档中。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Inherited：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnnotation</code>注解可以被子类继承。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Repeatable：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Repeatable(MyAnnos.class)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnno &#123;</span><br><span class="line">    <span class="comment">// some code here</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@interface</span> MyAnnos &#123;</span><br><span class="line">    MyAnno[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>@MyAnno</code>注解可以多次使用，并使用<code>@MyAnnos</code>来包装它们。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Native：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyLibrary</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span>; <span class="comment">// method signature is declared as native</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>fun()</code>方法是一个本地方法，其方法签名被声明为<code>native</code>。这样编译器就会知道在编译期间需要为该方法生成本地代码。</p>
+<ol start="3">
+<li class="lvl-3">
+<p>自定义注解</p>
+</li>
+</ol>
+<p>除了内置注解之外，Java还支持自定义注解。自定义注解可以用于标记代码中的特定元素，例如类、方法、变量等，以实现各种功能，如配置、文档生成、代码分析等。自定义注解可以使用Java反射机制来访问和处理。</p>
+<p>以下是一个简单的Java自定义注解的示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span>[] numbers() <span class="keyword">default</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们使用了<code>@interface</code>来定义自己的注解，注解名字为<code>MyAnnotation</code>，注解内容包括一个<code>String</code>类型的属性<code>value</code>和一个整型数组类型的属性<code>numbers</code>。<code>@Retention</code>注解指定该注解在运行时保留，<code>@Target</code>注解指定该注解只能用于方法上。在使用<code>MyAnnotation</code>时，我们可以通过<code>value</code>属性设置该注解的值，在使用<code>numbers</code>属性时，我们可以通过赋值来给数组赋初值。以下是一个使用该自定义注解的示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="meta">@MyAnnotation(value = &quot;Hello, world!&quot;, numbers = &#123;1, 2, 3, 4&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// some code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们在<code>doSomething()</code>方法上应用了自定义注解<code>@MyAnnotation</code>，并设置了<code>value</code>和<code>numbers</code>属性的值。在实际应用中，我们可以通过反射机制来获取注解信息，并据此进行一些特定的操作，例如根据注解的值来判断是否执行某个方法，或者根据注解的信息来生成代码等。</p>
+<ol start="4">
+<li class="lvl-3">
+<p>Java8新的注解</p>
+</li>
+</ol>
+<p>Java8引入了一些新的注解，包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@FunctionalInterface：用于标记一个接口是函数式接口，即只包含一个抽象方法的接口。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：用于标记一个注解可以重复使用。</p>
+</li>
+<li class="lvl-2">
+<p>@SafeVarargs：用于标记一个方法使用了可变参数，并且不会出现类型安全问题。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：用于标记一个接口是函数式接口，即只包含一个抽象方法的接口。</p>
+</li>
+<li class="lvl-2">
+<p>@Repeatable：用于标记一个注解可以重复使用。</p>
+</li>
+</ul>
+<ol start="5">
+<li class="lvl-3">
+<p>注解的应用场景</p>
+</li>
+</ol>
+<p>Java注解的应用场景很广泛，常见的应用场景包括：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>配置信息：例如Spring框架中的@Value注解，用于指定属性的值。</p>
+</li>
+<li class="lvl-2">
+<p>文档生成：例如JavaDoc注解，用于生成Java文档。</p>
+</li>
+<li class="lvl-2">
+<p>代码分析：例如JUnit框架中的@Test注解，用于标记测试方法。</p>
+</li>
+<li class="lvl-2">
+<p>依赖注入：例如Spring框架中的@Autowired注解，用于自动注入依赖对象。</p>
+</li>
+<li class="lvl-2">
+<p>AOP：例如Spring框架中的@Aspect注解，用于声明切面。</p>
+</li>
+</ul>
+<ol start="6">
+<li class="lvl-3">
+<p>配置化到注解化 - 框架的演进</p>
+</li>
+</ol>
+<p>随着软件开发的不断演进，从传统的配置文件到注解配置的转变成为趋势。例如Spring框架最初使用XML配置，但随着注解的发展，现在Spring框架可以通过注解配置。这种配置方式更加直观和简洁，也更容易维护。除了Spring框架之外，许多现代化的框架都支持使用注解进行配置，例如Hibernate、MyBatis、Struts2等。</p>
+<ol start="7">
+<li class="lvl-3">
+<p>自定义注解和AOP</p>
+</li>
+</ol>
+<p>自定义注解和AOP（面向切面编程）相结合，可以实现更加灵活和高效的编程。通过定义切点和切面，可以在代码中对特定的方法或类进行切入，从而实现各种功能，如事务管理、日志记录、性能监控等。</p>
+<ol start="8">
+<li class="lvl-3">
+<p>注解支持继承吗？</p>
+</li>
+</ol>
+<p>Java注解支持继承，子类可以继承父类的注解。如果一个注解被@Inherited修饰，那么它可以被子类继承。如果一个注解没有被@Inherited修饰，那么它不能被子类继承。</p>
+<p>以下是一个Java注解的继承案例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@interface</span> ParentAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@interface</span> ChildAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ParentAnnotation(value = &quot;Parent Annotation&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ChildAnnotation(value = &quot;Child Annotation&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Child</span> <span class="keyword">extends</span> <span class="title class_">Parent</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，我们定义了两个注解: <code>ParentAnnotation</code>和<code>ChildAnnotation</code> 。 <code>Parent</code>类使用<code>ParentAnnotation</code>注解进行标记， <code>Child</code>继承了<code>Parent</code>，并使用了<code>ChildAnnotation</code>注解。我们还对<code>ParentAnnotation</code>注解用<code>@Inherited</code>进行修饰，使得这个注解可以从父类继承到子类。</p>
+<p>我们可以通过以下代码来获取类的注解信息：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Class&lt;Child&gt; childClass = Child.class;</span><br><span class="line"></span><br><span class="line">        <span class="type">ParentAnnotation</span> <span class="variable">parentAnnotation</span> <span class="operator">=</span> childClass.getAnnotation(ParentAnnotation.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;ParentAnnotation: &quot;</span> + parentAnnotation);</span><br><span class="line"></span><br><span class="line">        <span class="type">ChildAnnotation</span> <span class="variable">childAnnotation</span> <span class="operator">=</span> childClass.getAnnotation(ChildAnnotation.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;ChildAnnotation: &quot;</span> + childAnnotation);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们通过<code>getAnnotation()</code>方法分别获取了<code>Child</code>和<code>Parent</code>的注解信息。由于<code>ParentAnnotation</code>被标记为<code>@Inherited</code>，因此<code>ParentAnnotation</code>的信息会被<code>Child</code>类所继承 , 上述代码会输出以下内容：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ParentAnnotation: <span class="meta">@ParentAnnotation(value=Parent Annotation)</span></span><br><span class="line">ChildAnnotation: <span class="meta">@ChildAnnotation(value=Child Annotation)</span></span><br></pre></td></tr></table></figure>
+<p>从输出可以看到，<code>Child</code>类成功继承了<code>ParentAnnotation</code>注解。</p>
+<ol start="9">
+<li class="lvl-3">
+<p>注解实现的原理</p>
+</li>
+</ol>
+<p>Java注解的实现原理是使用反射机制来访问和处理注解。当程序使用注解时，编译器会将注解信息保存到编译后的.class文件中。在运行时，使用反射机制可以访问.class文件中的注解信息，并进行相应的处理。</p>
+<p>下面是一个具体的示例，将展示如何使用反射机制访问和处理Java注解：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="meta">@MyAnnotation(value = &quot;Hello, world!&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// some code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> NoSuchMethodException &#123;</span><br><span class="line">        <span class="type">MyClass</span> <span class="variable">myObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyClass</span>();</span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> myObj.getClass().getMethod(<span class="string">&quot;doSomething&quot;</span>);</span><br><span class="line">        <span class="type">MyAnnotation</span> <span class="variable">annotation</span> <span class="operator">=</span> method.getAnnotation(MyAnnotation.class);</span><br><span class="line">        System.out.println(annotation.value()); <span class="comment">// 输出: &quot;Hello, world!&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，我们定义了一个自定义的 <code>MyAnnotation</code>注解以及一个 <code>MyClass</code>类，其中 <code>doSomething()</code> 方法被标记了 <code>@MyAnnotation</code> 注解。</p>
+<p>在 <code>Test</code> 类的 <code>main()</code> 方法中，首先创建了 <code>MyClass</code> 的实例 <code>myObj</code>，然后使用反射机制获取了 <code>doSomething()</code> 方法的引用对象 <code>Method</code>。接着，通过 <code>Method</code> 的 <code>getAnnotation()</code> 方法读取了 <code>doSomething()</code> 方法标记的 <code>@MyAnnotation</code> 注解，并将注解信息存储在 <code>annotation</code> 变量中。</p>
+<p>最后，通过打印输出 <code>annotation.value()</code>，成功地将注解的值 “Hello, world!” 输出到了控制台。</p>
+<p>从上述分析中，我们可以看出，Java 注解的实现原理就是在编译器将注解信息保存到字节码文件中，并通过反射机制在运行时读取和处理注解信息。这种机制使开发者可以通过非常简单的语法来给代码添加元数据，从而在运行时得到更多的程序信息，进而实现更加灵活和高效的编程。</p>
+<ol start="10">
+<li class="lvl-4">
+<p>总结</p>
+</li>
+</ol>
+<p>Java注解是一种强大的元数据机制，可以用于标记和处理代码中的特定元素，如类、方法、变量等。Java注解可以通过反射机制来访问和处理，可以实现各种功能，如配置、文档生成、代码分析、依赖注入、AOP等。随着软件开发的不断演进，从传统的配置文件到注解配置的转变成为趋势，注解化的编程方式可以使代码更加简洁、灵活和高效。</p>
+<ol start="11">
+<li class="lvl-4">
+<p>Java8提供了哪些新的注解？</p>
+</li>
+</ol>
+<p>Java8提供了一些新的注解，例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>@Repeatable：可以用于声明一个注解可以重复使用多次。</p>
+</li>
+<li class="lvl-2">
+<p>@Native：可以用于声明一个本地方法（Native Method）。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：可以用于声明一个函数式接口。</p>
+</li>
+<li class="lvl-2">
+<p>@SafeVarargs：可以用于声明一个方法使用可变参数，但是不会产生类型安全问题。</p>
+</li>
+<li class="lvl-2">
+<p>@Deprecated：可以用于声明一个方法或类已经被弃用。</p>
+</li>
+<li class="lvl-2">
+<p>@FunctionalInterface：可以用于声明一个函数式接口。</p>
+</li>
+</ul>
+<ol start="12">
+<li class="lvl-4">
+<p>注解的应用场景</p>
+</li>
+</ol>
+<p>Java注解的应用场景非常广泛，可以用于各种领域和用途，例如：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>配置文件：可以用注解代替XML或属性文件进行配置。</p>
+</li>
+<li class="lvl-2">
+<p>代码分析：可以用注解标记代码中的特定元素，如不安全的方法、过时的方法等。</p>
+</li>
+<li class="lvl-2">
+<p>依赖注入：可以用注解注入对象或属性，如Spring框架的@Autowired注解。</p>
+</li>
+<li class="lvl-2">
+<p>日志记录：可以用注解标记需要记录日志的方法或类，如Log4j框架的@Log注解。</p>
+</li>
+<li class="lvl-2">
+<p>AOP：可以用注解实现面向切面编程，如Spring框架的@Aspect注解。</p>
+</li>
+</ul>
+<ol start="13">
+<li class="lvl-4">
+<p>配置化到注解化 - 框架的演进</p>
+</li>
+</ol>
+<p>在软件开发的不同阶段，从配置化到注解化的演进是非常明显的趋势。传统的配置文件方式，比如XML、属性文件等，存在很多弊端，如复杂、容易出错、难以维护等。而注解化的方式更加直观、简洁、灵活，使得代码更加易于阅读和维护。</p>
+<p>随着框架的不断演进，从继承实现到注解实现，是一个非常明显的趋势。比如，JUnit3是通过继承TestCase类来实现单元测试的，而JUnit4则是通过注解来实现单元测试。这种方式不仅使得测试代码更加简洁、易读，还可以将测试代码和被测试代码分离，使得代码更加松耦合。</p>
+<ol start="14">
+<li class="lvl-4">
+<p>自定义注解和AOP - 通过切面实现解耦</p>
+</li>
+</ol>
+<p>自定义注解和AOP结合起来，可以实现更加灵活、高效的编程方式。通过定义切点和切面，可以对特定的方法或类进行切入，从而实现各种功能，如事务管理、日志记录、性能监控等。这种方式可以将关注点从业务逻辑中分离出来，提高代码的可维护性和可扩展性。</p>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
 </search>
