@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="计算机导论学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机导论">
+<meta property="og:url" content="https://deep-learn.top/2023/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Octopus">
+<meta property="og:description" content="计算机导论学习笔记">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-05-05T01:03:49.000Z">
+<meta property="article:modified_time" content="2023-05-05T01:56:34.416Z">
+<meta property="article:author" content="Deep Octopus">
+<meta property="article:tag" content="计算机">
+<meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="计算机">
+
+
+<title >计算机导论</title>
+
+<!-- Favicon -->
+
+    <link href='/images/energy16.png?v=2.0.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/images/energy32.png?v=2.0.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/katex@latest/dist/katex.min.css">
+
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3975750_ub8ok6z2a8.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"deep-learn.top","author":"Deep Octopus","root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"images/energy32.png","icon16":"images/energy16.png","icon32":"images/energy32.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"images/energy16.png","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":10000},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-05-05 09:56:34"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?24e69222a4eb2ea8339af0d51bd99a47";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/images/energy32.png">
+    
+    
+        <div class="trm-logo-text">
+            DEEP<span>LEARN</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/category/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/links/" target="">
+                    友情链接
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+        <a id="trm-search-btn" class="trm-search-btn" data-no-swup target="_blank" href="https://www.baidu.com/s?wd=site:www.imalun.com">
+            <i class="iconfont fas fa-search"></i>
+        </a>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            计算机导论
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/ava2.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        一个很闲的vegetable
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont icon-github"></i>
+        </a>
+    
+        <a href="https://www.qq.com/" title="QQ" rel="nofollow" target="_blank">
+            <i class="iconfont icon-QQ"></i>
+        </a>
+    
+        <a href="https://wx.qq.com/" title="WeChat" rel="nofollow" target="_blank">
+            <i class="iconfont icon-weixin"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                重庆 渝北 西唯兵
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                20
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1687723655@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            05/05
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            09:03
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Deep Octopus
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p>#计算机发展历程与分类</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>早期计算机技术（如差分机、分析机）</p>
+<p>​		早期计算机技术指的是20世纪上半叶的计算机技术。在这个时期，计算机的设计和制造还处于起步阶段，计算机的体积庞大，运算速度较慢，且只能进行简单的数学计算。其中比较典型的代表是差分机和分析机。</p>
+<p>差分机是由美国数学家查尔斯·巴贝奇发明的一种机械式计算机。它利用齿轮和滑动计数器来进行数值计算，能够进行多项式插值、数值积分等运算，是现代计算机的先驱。</p>
+<p>​		分析机是由英国科学家查尔斯·贝贝奇设计的计算机。它是第一台真正意义上的计算机，采用了程序控制的思想，可以进行更加复杂的数值和符号运算。然而，由于当时的技术限制，分析机并未真正建成。</p>
+<p>这些早期的计算机技术为现代计算机的发展奠定了基础，其主要思想和技术手段仍在现代计算机中得到广泛应用。</p>
+</li>
+<li class="lvl-2">
+<p>计算机的五代发展历程</p>
+<p>计算机的五代发展历程可以概括为以下几个时期：</p>
+<p>​		第一代计算机：20世纪40年代到50年代初，采用真空管和机械继电器进行运算，速度慢，体积大，功耗高。</p>
+<p>​		第二代计算机：50年代中期到60年代，采用晶体管进行运算，速度更快，可靠性更高，功耗更低。</p>
+<p>​		第三代计算机：60年代末到70年代中期，采用集成电路进行运算，计算能力和可靠性进一步提高。</p>
+<p>​		第四代计算机：70年代末到80年代末，采用微处理器和大规模集成电路进行运算，计算机体积更小，价格更低，功能更强大。</p>
+<p>​		第五代计算机：80年代末到现在，采用超大规模集成电路进行运算，具有更高的运算速度和存储容量，支持人工智能等新兴应用。</p>
+<p>这五代计算机的发展历程，不仅提高了计算机的性能和功能，而且改变了人们的生产、生活和思维方式，对人类社会产生了深远影响。</p>
+</li>
+<li class="lvl-2">
+<p>计算机的分类（按用途、按结构等）</p>
+<p>计算机按用途可以分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>通用计算机（General-Purpose Computer）：也叫通用型计算机，是一种功能非常广泛的计算机，可以用于各种不同的应用领域。常见的个人电脑、笔记本电脑、工作站等就属于通用计算机。</p>
+</li>
+<li class="lvl-7">
+<p>专用计算机（Special-Purpose Computer）：也叫专用型计算机，是为特定的应用领域而设计的计算机。如数字信号处理器（DSP）、自动化控制计算机等都属于专用计算机。</p>
+</li>
+<li class="lvl-7">
+<p>嵌入式计算机（Embedded Computer）：也叫嵌入式系统，是嵌入到其他设备中的计算机。如电视机、汽车、洗衣机等都有可能内嵌有嵌入式计算机。</p>
+</li>
+</ol>
+<p>按结构分类： 计算机按结构可以分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>冯·诺依曼结构计算机：是最早的计算机结构之一，其特点是程序和数据存储在同一存储器中，计算机按照程序顺序进行操作。</p>
+</li>
+<li class="lvl-7">
+<p>程序可编程结构计算机：也叫存储程序计算机，是在冯·诺依曼结构的基础上发展而来的计算机，可以将程序和数据存储在不同的存储器中，支持程序的修改和执行。</p>
+</li>
+<li class="lvl-7">
+<p>并行计算机：是同时进行多个计算任务的计算机，可以大大提高计算效率和速度。其结构可以分为共享内存结构、分布式结构和混合结构等。</p>
+</li>
+<li class="lvl-7">
+<p>分布式计算机：是由多个计算机组成的计算系统，可以进行分布式数据存储和处理。其结构可以分为集中式结构、对等式结构和混合式结构等。</p>
+</li>
+<li class="lvl-7">
+<p>计算机的应用领域和发展前景</p>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p>计算机的应用领域和发展前景</p>
+<p>计算机应用涉及的领域十分广泛，可以大致分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>科学计算领域：包括天气预报、地震模拟、分子模拟、流体力学模拟等。</p>
+</li>
+<li class="lvl-7">
+<p>工业自动化领域：包括控制系统、机器人、智能制造等。</p>
+</li>
+<li class="lvl-7">
+<p>信息管理领域：包括数据库、信息检索、知识管理等。</p>
+</li>
+<li class="lvl-7">
+<p>多媒体应用领域：包括图形图像处理、音视频处理等。</p>
+</li>
+<li class="lvl-7">
+<p>网络和通信领域：包括互联网、移动通信等。</p>
+</li>
+</ol>
+<p>随着技术的不断发展，计算机的应用领域也在不断拓展。未来计算机将更加智能。</p>
+</li>
+</ul>
+<p>#计算机硬件基础知识</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>计算机的主板、显卡、声卡、电源等组成部分</p>
+<ul class="lvl-2">
+<li class="lvl-6">主板：是计算机的中央组件，它连接了其他所有组件。主板上包含了CPU插槽、内存插槽、显卡插槽等接口，还包括北桥芯片和南桥芯片等电路板。</li>
+<li class="lvl-6">显卡：是计算机的显示器控制器，负责将计算机处理后的数字信号转换成显示器可以显示的图像。显卡通常包括图形处理器（GPU）、显存等核心部件。</li>
+<li class="lvl-6">声卡：是计算机的音频控制器，负责将计算机处理后的音频信号转换成扬声器可以播放的声音。声卡通常包括模拟-数字转换器（ADC）、数字-模拟转换器（DAC）等核心部件。</li>
+<li class="lvl-6">电源：是计算机的供电系统，负责将交流电转换成计算机需要的直流电，并提供稳定的电压和电流。电源通常包括变压器、整流器、滤波器、稳压器等核心部件。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>CPU的工作原理和性能指标（主频、缓存、核心数量等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">CPU：是计算机的中央处理器，负责执行计算机程序的指令，控制计算机的运作。CPU通常包括运算器、控制器、寄存器等核心部件。</li>
+<li class="lvl-6">主频：是CPU运行的时钟频率，通常用GHz表示，主频越高表示CPU的运算速度越快。</li>
+<li class="lvl-6">缓存：是CPU内部的一种高速缓存，存储常用的数据和指令，可以提高CPU访问数据的速度。缓存分为一级缓存、二级缓存等多级，缓存容量越大、速度越快，则CPU的性能越好。</li>
+<li class="lvl-6">核心数量：是指CPU内部的处理器核心数量，通常表示为单核、双核、四核等，核心数量越多，则CPU可以同时处理更多的任务，性能也越好。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>存储器的类型、特点和使用</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>存储器：是计算机的数据存储设备，包括内存和硬盘等存储介质。</p>
+</li>
+<li class="lvl-6">
+<p>内存：是计算机的主存储器，用于临时存储正在运行的程序和数据。内存分为DRAM和SRAM两种类型，DRAM容量大、价格便宜，但速度较慢；SRAM速度快，但容量小、价格昂贵。</p>
+</li>
+<li class="lvl-6">
+<p>硬盘：是计算机的永久性存储设备，用于长期存储程序和数据。硬盘通常包括机械硬盘和固态硬盘两种类型，机械硬盘的存储介质是旋转的磁盘，速度相对较慢但容量较大；固态硬盘则采用闪存芯片作为存储介质，速度相对较快但容量较小，价格也更贵。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>输入输出设备的工作原理和分类（如鼠标、键盘、打印机、扫描仪、摄像头等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">鼠标：是一种计算机输入设备，用于控制光标在计算机屏幕上移动和进行选择等操作。鼠标的工作原理是通过感应鼠标底部的球或光电传感器来感知鼠标的移动方向和速度，从而控制光标在屏幕上的移动。</li>
+<li class="lvl-6">键盘：是一种计算机输入设备，用于输入字符、数字和命令等。键盘的工作原理是通过按键触发机械开关，从而产生电信号，计算机通过接收这些信号来识别用户的输入。</li>
+<li class="lvl-6">打印机：是一种计算机输出设备，用于将计算机中的信息打印成纸质文档。打印机的工作原理是通过喷墨、激光或热敏等技术将打印头上的墨水、粉末或热敏纸转移到打印纸上，从而形成文本和图像等内容。</li>
+<li class="lvl-6">扫描仪：是一种计算机输入设备，用于将纸质文档、图片等转换成数字信号，以便在计算机上进行编辑和处理。扫描仪的工作原理是通过激光、CCD等技术将纸质文档的信息转换成数字信号。</li>
+<li class="lvl-6">摄像头：是一种计算机输入设备，用于捕捉图像和视频等信息。摄像头的工作原理是通过感光元件和透镜等技术将光线转换成数字信号，从而形成图像和视频等内容。</li>
+</ul>
+</li>
+</ul>
+<p>这些硬件组成部分和输入输出设备都是计算机体系结构的重要组成部分，了解它们的工作原理和性能指标可以帮助用户更好地了解计算机的运作机制，并选择更适合自己需求的硬件和设备。</p>
+<p>#计算机软件基础知识</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>操作系统的启动过程、内核结构和管理资源的方式</p>
+<ul class="lvl-2">
+<li class="lvl-6">启动过程：计算机加电后，操作系统会先进行自检，然后加载BIOS（Basic Input/Output System，基本输入输出系统），BIOS会负责初始化硬件，并将控制权转交给操作系统的引导程序（bootloader）。引导程序会读取操作系统的核心文件，将其加载到内存中，并执行操作系统的初始化过程。</li>
+<li class="lvl-6">内核结构：操作系统的内核通常由多个子系统组成，如进程管理、内存管理、文件系统、设备驱动程序等。不同的操作系统内核结构可能会有所不同，但它们都具有相似的功能和架构。</li>
+<li class="lvl-6">资源管理方式：操作系统通过分配资源的方式来管理计算机的硬件和软件资源，包括处理器、内存、输入输出设备等。操作系统通过调度算法来分配CPU时间片，避免不同进程之间的互相干扰；内存管理会为每个进程分配虚拟地址空间，并将其映射到物理内存上；输入输出设备管理会负责设备的初始化、数据传输和中断处理等。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>程序设计语言的基本语法、数据类型和控制结构</p>
+<ul class="lvl-2">
+<li class="lvl-6">基本语法：程序设计语言有自己的语法规则，包括标识符、数据类型、运算符、控制语句等。不同的编程语言具有不同的语法结构和关键字，如C语言、Python、Java等。</li>
+<li class="lvl-6">数据类型：不同的编程语言支持不同的数据类型，如整型、浮点型、字符型、布尔型等。不同的数据类型可以用于不同的计算和存储场景。</li>
+<li class="lvl-6">控制结构：程序设计语言支持不同的控制结构，如顺序结构、分支结构、循环结构等。这些结构可以用于控制程序的执行流程，实现不同的功能和算法。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>常见的应用软件（如办公软件、浏览器、媒体播放器等）和系统软件（如防病毒软件、压缩软件、网络管理软件等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">应用软件：应用软件是用于完成特定任务或功能的软件，如办公软件（如Word、Excel、PPT等）、浏览器（如Chrome、Firefox等）、媒体播放器（如VLC、Potplayer等）等。这些软件具有各自的特点和功能，可以帮助用户完成不同的工作和娱乐任务。</li>
+<li class="lvl-6">系统软件：系统软件是用于管理和控制计算机硬件和软件资源的软件，如操作系统、防病毒软件、网络管理软件、压缩软件等。这些软件在计算机的使用过程中起到至关重要的作用，保证了计算机的安全、稳定和高效运行。</li>
+<li class="lvl-6">防病毒软件：防病毒软件是一种用于防止电脑病毒的软件，它通过对计算机的扫描和监控，及时发现并清除病毒。防病毒软件通常由病毒数据库、扫描引擎、行为监控等多个组件组成，可以保障计算机的安全。常见的防病毒软件有 Windows Defender、Avast、360安全卫士等。</li>
+<li class="lvl-6">压缩软件：压缩软件是一种将多个文件压缩成一个文件的工具。通过将多个文件压缩在一起，可以减小文件的总大小，从而更方便地存储和传输。常见的压缩软件有 WinRAR、7-Zip、WinZip等。</li>
+<li class="lvl-6">网络管理软件：网络管理软件是一种用于管理和监控网络的软件，它可以对网络进行配置、监控和维护。常见的网络管理软件有Wireshark、Nmap、Putty等，它们可以帮助用户监测网络流量、发现网络漏洞，以及进行远程管理和维护等操作。</li>
+</ul>
+</li>
+</ul>
+<p>#计算机网络与通信</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络拓扑结构和协议的种类</p>
+<ul class="lvl-2">
+<li class="lvl-6">网络拓扑结构：网络拓扑结构指的是计算机网络中各个节点之间的物理连接方式，常见的网络拓扑结构有总线型、星型、环型、网状型、树形等。不同的拓扑结构对网络的性能和可靠性都有不同的影响。</li>
+<li class="lvl-6">协议的种类：计算机网络中，不同的网络节点之间需要通过协议进行通信，常见的协议有传输层的TCP、UDP协议，网络层的IP协议，以及应用层的HTTP、FTP、SMTP、POP3等协议。这些协议定义了不同层次上的数据传输方式和规则，保证了网络通信的顺畅和可靠。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>网络通信的基本原理和过程（如TCP/IP协议、DNS解析、数据包传输等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">TCP/IP协议：TCP/IP协议是计算机网络中最常用的协议之一，它是一个分层协议体系，包括物理层、数据链路层、网络层、传输层和应用层。TCP/IP协议的工作方式是将数据分成小块，通过不同的网络节点传输，最终组合成完整的数据包。TCP协议保证了数据的可靠传输，而UDP协议则更加简洁，适用于实时性要求较高的应用场景。</li>
+<li class="lvl-6">DNS解析：DNS解析是将域名转换为IP地址的过程。当用户在浏览器中输入一个网址时，浏览器会将这个网址发送到DNS服务器，DNS服务器根据域名查询相应的IP地址，并将结果返回给浏览器，浏览器再根据IP地址访问相应的网站。这个过程中涉及到了DNS协议、DNS缓存等多个方面。</li>
+<li class="lvl-6">数据包传输：数据包是网络中传输数据的基本单位，它包含了数据、目标地址、源地址等信息。在传输过程中，数据包会从一个节点经过多个网络设备，如路由器、交换机等，每个设备会根据目标地址将数据包转发到下一个节点，最终到达目标设备。在传输过程中，还涉及到数据校验、重传等多个机制，保证了数据的可靠传输。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>互联网的基本组成和工作原理</p>
+<p>互联网是一个全球性的计算机网络，由各种计算机网络相互连接而成，其基本组成包括：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>主机（Host）：指连接到互联网上的计算机或其他设备，包括个人电脑、服务器、移动设备等。</p>
+</li>
+<li class="lvl-6">
+<p>路由器（Router）：负责将数据包从一个网络传输到另一个网络，是互联网的关键设备之一。</p>
+</li>
+<li class="lvl-6">
+<p>互联网服务提供商（ISP）：提供连接到互联网的服务，包括宽带、光纤、卫星等。</p>
+</li>
+<li class="lvl-6">
+<p>互联网交换中心（IXP）：连接不同的ISP，使数据可以在不同的ISP之间传输。</p>
+</li>
+</ul>
+<p>互联网的工作原理基于TCP/IP协议族，它是一种用于互联网的通信协议，由传输控制协议（TCP）和网络协议（IP）两个部分组成。TCP协议负责数据的可靠传输，IP协议负责将数据包从源主机传输到目标主机。</p>
+<p>互联网的通信过程可以分为以下几个步骤：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>数据包的生成：数据包是网络传输中的基本单位，由源主机生成。</p>
+</li>
+<li class="lvl-6">
+<p>数据包的传输：数据包在源主机经过物理层、数据链路层、网络层和传输层等多个层次的封装和解封装，最终被传输到目标主机。</p>
+</li>
+<li class="lvl-6">
+<p>路由选择：当数据包到达路由器时，路由器根据路由表选择最佳路径传输数据包。</p>
+</li>
+<li class="lvl-6">
+<p>目标主机的接收：目标主机接收到数据包后，进行解封装和处理，最终将数据交给应用层。</p>
+</li>
+</ul>
+<p>在数据包传输过程中，DNS（域名系统）也发挥了重要的作用。DNS将域名转换为IP地址，使得源主机能够定位目标主机的位置，实现数据包的传输。</p>
+</li>
+</ul>
+<p>#信息安全与计算机伦理</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>常见的网络安全威胁（如病毒、木马、黑客攻击等）和预防措施</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>病毒</p>
+<p>病毒是一种程序，能够通过感染文件或操作系统来复制自身并传播。病毒可以通过电子邮件、文件下载、可移动存储设备等途径传播。为了预防病毒，用户应当安装杀毒软件，并定期更新病毒库以保持最新的防护能力。同时，用户也应当注意不要下载和打开来路不明的文件，尤其是在使用电子邮件和即时通讯软件时要小心。</p>
+</li>
+<li class="lvl-6">
+<p>木马</p>
+<p>木马是一种隐藏在正常程序中的恶意代码，能够在用户不知情的情况下控制计算机。木马可以通过电子邮件、文件下载、可移动存储设备等途径传播。为了预防木马，用户应当安装防火墙和杀毒软件，并定期更新病毒库和防火墙规则。同时，用户也应当注意不要下载和打开来路不明的文件，尤其是在使用电子邮件和即时通讯软件时要小心。</p>
+</li>
+<li class="lvl-6">
+<p>黑客攻击</p>
+<p>黑客攻击是指攻击者通过网络渗透到目标计算机或网络中，获取或破坏数据的行为。黑客攻击包括端口扫描、密码猜测、拒绝服务攻击、跨站脚本攻击等。为了预防黑客攻击，用户应当使用复杂的密码，并定期更换密码。同时，用户也应当定期更新操作系统和应用程序，以修补已知的漏洞。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>计算机伦理的基本概念和原则</p>
+<p>​		计算机伦理是指计算机使用和开发中所涉及的道德、价值和社会责任等方面的问题。计算机伦理包括隐私、知识产权、虚拟身份、网络道德等方面。计算机伦理的基本原则包括诚实、保密、隐私、财产权、版权、许可权、公共利益和社会责任等。</p>
+</li>
+<li class="lvl-2">
+<p>相关法律法规（如《计算机信息系统安全保护条例》、《互联网管理办法》等）</p>
+<p>计算机技术的发展使得我们的生活越来越依赖于计算机，也让计算机安全问题变得越来越重要。为了维护国家网络安全，国家出台了一系列相关法律法规。以下是一些常见的相关法律法规：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>计算机信息系统安全保护条例：是我国的第一部计算机安全专门法规，它规定了计算机信息系统的安全保护措施，明确了计算机信息系统的安全责任、安全管理制度、安全技术措施等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>互联网管理办法：该办法是中华人民共和国国务院于2000年颁布的互联网管理的重要法规，主要规定了互联网服务提供者的准入条件、互联网用户信息保护、互联网内容管理、互联网市场管理等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>信息安全技术基本要求：由中华人民共和国公安部制定，旨在规定我国信息安全技术的基本要求，为信息安全技术工作提供了指导和规范，规定了涉及信息安全的技术和管理要求等。</p>
+</li>
+<li class="lvl-6">
+<p>电子签名法：是我国的一部关于电子签名法律规范，规定了电子签名的定义、电子签名的法律效力、电子签名的申请、审核、管理等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>中华人民共和国网络安全法：2016年11月1日实施的《中华人民共和国网络安全法》是我国第一部全面规范网络空间安全的基础性法律法规，明确了网络安全的基本要求和保护措施，规定了网络运营者的责任、网络安全检查和评估、网络安全事件的报告等内容，强化了国家对网络安全的管理和保护。</p>
+</li>
+</ul>
+<p>这些法律法规为计算机网络安全提供了法律保障，并对网络安全工作提出了要求和规范。在计算机使用和网络使用过程中，我们需要遵守这些法律法规，加强对自己计算机和网络使用行为的管理和规范，保障自己的安全。</p>
+</li>
+</ul>
+<p>#计算机应用与发展趋势</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>计算机在生产、科研、教育、医疗、金融等领域的应用</p>
+<p>计算机在现代社会的各个领域都有广泛的应用，包括但不限于以下几个方面：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>生产领域：自动化生产线、智能机器人、计算机辅助设计等，能够提高生产效率、质量和降低成本。</p>
+</li>
+<li class="lvl-6">
+<p>科研领域：计算机模拟、数据分析、人工智能等技术的应用，能够提高科研效率和水平。</p>
+</li>
+<li class="lvl-6">
+<p>教育领域：网络教育、电子教室、电子图书等，能够提高教育资源的利用效率和教育质量。</p>
+</li>
+<li class="lvl-6">
+<p>医疗领域：医疗信息管理系统、医学影像处理、远程医疗等，能够提高医疗服务的效率和质量。</p>
+</li>
+<li class="lvl-6">
+<p>金融领域：电子支付、网上银行、证券交易系统等，能够提高金融服务的效率和安全性。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>人工智能、区块链、物联网等新技术的发展和应用</p>
+<p>人工智能（Artificial Intelligence，简称AI）是一种模拟人类智能的技术，它主要包括机器学习、自然语言处理、计算机视觉等领域。随着计算机计算能力的提高和数据的不断增加，人工智能在语音识别、图像识别、自然语言处理等领域已经取得了很大的进展，并广泛应用于各行各业。</p>
+<p>区块链（Blockchain）是一种去中心化的分布式账本技术，主要用于数据的存储和传输。其特点是去中心化、不可篡改、公开透明、可追溯等。区块链技术已经应用于数字货币、供应链管理、物联网等领域，并具有很大的发展潜力。</p>
+<p>物联网（Internet of Things，简称IoT）是指将各种物理设备与互联网连接起来，实现设备之间的数据交换和通信，从而实现物理世界与数字世界的融合。物联网技术已经应用于智能家居、智能交通、智能制造等领域，并将对未来的生活、工作、生产等方面产生重大影响。</p>
+</li>
+<li class="lvl-2">
+<p>计算机行业的趋势和前景分析</p>
+<p>随着信息技术的不断发展，计算机行业将继续保持快速增长的态势。未来几年，计算机行业的发展趋势主要包括以下几个方面：</p>
+<ol>
+<li class="lvl-7">
+<p>人工智能技术的不断应用，将带来更多的智能化产品和服务；</p>
+</li>
+<li class="lvl-7">
+<p>区块链技术的应用将进一步拓展，对金融、供应链等领域产生更大的影响；</p>
+</li>
+<li class="lvl-7">
+<p>物联网的发展将使得智能家居、智能城市等成为可能；</p>
+</li>
+<li class="lvl-7">
+<p>云计算、大数据、边缘计算等技术将不断成熟和发展，使得计算机系统更加智能、高效和安全；</p>
+</li>
+<li class="lvl-7">
+<p>随着5G网络的普及，网络带宽将大幅提升，推动计算机行业向更高的速度和更广泛的应用方向发展。</p>
+</li>
+</ol>
+<p>总之，未来计算机行业将继续保持高速发展的态势，技术的进步将不断推动产业的变革和创新，人们的生产和生活也将因此得到更多的改善和提升。</p>
+</li>
+</ul>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">如果这篇文章对你有帮助，你可以请作者喝一杯蜜雪冰城。</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='images/zfbpay.jpg' target='_blank' >
+                       <img src="/images/zfbpay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='images/wechatpay.png' target='_blank' >
+                       <img src="/images/wechatpay.png" alt="微信" loading="lazy">
+                    </a>
+                    <p>微信</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/04/23/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="https://www.logosc.cn/oss/download/qt/2023/04/26/8880c1bd447948ab10068963bd01b275.jpeg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/code/">
+                    code
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/04/23/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="trm-anima-link">
+                    Java后端开发你应该知道的全局异常处理
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/04/23</li>
+                <li>15:22</li>
+                
+                    <li>1.9k</li>
+                
+                
+                    <li>7</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div id="giscus-wrap" class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50"></div>
+<script data-swup-reload-script>
+    function loadGiscus() {
+        let nowTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+        const config = {
+            src: 'https://giscus.app/client.js',
+            "data-repo": 'Deep-Octopus/blogCommentRepo',
+            "data-repo-id": 'R_kgDOJTFKPg',
+            "data-category": 'Announcements',
+            "data-category-id": 'DIC_kwDOJTFKPs4CVkCu',
+            "data-mapping": 'pathname',
+            "data-reactions-enabled": '1',
+            "data-emit-metadata": '0',
+            "data-theme": nowTheme,
+            "data-lang": 'zh-CN',
+            crossorigin: "anonymous",
+            async: true
+        }
+        let ele = document.createElement('script')
+        for (let key in config) {
+            ele.setAttribute(key, config[key])
+        }
+        document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin', ele)
+    }
+
+    function changeGiscusTheme() {
+        let theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+
+        function sendMessage(message) {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+
+        sendMessage({
+            setConfig: {
+                theme: theme
+            }
+        });
+    }
+
+    loadGiscus();
+</script>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2023- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">一个很闲的vegetable</span>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.4
+            </span>
+        </div>
+      
+
+     
+
+    
+        <div class="trm-footer-item">
+            我们永远不会止步不前！！！
+        </div>
+     
+</footer>
+
+
+
+  <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/katex.min.js" data-swup-reload-script></script>
+
+        
+            
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/copy-tex.min.js" data-swup-reload-script></script>
+
+        
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/auto-render.min.js" data-swup-reload-script></script>
+
+        <script data-swup-reload-script>
+              window.renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true },
+                ],
+                ...{"displayMode":true,"output":"htmlAndMathml","strict":false},
+            })
+        </script>
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.0.4"></script>
+
+</body>
+
+</html>

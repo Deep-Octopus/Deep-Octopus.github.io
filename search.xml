@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>线性代数重要知识点</title>
-    <url>/2023/03/25/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>数学</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>期末复习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JWT入门与实践</title>
     <url>/2023/03/29/JWT%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5/</url>
     <content><![CDATA[<h1><span id="认识jwt">认识JWT</span></h1>
@@ -116,6 +104,86 @@
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java后端开发你应该知道的全局异常处理</title>
+    <url>/2023/04/23/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p>​		在开发Web应用程序时，异常处理是一项非常重要的任务。异常处理可以提高程序的健壮性和稳定性。Java后端开发人员可以设计一个统一的全局异常处理方案来解决异常处理的问题，避免代码冗余，提高开发效率。在本文中，我们将介绍如何设计Java后端的全局异常处理方案。</p>
+<h2><span id="什么是全局异常处理">什么是全局异常处理？</span></h2>
+<p>​		全局异常处理是一种将异常处理代码从业务逻辑中分离出来的技术。在Java中，全局异常处理使用@ControllerAdvice注解定义一个全局的异常处理类。在该类中，使用@ExceptionHandler注解捕获异常并进行处理。使用全局异常处理技术，可以统一处理异常，提高代码的复用性，降低代码的冗余度。</p>
+<h2><span id="如何设计java后端的全局异常处理方案">如何设计Java后端的全局异常处理方案？</span></h2>
+<p>设计Java后端的全局异常处理方案包括以下几个步骤：</p>
+<h3><span id="1-定义自定义异常类">1. 定义自定义异常类</span></h3>
+<p>定义自定义异常类可以使异常信息更加明确，方便后续的处理。自定义异常类需要继承Exception类或其子类。在自定义异常类中，可以定义异常编码和异常消息。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyException</span> <span class="keyword">extends</span> <span class="title class_">Exception</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyException</span><span class="params">(String code, String message)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.code = code;</span><br><span class="line">        <span class="built_in">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getMessage</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="2-定义全局异常处理类">2. 定义全局异常处理类</span></h3>
+<p>定义全局异常处理类需要使用@ControllerAdvice注解。在该类中，使用@ExceptionHandler注解捕获异常并进行处理。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GlobalExceptionHandler</span> &#123;</span><br><span class="line">    <span class="meta">@ExceptionHandler(MyException.class)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity&lt;ErrorResponse&gt; <span class="title function_">handleMyException</span><span class="params">(MyException e)</span> &#123;</span><br><span class="line">        <span class="type">ErrorResponse</span> <span class="variable">errorResponse</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ErrorResponse</span>(e.getCode(), e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ResponseEntity</span>&lt;&gt;(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler(Exception.class)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity&lt;ErrorResponse&gt; <span class="title function_">handleException</span><span class="params">(Exception e)</span> &#123;</span><br><span class="line">        <span class="type">ErrorResponse</span> <span class="variable">errorResponse</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ErrorResponse</span>(<span class="string">&quot;500&quot;</span>, e.getMessage());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ResponseEntity</span>&lt;&gt;(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@ControllerAdvice注解可以让我们定义一个全局的异常处理类。@ExceptionHandler注解用于捕获异常，并将异常信息封装到ErrorResponse类中。@ResponseBody注解用于返回自定义的异常信息，HttpStatus.INTERNAL_SERVER_ERROR表示返回500错误。</p>
+<h3><span id="3-定义异常编码和异常消息">3. 定义异常编码和异常消息</span></h3>
+<p>在自定义异常类中，我们需要定义异常编码和异常消息。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ErrorResponse</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ErrorResponse</span><span class="params">(String code, String message)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.code = code;</span><br><span class="line">        <span class="built_in">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getMessage</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="4-前端处理异常信息">4. 前端处理异常信息</span></h3>
+<p>​		前端可以根据返回的异常编码和异常消息，对异常进行相应的处理。在使用Axios进行数据请求时，可以通过拦截器拦截返回的异常信息。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line">axios.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(</span><br><span class="line">    <span class="function"><span class="params">response</span> =&gt;</span> response,</span><br><span class="line">    <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = error.<span class="property">response</span>;</span><br><span class="line">        <span class="keyword">if</span> (response.<span class="property">status</span> === <span class="number">500</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(response.<span class="property">data</span>.<span class="property">code</span>, response.<span class="property">data</span>.<span class="property">message</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(error);</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>​		在拦截器中，使用if语句判断是否返回500错误。如果是，就将异常编码和异常消息输出到控制台上。这样，在前端出现异常时，我们可以通过控制台输出的信息快速定位异常，进行相应的处理。</p>
+<h2><span id="利用面向切面aop对全局异常进行处理">利用面向切面AOP对全局异常进行处理</span></h2>
+<p>​		利用面向切面编程（AOP）可以更方便地实现Java后端的全局统一异常处理。我们可以通过AOP将异常处理代码从业务逻辑代码中分离出来，降低代码耦合度，提高代码的可维护性和可扩展性。</p>
+<p>下面是利用AOP实现Java后端全局统一异常处理的步骤：</p>
+<ol>
+<li class="lvl-3">
+<p>定义一个异常处理类，用于处理全局异常。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GlobalExceptionHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理全局异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(Exception.class)</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity&lt;ErrorResponse&gt; <span class="title function_">handleException</span><span class="params">(Exception e)</span> &#123;</span><br><span class="line">        log.error(<span class="string">&quot;全局异常信息：&#123;&#125;&quot;</span>, e.getMessage());</span><br><span class="line">        <span class="type">ErrorResponse</span> <span class="variable">errorResponse</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ErrorResponse</span>();</span><br><span class="line">        errorResponse.setCode(<span class="number">500</span>);</span><br><span class="line">        errorResponse.setMessage(<span class="string">&quot;服务器出错啦！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​		在上面的代码中，我们使用@ControllerAdvice注解定义了一个全局异常处理类，用于处理所有的异常。在该类中，我们定义了一个handleException方法，该方法用于处理所有的异常，将异常信息封装到一个ErrorResponse对象中，并将该对象返回给前端。</p>
+<ol start="2">
+<li class="lvl-3">
+<p>定义一个切面类，用于捕获所有的异常。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExceptionAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around(&quot;execution(* com.example.demo.controller.*.*(..))&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">handleException</span><span class="params">(ProceedingJoinPoint pjp)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        Object result;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            result = pjp.proceed();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;异常信息：&#123;&#125;&quot;</span>, e.getMessage());</span><br><span class="line">            <span class="type">ErrorResponse</span> <span class="variable">errorResponse</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ErrorResponse</span>();</span><br><span class="line">            errorResponse.setCode(<span class="number">500</span>);</span><br><span class="line">            errorResponse.setMessage(<span class="string">&quot;服务器出错啦！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，我们使用@Aspect注解定义了一个切面类，用于捕获所有的异常。在该类中，我们定义了一个handleException方法，该方法用于处理所有的异常。如果有异常发生，该方法会将异常信息封装到一个ErrorResponse对象中，并将该对象返回给前端。</p>
+<ol start="3">
+<li class="lvl-3">
+<p>配置AOP。</p>
+</li>
+</ol>
+<p>在Spring Boot中，我们可以通过@Configuration注解定义一个配置类，并使用@EnableAspectJAutoProxy注解开启AOP功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javaCopy code@Configuration</span><br><span class="line">@EnableAspectJAutoProxy</span><br><span class="line">public class AopConfig &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，我们定义了一个AopConfig类，并使用@EnableAspectJAutoProxy注解开启AOP功能。</p>
+<ol start="4">
+<li class="lvl-3">
+<p>测试。</p>
+</li>
+</ol>
+<p>​		现在，我们已经完成了全局统一异常处理的配置，可以进行测试了。在测试过程中，如果出现异常，会自动被切面类捕获并处理，返回给前端一个ErrorResponse对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javaCopy code@RestController</span><br><span class="line">public class TestController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test&quot;)</span><br><span class="line">    public String test() &#123;</span><br><span class="line">        int i = 1 / 0;</span><br><span class="line">        return &quot;test&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​		在上面的代码中，我们定义了一个TestController类，并在其中的test方法中故意抛出一个异常。当我们访问该接口时，会自动被切面类捕获并进行统一异常处理。</p>
+<p>​		在这个例子中，我们使用了切面技术实现了全局统一异常处理，这种方式相比于try-catch代码块的方式更加简洁和优雅，也更易于维护。同时，AOP还可以用于处理其他方面的逻辑，比如日志、缓存、权限控制等。</p>
+<p>​		当然，这种方式也存在一些限制和注意事项。比如，如果应用中存在多个切面，可能会出现切面的执行顺序问题，需要手动配置切面执行的顺序。另外，在使用AOP时，也需要注意对性能的影响，如果切面代码逻辑过于复杂或者切入的方法过多，可能会对应用的性能产生一定的影响。</p>
+<p>​		全局统一异常处理是Java后端开发中不可或缺的一部分，通过切面技术实现全局异常处理可以有效地提高代码的可维护性和可读性，也可以更加方便地对异常信息进行管理和处理。</p>
+<h2><span id="总结">总结</span></h2>
+<p>​		在Java后端开发中，异常处理是一项非常重要的任务。通过设计一个统一的全局异常处理方案，我们可以将异常处理代码从业务逻辑中分离出来，避免代码冗余，提高开发效率。在本文中，我们介绍了Java后端的全局异常处理方案，包括定义自定义异常类、定义全局异常处理类、定义异常编码和异常消息以及前端处理异常信息。希望本文能够对Java后端开发人员设计统一全局异常处理方案有所帮助。定性。</p>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java并发编程</title>
+    <url>/2023/04/23/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>并发编程</tag>
       </tags>
   </entry>
   <entry>
@@ -630,8 +698,8 @@ Let us go！！</p>
 <p>​		说实话，我第一眼看见这个题，我有点懵，但是看见这只是一个简单题，心想：蛙趣，怎么搞的？简单题都看懵了（但是我确实没有想到很好的方法）。我沉思了一下……有了：我直接一个孩子一个孩子分配，每次都找大于孩子胃口且最接近孩子胃口的饼干，这样不就可以了。试一试</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findContentChildren</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; g, vector&lt;<span class="type">int</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 每次都找一个最接近孩子胃口的</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> countChild = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 最合适的下标</span></span><br><span class="line">        <span class="type">int</span> suIndex = <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// 差值</span></span><br><span class="line">        <span class="type">int</span> delta = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; g.<span class="built_in">size</span>(); i ++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (s[j] == <span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (s[j] &gt;= g[i] &amp;&amp; s[j] - g[i] &gt; delta) &#123;</span><br><span class="line">                    delta = s[j] - g[i];</span><br><span class="line">                    suIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (delta != <span class="number">-1</span>) &#123;</span><br><span class="line">                s[suIndex] = <span class="number">-1</span>;</span><br><span class="line">                countChild ++;</span><br><span class="line">                delta = <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> countChild;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>直接运行：😄</p>
-<p><img src="/images/2023-03-23-Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/image-20230327205517166.png" alt="image-20230327205517166" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/images/2023-03-23-Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/image-20230327205530828.png" alt="image-20230327205530828" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202304261038026.png" alt="image-20230327205517166" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202304261038178.png" alt="image-20230327205530828" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>😢😢😢😢😢😢</p>
 <p>错了……</p>
 <p>why？</p>
@@ -690,7 +758,7 @@ Let us go！！</p>
 <p>​		想清楚了，直接写：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">findSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 用set</span></span><br><span class="line">        set&lt;<span class="type">int</span>&gt; set;</span><br><span class="line">        <span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>() - <span class="number">1</span>; i ++)&#123;</span><br><span class="line">            len = set.<span class="built_in">size</span>();</span><br><span class="line">            set.<span class="built_in">insert</span>(nums[i] + nums[i + <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (set.<span class="built_in">size</span>() == len) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>运行一下：</p>
-<p><img src="/images/2023-03-23-Leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/0326_2.png" alt="image-20230326112435936" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202304261038926.png" alt="image-20230326112435936" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>呼，看见0ms我就开心，但是内存占用变多了。</p>
 <p>博主目前没有想到更好的方法可以同时兼顾时间和空间，如果你有好的点子，欢迎<code>pr</code></p>
 ]]></content>
@@ -700,6 +768,318 @@ Let us go！！</p>
       <tags>
         <tag>笔记</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机导论</title>
+    <url>/2023/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA/</url>
+    <content><![CDATA[<p>#计算机发展历程与分类</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>早期计算机技术（如差分机、分析机）</p>
+<p>​		早期计算机技术指的是20世纪上半叶的计算机技术。在这个时期，计算机的设计和制造还处于起步阶段，计算机的体积庞大，运算速度较慢，且只能进行简单的数学计算。其中比较典型的代表是差分机和分析机。</p>
+<p>差分机是由美国数学家查尔斯·巴贝奇发明的一种机械式计算机。它利用齿轮和滑动计数器来进行数值计算，能够进行多项式插值、数值积分等运算，是现代计算机的先驱。</p>
+<p>​		分析机是由英国科学家查尔斯·贝贝奇设计的计算机。它是第一台真正意义上的计算机，采用了程序控制的思想，可以进行更加复杂的数值和符号运算。然而，由于当时的技术限制，分析机并未真正建成。</p>
+<p>这些早期的计算机技术为现代计算机的发展奠定了基础，其主要思想和技术手段仍在现代计算机中得到广泛应用。</p>
+</li>
+<li class="lvl-2">
+<p>计算机的五代发展历程</p>
+<p>计算机的五代发展历程可以概括为以下几个时期：</p>
+<p>​		第一代计算机：20世纪40年代到50年代初，采用真空管和机械继电器进行运算，速度慢，体积大，功耗高。</p>
+<p>​		第二代计算机：50年代中期到60年代，采用晶体管进行运算，速度更快，可靠性更高，功耗更低。</p>
+<p>​		第三代计算机：60年代末到70年代中期，采用集成电路进行运算，计算能力和可靠性进一步提高。</p>
+<p>​		第四代计算机：70年代末到80年代末，采用微处理器和大规模集成电路进行运算，计算机体积更小，价格更低，功能更强大。</p>
+<p>​		第五代计算机：80年代末到现在，采用超大规模集成电路进行运算，具有更高的运算速度和存储容量，支持人工智能等新兴应用。</p>
+<p>这五代计算机的发展历程，不仅提高了计算机的性能和功能，而且改变了人们的生产、生活和思维方式，对人类社会产生了深远影响。</p>
+</li>
+<li class="lvl-2">
+<p>计算机的分类（按用途、按结构等）</p>
+<p>计算机按用途可以分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>通用计算机（General-Purpose Computer）：也叫通用型计算机，是一种功能非常广泛的计算机，可以用于各种不同的应用领域。常见的个人电脑、笔记本电脑、工作站等就属于通用计算机。</p>
+</li>
+<li class="lvl-7">
+<p>专用计算机（Special-Purpose Computer）：也叫专用型计算机，是为特定的应用领域而设计的计算机。如数字信号处理器（DSP）、自动化控制计算机等都属于专用计算机。</p>
+</li>
+<li class="lvl-7">
+<p>嵌入式计算机（Embedded Computer）：也叫嵌入式系统，是嵌入到其他设备中的计算机。如电视机、汽车、洗衣机等都有可能内嵌有嵌入式计算机。</p>
+</li>
+</ol>
+<p>按结构分类： 计算机按结构可以分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>冯·诺依曼结构计算机：是最早的计算机结构之一，其特点是程序和数据存储在同一存储器中，计算机按照程序顺序进行操作。</p>
+</li>
+<li class="lvl-7">
+<p>程序可编程结构计算机：也叫存储程序计算机，是在冯·诺依曼结构的基础上发展而来的计算机，可以将程序和数据存储在不同的存储器中，支持程序的修改和执行。</p>
+</li>
+<li class="lvl-7">
+<p>并行计算机：是同时进行多个计算任务的计算机，可以大大提高计算效率和速度。其结构可以分为共享内存结构、分布式结构和混合结构等。</p>
+</li>
+<li class="lvl-7">
+<p>分布式计算机：是由多个计算机组成的计算系统，可以进行分布式数据存储和处理。其结构可以分为集中式结构、对等式结构和混合式结构等。</p>
+</li>
+<li class="lvl-7">
+<p>计算机的应用领域和发展前景</p>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<p>计算机的应用领域和发展前景</p>
+<p>计算机应用涉及的领域十分广泛，可以大致分为以下几类：</p>
+<ol>
+<li class="lvl-7">
+<p>科学计算领域：包括天气预报、地震模拟、分子模拟、流体力学模拟等。</p>
+</li>
+<li class="lvl-7">
+<p>工业自动化领域：包括控制系统、机器人、智能制造等。</p>
+</li>
+<li class="lvl-7">
+<p>信息管理领域：包括数据库、信息检索、知识管理等。</p>
+</li>
+<li class="lvl-7">
+<p>多媒体应用领域：包括图形图像处理、音视频处理等。</p>
+</li>
+<li class="lvl-7">
+<p>网络和通信领域：包括互联网、移动通信等。</p>
+</li>
+</ol>
+<p>随着技术的不断发展，计算机的应用领域也在不断拓展。未来计算机将更加智能。</p>
+</li>
+</ul>
+<p>#计算机硬件基础知识</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>计算机的主板、显卡、声卡、电源等组成部分</p>
+<ul class="lvl-2">
+<li class="lvl-6">主板：是计算机的中央组件，它连接了其他所有组件。主板上包含了CPU插槽、内存插槽、显卡插槽等接口，还包括北桥芯片和南桥芯片等电路板。</li>
+<li class="lvl-6">显卡：是计算机的显示器控制器，负责将计算机处理后的数字信号转换成显示器可以显示的图像。显卡通常包括图形处理器（GPU）、显存等核心部件。</li>
+<li class="lvl-6">声卡：是计算机的音频控制器，负责将计算机处理后的音频信号转换成扬声器可以播放的声音。声卡通常包括模拟-数字转换器（ADC）、数字-模拟转换器（DAC）等核心部件。</li>
+<li class="lvl-6">电源：是计算机的供电系统，负责将交流电转换成计算机需要的直流电，并提供稳定的电压和电流。电源通常包括变压器、整流器、滤波器、稳压器等核心部件。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>CPU的工作原理和性能指标（主频、缓存、核心数量等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">CPU：是计算机的中央处理器，负责执行计算机程序的指令，控制计算机的运作。CPU通常包括运算器、控制器、寄存器等核心部件。</li>
+<li class="lvl-6">主频：是CPU运行的时钟频率，通常用GHz表示，主频越高表示CPU的运算速度越快。</li>
+<li class="lvl-6">缓存：是CPU内部的一种高速缓存，存储常用的数据和指令，可以提高CPU访问数据的速度。缓存分为一级缓存、二级缓存等多级，缓存容量越大、速度越快，则CPU的性能越好。</li>
+<li class="lvl-6">核心数量：是指CPU内部的处理器核心数量，通常表示为单核、双核、四核等，核心数量越多，则CPU可以同时处理更多的任务，性能也越好。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>存储器的类型、特点和使用</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>存储器：是计算机的数据存储设备，包括内存和硬盘等存储介质。</p>
+</li>
+<li class="lvl-6">
+<p>内存：是计算机的主存储器，用于临时存储正在运行的程序和数据。内存分为DRAM和SRAM两种类型，DRAM容量大、价格便宜，但速度较慢；SRAM速度快，但容量小、价格昂贵。</p>
+</li>
+<li class="lvl-6">
+<p>硬盘：是计算机的永久性存储设备，用于长期存储程序和数据。硬盘通常包括机械硬盘和固态硬盘两种类型，机械硬盘的存储介质是旋转的磁盘，速度相对较慢但容量较大；固态硬盘则采用闪存芯片作为存储介质，速度相对较快但容量较小，价格也更贵。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>输入输出设备的工作原理和分类（如鼠标、键盘、打印机、扫描仪、摄像头等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">鼠标：是一种计算机输入设备，用于控制光标在计算机屏幕上移动和进行选择等操作。鼠标的工作原理是通过感应鼠标底部的球或光电传感器来感知鼠标的移动方向和速度，从而控制光标在屏幕上的移动。</li>
+<li class="lvl-6">键盘：是一种计算机输入设备，用于输入字符、数字和命令等。键盘的工作原理是通过按键触发机械开关，从而产生电信号，计算机通过接收这些信号来识别用户的输入。</li>
+<li class="lvl-6">打印机：是一种计算机输出设备，用于将计算机中的信息打印成纸质文档。打印机的工作原理是通过喷墨、激光或热敏等技术将打印头上的墨水、粉末或热敏纸转移到打印纸上，从而形成文本和图像等内容。</li>
+<li class="lvl-6">扫描仪：是一种计算机输入设备，用于将纸质文档、图片等转换成数字信号，以便在计算机上进行编辑和处理。扫描仪的工作原理是通过激光、CCD等技术将纸质文档的信息转换成数字信号。</li>
+<li class="lvl-6">摄像头：是一种计算机输入设备，用于捕捉图像和视频等信息。摄像头的工作原理是通过感光元件和透镜等技术将光线转换成数字信号，从而形成图像和视频等内容。</li>
+</ul>
+</li>
+</ul>
+<p>这些硬件组成部分和输入输出设备都是计算机体系结构的重要组成部分，了解它们的工作原理和性能指标可以帮助用户更好地了解计算机的运作机制，并选择更适合自己需求的硬件和设备。</p>
+<p>#计算机软件基础知识</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>操作系统的启动过程、内核结构和管理资源的方式</p>
+<ul class="lvl-2">
+<li class="lvl-6">启动过程：计算机加电后，操作系统会先进行自检，然后加载BIOS（Basic Input/Output System，基本输入输出系统），BIOS会负责初始化硬件，并将控制权转交给操作系统的引导程序（bootloader）。引导程序会读取操作系统的核心文件，将其加载到内存中，并执行操作系统的初始化过程。</li>
+<li class="lvl-6">内核结构：操作系统的内核通常由多个子系统组成，如进程管理、内存管理、文件系统、设备驱动程序等。不同的操作系统内核结构可能会有所不同，但它们都具有相似的功能和架构。</li>
+<li class="lvl-6">资源管理方式：操作系统通过分配资源的方式来管理计算机的硬件和软件资源，包括处理器、内存、输入输出设备等。操作系统通过调度算法来分配CPU时间片，避免不同进程之间的互相干扰；内存管理会为每个进程分配虚拟地址空间，并将其映射到物理内存上；输入输出设备管理会负责设备的初始化、数据传输和中断处理等。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>程序设计语言的基本语法、数据类型和控制结构</p>
+<ul class="lvl-2">
+<li class="lvl-6">基本语法：程序设计语言有自己的语法规则，包括标识符、数据类型、运算符、控制语句等。不同的编程语言具有不同的语法结构和关键字，如C语言、Python、Java等。</li>
+<li class="lvl-6">数据类型：不同的编程语言支持不同的数据类型，如整型、浮点型、字符型、布尔型等。不同的数据类型可以用于不同的计算和存储场景。</li>
+<li class="lvl-6">控制结构：程序设计语言支持不同的控制结构，如顺序结构、分支结构、循环结构等。这些结构可以用于控制程序的执行流程，实现不同的功能和算法。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>常见的应用软件（如办公软件、浏览器、媒体播放器等）和系统软件（如防病毒软件、压缩软件、网络管理软件等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">应用软件：应用软件是用于完成特定任务或功能的软件，如办公软件（如Word、Excel、PPT等）、浏览器（如Chrome、Firefox等）、媒体播放器（如VLC、Potplayer等）等。这些软件具有各自的特点和功能，可以帮助用户完成不同的工作和娱乐任务。</li>
+<li class="lvl-6">系统软件：系统软件是用于管理和控制计算机硬件和软件资源的软件，如操作系统、防病毒软件、网络管理软件、压缩软件等。这些软件在计算机的使用过程中起到至关重要的作用，保证了计算机的安全、稳定和高效运行。</li>
+<li class="lvl-6">防病毒软件：防病毒软件是一种用于防止电脑病毒的软件，它通过对计算机的扫描和监控，及时发现并清除病毒。防病毒软件通常由病毒数据库、扫描引擎、行为监控等多个组件组成，可以保障计算机的安全。常见的防病毒软件有 Windows Defender、Avast、360安全卫士等。</li>
+<li class="lvl-6">压缩软件：压缩软件是一种将多个文件压缩成一个文件的工具。通过将多个文件压缩在一起，可以减小文件的总大小，从而更方便地存储和传输。常见的压缩软件有 WinRAR、7-Zip、WinZip等。</li>
+<li class="lvl-6">网络管理软件：网络管理软件是一种用于管理和监控网络的软件，它可以对网络进行配置、监控和维护。常见的网络管理软件有Wireshark、Nmap、Putty等，它们可以帮助用户监测网络流量、发现网络漏洞，以及进行远程管理和维护等操作。</li>
+</ul>
+</li>
+</ul>
+<p>#计算机网络与通信</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络拓扑结构和协议的种类</p>
+<ul class="lvl-2">
+<li class="lvl-6">网络拓扑结构：网络拓扑结构指的是计算机网络中各个节点之间的物理连接方式，常见的网络拓扑结构有总线型、星型、环型、网状型、树形等。不同的拓扑结构对网络的性能和可靠性都有不同的影响。</li>
+<li class="lvl-6">协议的种类：计算机网络中，不同的网络节点之间需要通过协议进行通信，常见的协议有传输层的TCP、UDP协议，网络层的IP协议，以及应用层的HTTP、FTP、SMTP、POP3等协议。这些协议定义了不同层次上的数据传输方式和规则，保证了网络通信的顺畅和可靠。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>网络通信的基本原理和过程（如TCP/IP协议、DNS解析、数据包传输等）</p>
+<ul class="lvl-2">
+<li class="lvl-6">TCP/IP协议：TCP/IP协议是计算机网络中最常用的协议之一，它是一个分层协议体系，包括物理层、数据链路层、网络层、传输层和应用层。TCP/IP协议的工作方式是将数据分成小块，通过不同的网络节点传输，最终组合成完整的数据包。TCP协议保证了数据的可靠传输，而UDP协议则更加简洁，适用于实时性要求较高的应用场景。</li>
+<li class="lvl-6">DNS解析：DNS解析是将域名转换为IP地址的过程。当用户在浏览器中输入一个网址时，浏览器会将这个网址发送到DNS服务器，DNS服务器根据域名查询相应的IP地址，并将结果返回给浏览器，浏览器再根据IP地址访问相应的网站。这个过程中涉及到了DNS协议、DNS缓存等多个方面。</li>
+<li class="lvl-6">数据包传输：数据包是网络中传输数据的基本单位，它包含了数据、目标地址、源地址等信息。在传输过程中，数据包会从一个节点经过多个网络设备，如路由器、交换机等，每个设备会根据目标地址将数据包转发到下一个节点，最终到达目标设备。在传输过程中，还涉及到数据校验、重传等多个机制，保证了数据的可靠传输。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>互联网的基本组成和工作原理</p>
+<p>互联网是一个全球性的计算机网络，由各种计算机网络相互连接而成，其基本组成包括：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>主机（Host）：指连接到互联网上的计算机或其他设备，包括个人电脑、服务器、移动设备等。</p>
+</li>
+<li class="lvl-6">
+<p>路由器（Router）：负责将数据包从一个网络传输到另一个网络，是互联网的关键设备之一。</p>
+</li>
+<li class="lvl-6">
+<p>互联网服务提供商（ISP）：提供连接到互联网的服务，包括宽带、光纤、卫星等。</p>
+</li>
+<li class="lvl-6">
+<p>互联网交换中心（IXP）：连接不同的ISP，使数据可以在不同的ISP之间传输。</p>
+</li>
+</ul>
+<p>互联网的工作原理基于TCP/IP协议族，它是一种用于互联网的通信协议，由传输控制协议（TCP）和网络协议（IP）两个部分组成。TCP协议负责数据的可靠传输，IP协议负责将数据包从源主机传输到目标主机。</p>
+<p>互联网的通信过程可以分为以下几个步骤：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>数据包的生成：数据包是网络传输中的基本单位，由源主机生成。</p>
+</li>
+<li class="lvl-6">
+<p>数据包的传输：数据包在源主机经过物理层、数据链路层、网络层和传输层等多个层次的封装和解封装，最终被传输到目标主机。</p>
+</li>
+<li class="lvl-6">
+<p>路由选择：当数据包到达路由器时，路由器根据路由表选择最佳路径传输数据包。</p>
+</li>
+<li class="lvl-6">
+<p>目标主机的接收：目标主机接收到数据包后，进行解封装和处理，最终将数据交给应用层。</p>
+</li>
+</ul>
+<p>在数据包传输过程中，DNS（域名系统）也发挥了重要的作用。DNS将域名转换为IP地址，使得源主机能够定位目标主机的位置，实现数据包的传输。</p>
+</li>
+</ul>
+<p>#信息安全与计算机伦理</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>常见的网络安全威胁（如病毒、木马、黑客攻击等）和预防措施</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>病毒</p>
+<p>病毒是一种程序，能够通过感染文件或操作系统来复制自身并传播。病毒可以通过电子邮件、文件下载、可移动存储设备等途径传播。为了预防病毒，用户应当安装杀毒软件，并定期更新病毒库以保持最新的防护能力。同时，用户也应当注意不要下载和打开来路不明的文件，尤其是在使用电子邮件和即时通讯软件时要小心。</p>
+</li>
+<li class="lvl-6">
+<p>木马</p>
+<p>木马是一种隐藏在正常程序中的恶意代码，能够在用户不知情的情况下控制计算机。木马可以通过电子邮件、文件下载、可移动存储设备等途径传播。为了预防木马，用户应当安装防火墙和杀毒软件，并定期更新病毒库和防火墙规则。同时，用户也应当注意不要下载和打开来路不明的文件，尤其是在使用电子邮件和即时通讯软件时要小心。</p>
+</li>
+<li class="lvl-6">
+<p>黑客攻击</p>
+<p>黑客攻击是指攻击者通过网络渗透到目标计算机或网络中，获取或破坏数据的行为。黑客攻击包括端口扫描、密码猜测、拒绝服务攻击、跨站脚本攻击等。为了预防黑客攻击，用户应当使用复杂的密码，并定期更换密码。同时，用户也应当定期更新操作系统和应用程序，以修补已知的漏洞。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>计算机伦理的基本概念和原则</p>
+<p>​		计算机伦理是指计算机使用和开发中所涉及的道德、价值和社会责任等方面的问题。计算机伦理包括隐私、知识产权、虚拟身份、网络道德等方面。计算机伦理的基本原则包括诚实、保密、隐私、财产权、版权、许可权、公共利益和社会责任等。</p>
+</li>
+<li class="lvl-2">
+<p>相关法律法规（如《计算机信息系统安全保护条例》、《互联网管理办法》等）</p>
+<p>计算机技术的发展使得我们的生活越来越依赖于计算机，也让计算机安全问题变得越来越重要。为了维护国家网络安全，国家出台了一系列相关法律法规。以下是一些常见的相关法律法规：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>计算机信息系统安全保护条例：是我国的第一部计算机安全专门法规，它规定了计算机信息系统的安全保护措施，明确了计算机信息系统的安全责任、安全管理制度、安全技术措施等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>互联网管理办法：该办法是中华人民共和国国务院于2000年颁布的互联网管理的重要法规，主要规定了互联网服务提供者的准入条件、互联网用户信息保护、互联网内容管理、互联网市场管理等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>信息安全技术基本要求：由中华人民共和国公安部制定，旨在规定我国信息安全技术的基本要求，为信息安全技术工作提供了指导和规范，规定了涉及信息安全的技术和管理要求等。</p>
+</li>
+<li class="lvl-6">
+<p>电子签名法：是我国的一部关于电子签名法律规范，规定了电子签名的定义、电子签名的法律效力、电子签名的申请、审核、管理等方面的内容。</p>
+</li>
+<li class="lvl-6">
+<p>中华人民共和国网络安全法：2016年11月1日实施的《中华人民共和国网络安全法》是我国第一部全面规范网络空间安全的基础性法律法规，明确了网络安全的基本要求和保护措施，规定了网络运营者的责任、网络安全检查和评估、网络安全事件的报告等内容，强化了国家对网络安全的管理和保护。</p>
+</li>
+</ul>
+<p>这些法律法规为计算机网络安全提供了法律保障，并对网络安全工作提出了要求和规范。在计算机使用和网络使用过程中，我们需要遵守这些法律法规，加强对自己计算机和网络使用行为的管理和规范，保障自己的安全。</p>
+</li>
+</ul>
+<p>#计算机应用与发展趋势</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>计算机在生产、科研、教育、医疗、金融等领域的应用</p>
+<p>计算机在现代社会的各个领域都有广泛的应用，包括但不限于以下几个方面：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>生产领域：自动化生产线、智能机器人、计算机辅助设计等，能够提高生产效率、质量和降低成本。</p>
+</li>
+<li class="lvl-6">
+<p>科研领域：计算机模拟、数据分析、人工智能等技术的应用，能够提高科研效率和水平。</p>
+</li>
+<li class="lvl-6">
+<p>教育领域：网络教育、电子教室、电子图书等，能够提高教育资源的利用效率和教育质量。</p>
+</li>
+<li class="lvl-6">
+<p>医疗领域：医疗信息管理系统、医学影像处理、远程医疗等，能够提高医疗服务的效率和质量。</p>
+</li>
+<li class="lvl-6">
+<p>金融领域：电子支付、网上银行、证券交易系统等，能够提高金融服务的效率和安全性。</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>人工智能、区块链、物联网等新技术的发展和应用</p>
+<p>人工智能（Artificial Intelligence，简称AI）是一种模拟人类智能的技术，它主要包括机器学习、自然语言处理、计算机视觉等领域。随着计算机计算能力的提高和数据的不断增加，人工智能在语音识别、图像识别、自然语言处理等领域已经取得了很大的进展，并广泛应用于各行各业。</p>
+<p>区块链（Blockchain）是一种去中心化的分布式账本技术，主要用于数据的存储和传输。其特点是去中心化、不可篡改、公开透明、可追溯等。区块链技术已经应用于数字货币、供应链管理、物联网等领域，并具有很大的发展潜力。</p>
+<p>物联网（Internet of Things，简称IoT）是指将各种物理设备与互联网连接起来，实现设备之间的数据交换和通信，从而实现物理世界与数字世界的融合。物联网技术已经应用于智能家居、智能交通、智能制造等领域，并将对未来的生活、工作、生产等方面产生重大影响。</p>
+</li>
+<li class="lvl-2">
+<p>计算机行业的趋势和前景分析</p>
+<p>随着信息技术的不断发展，计算机行业将继续保持快速增长的态势。未来几年，计算机行业的发展趋势主要包括以下几个方面：</p>
+<ol>
+<li class="lvl-7">
+<p>人工智能技术的不断应用，将带来更多的智能化产品和服务；</p>
+</li>
+<li class="lvl-7">
+<p>区块链技术的应用将进一步拓展，对金融、供应链等领域产生更大的影响；</p>
+</li>
+<li class="lvl-7">
+<p>物联网的发展将使得智能家居、智能城市等成为可能；</p>
+</li>
+<li class="lvl-7">
+<p>云计算、大数据、边缘计算等技术将不断成熟和发展，使得计算机系统更加智能、高效和安全；</p>
+</li>
+<li class="lvl-7">
+<p>随着5G网络的普及，网络带宽将大幅提升，推动计算机行业向更高的速度和更广泛的应用方向发展。</p>
+</li>
+</ol>
+<p>总之，未来计算机行业将继续保持高速发展的态势，技术的进步将不断推动产业的变革和创新，人们的生产和生活也将因此得到更多的改善和提升。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>计算机</tag>
       </tags>
   </entry>
   <entry>
@@ -1918,7 +2298,7 @@ A_1=\begin{bmatrix}
 <p>这个示例中，我们定义了一个Map类，使用K和V表示泛型类型。类内部使用List来存储键值对，其中键类型为K，值类型为V。put方法将一个键值对添加到Map中，get方法则根据指定的键返回相应的值。此外，Map类内部还定义了一个Entry类，用来表示键值对。</p>
 <h3><span id="泛型方法">泛型方法</span></h3>
 <p>泛型方法，是在调用方法的时候指明泛型的具体类型。重点看下泛型的方法（图参考自：<a href="https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html%EF%BC%89">https://www.cnblogs.com/iyangyuan/archive/2013/04/09/3011274.html）</a></p>
-<p><img src="/images/2023-04-14-Java%E4%BA%94%E5%A4%A7%E6%9C%BA%E5%88%B6/java-basic-generic-4.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202304261039114.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>下面是一个简单的Java泛型方法的示例，它用于判断一个元素是否存在于一个数组中：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utils</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="type">boolean</span> <span class="title function_">contains</span><span class="params">(T[] array, T element)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (T item : array) &#123;</span><br><span class="line">            <span class="keyword">if</span> (item.equals(element)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个示例中，我们声明了一个泛型方法contains，它接受一个泛型类型为T的数组array和一个泛型类型为T的元素element作为参数，并返回一个boolean值，表示数组中是否存在该元素。</p>
