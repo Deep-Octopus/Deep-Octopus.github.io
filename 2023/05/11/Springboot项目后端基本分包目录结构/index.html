@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="项目基本分包目录结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目基本分包目录结构">
+<meta property="og:url" content="https://deep-learn.top/2023/05/11/Springboot%E9%A1%B9%E7%9B%AE%E5%90%8E%E7%AB%AF%E5%9F%BA%E6%9C%AC%E5%88%86%E5%8C%85%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Octopus">
+<meta property="og:description" content="项目基本分包目录结构">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-05-11T13:19:31.000Z">
+<meta property="article:modified_time" content="2023-05-11T13:48:13.953Z">
+<meta property="article:author" content="Deep Octopus">
+<meta name="twitter:card" content="summary">
+
+    <meta name="keywords" content="分包">
+
+
+<title >项目基本分包目录结构</title>
+
+<!-- Favicon -->
+
+    <link href='/images/energy16.png?v=2.0.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/images/energy32.png?v=2.0.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/katex@latest/dist/katex.min.css">
+
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3975750_ub8ok6z2a8.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"deep-learn.top","author":"Deep Octopus","root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"images/energy32.png","icon16":"images/energy16.png","icon32":"images/energy32.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"images/energy16.png","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":10000},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-05-11 21:48:13"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?24e69222a4eb2ea8339af0d51bd99a47";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/images/energy32.png">
+    
+    
+        <div class="trm-logo-text">
+            DEEP<span>LEARN</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/category/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/links/" target="">
+                    友情链接
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+        <a id="trm-search-btn" class="trm-search-btn" data-no-swup target="_blank" href="https://www.baidu.com/s?wd=site:www.imalun.com">
+            <i class="iconfont fas fa-search"></i>
+        </a>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            项目基本分包目录结构
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/ava2.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        一个很闲的vegetable
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont icon-github"></i>
+        </a>
+    
+        <a href="https://www.qq.com/" title="QQ" rel="nofollow" target="_blank">
+            <i class="iconfont icon-QQ"></i>
+        </a>
+    
+        <a href="https://wx.qq.com/" title="WeChat" rel="nofollow" target="_blank">
+            <i class="iconfont icon-weixin"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                重庆 渝北 西唯兵
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                20
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1687723655@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            05/11
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            21:19
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Deep Octopus
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p>​		代码分包一直以来都是程序员的一个必备技能，代码分包是指将代码按照一定的逻辑或功能进行分组，放置在不同的包中，从而组织好代码的层次结构。代码分包的重要性如下：</p>
+<ol>
+<li class="lvl-3"><code>提高代码的可读性和可维护性</code>：代码分包可以将相关的代码放在一起，有利于人们理解代码的逻辑和结构，减少代码的混乱和冗余，提高代码的可读性。此外，代码分包也有助于维护代码，当需要修改某个功能时，只需要修改与之相关的包中的代码，不会影响其他的代码。</li>
+<li class="lvl-3"><code>便于团队协作开发</code>：在一个团队中，每个人都可能负责不同的代码模块或功能，代码分包可以将不同的功能或模块进行分离，不同的开发人员可以分别负责不同的包中的代码，可以有效减少代码冲突和合并的次数，提高团队的协作开发效率。</li>
+<li class="lvl-3"><code>有利于代码重用</code>：代码分包可以将通用的功能代码封装到一个包中，不同的模块可以直接调用这个包中的代码，避免重复编写相同的代码，提高代码的重用性和开发效率。</li>
+<li class="lvl-3"><code>有助于代码优化和调试</code>：通过代码分包可以更清晰地了解各个代码模块之间的依赖关系，有利于进行代码优化和调试。例如，当出现性能问题时，可以根据代码分包的结构，定位到具体的模块或功能，从而更快地找到问题的根本原因。</li>
+</ol>
+<p>​		代码分包是一个非常重要的技术，能够有效提高代码的可读性、可维护性、可重用性和协作开发效率，有助于代码的优化和调试，是现代软件开发中不可缺少的一部分。</p>
+<p>##分包示例</p>
+<p>###后端Springboot项目代码分包示例</p>
+<p>在 Spring Boot 项目中，可以根据功能或模块将代码划分为不同的包，以便更好地组织和管理代码。</p>
+<p>以下是一些可能的包分配方式：</p>
+<ol>
+<li class="lvl-3">
+<p>控制器层和业务逻辑层分离：可以将所有控制器放在一个包中，将所有的业务逻辑层代码放在另一个包中。</p>
+</li>
+<li class="lvl-3">
+<p>根据功能模块分离：将所有与用户身份验证相关的代码放在一个包中，将所有与订单处理相关的代码放在另一个包中，以此类推。</p>
+</li>
+<li class="lvl-3">
+<p>按层分离：将所有的实体类放在一个包中，将所有的 DAO（数据访问对象）接口和实现类放在另一个包中，将所有的服务接口和实现类放在另一个包中，以此类推。</p>
+</li>
+<li class="lvl-3">
+<p>按技术类型分离：将所有与数据库操作相关的代码放在一个包中，将所有与 RESTful API 相关的代码放在另一个包中，将所有与 WebSocket 相关的代码放在另一个包中，以此类推。</p>
+</li>
+</ol>
+<p>无论您选择哪种方式，都需要考虑以下问题：</p>
+<ol>
+<li class="lvl-3">
+<p>包的数量：您不希望包的数量太多，这会让您的项目变得杂乱无章。另一方面，也不要将太多的代码放在同一个包中，否则这将使代码难以阅读和维护。</p>
+</li>
+<li class="lvl-3">
+<p>包的名称：尽量为包选择具有描述性的名称，以便其他人可以轻松地理解它们的目的。</p>
+</li>
+<li class="lvl-3">
+<p>包之间的依赖关系：确保您的包之间的依赖关系合理。通常，较低级别的包不应该依赖于较高级别的包，因为这将增加耦合性。相反，较高级别的包应该依赖于较低级别的包，以确保代码的可维护性和可重用性。</p>
+</li>
+</ol>
+<p>综上所述，根据您的具体项目需求和设计，选择适当的包划分方式是非常重要的。</p>
+<p>下面是一个基本的 Spring Boot 项目标准分包目录结构示例，以 <code>com.example</code> 作为根包：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">src/main/java</span><br><span class="line">├─ com.example.demo</span><br><span class="line">│  ├─ config                   # 配置类</span><br><span class="line">│  ├─ controller               # 控制器层</span><br><span class="line">│  ├─ dao                      # 数据访问层</span><br><span class="line">│  ├─ entity                   # 实体类</span><br><span class="line">│  ├─ exception                # 异常类</span><br><span class="line">│  ├─ service                  # 服务层</span><br><span class="line">│  │  ├─ impl                  # 服务层实现类</span><br><span class="line">│  │  └─ dto                   # 数据传输对象</span><br><span class="line">│  └─ utils                    # 工具类</span><br><span class="line">└─ resources</span><br><span class="line">   ├─ static                   # 静态资源</span><br><span class="line">   ├─ templates                # 模板文件</span><br><span class="line">   ├─ application.properties   # 应用配置文件</span><br><span class="line">   └─ application.yml          # 应用配置文件</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>dao</code> 层和 <code>service</code> 层分别对应数据访问层和服务层，分别负责处理数据访问和业务逻辑，可以更好地实现职责分离和模块化设计。</p>
+</li>
+<li class="lvl-2">
+<p><code>service</code> 层下面还有 <code>impl</code> 和 <code>dto</code> 两个子包，分别用于存放服务层的实现类和数据传输对象。<code>impl</code> 子包可以帮助我们更好地组织服务层的代码，<code>dto</code> 子包可以用于定义与前端交互的数据模型。</p>
+</li>
+<li class="lvl-2">
+<p>新增了 <code>exception</code> 包，用于存放自定义异常类。自定义异常可以帮助我们更好地处理异常情况，并提供更加友好的错误提示信息。</p>
+</li>
+<li class="lvl-2">
+<p><code>utils</code> 包用于存放通用工具类，如日期处理工具类、加密解密工具类、文件上传下载工具类等。</p>
+</li>
+<li class="lvl-2">
+<p><code>resources</code> 目录下新增了 <code>static</code> 和 <code>templates</code> 两个子目录，用于存放静态资源和模板文件。静态资源包括图片、CSS 和 JavaScript 等文件，模板文件用于生成 HTML 页面。</p>
+</li>
+<li class="lvl-2">
+<p><code>application.properties</code> 和 <code>application.yml</code> 分别对应应用的配置文件，可以用于配置应用的属性和参数。</p>
+</li>
+</ul>
+<p>下面是一个基本的 Spring Boot 项目调用层级流程示意图：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────────┐          ┌───────────────────┐          ┌───────────────────┐</span><br><span class="line">│     Controller    │ ◄─────── │       Service     │ ◄─────── │         DAO       │</span><br><span class="line">└───────────────────┘          └───────────────────┘          └───────────────────┘</span><br><span class="line"><span class="code">            ▲                             ▲                             ▲        </span></span><br><span class="line"><span class="code">            │                             │                             │        </span></span><br><span class="line"><span class="code">            │                             │                             │        </span></span><br><span class="line"><span class="code">            │                             │                             │        </span></span><br><span class="line"><span class="code">┌───────────────────┐          ┌───────────────────┐          ┌───────────────────┐</span></span><br><span class="line"><span class="code">│       DTO         │ ◄─────── │       Entity      │ ◄─────── │       Mapper      │</span></span><br><span class="line"><span class="code">└───────────────────┘          └───────────────────┘          └───────────────────┘</span></span><br></pre></td></tr></table></figure>
+<p>其中，Controller 层接收 HTTP 请求，调用 Service 层的方法处理业务逻辑，Service 层调用 DAO 层的方法访问数据库获取数据。DTO 用于数据传输对象，用于封装与 HTTP 请求和响应相关的数据，Entity 用于表示数据库中的表结构，Mapper 用于存储 MyBatis 的 SQL 映射语句。</p>
+<p>调用层级流程可以总结为以下步骤：</p>
+<ol>
+<li class="lvl-3">
+<p><code>Controller </code>接收 HTTP 请求，解析请求参数并将其转换为 <code>DTO </code>对象。</p>
+</li>
+<li class="lvl-3">
+<p><code>Controller</code> 调用 <code>Service</code> 层的方法，将 <code>DTO</code> 对象作为参数传递给 <code>Service</code> 层。</p>
+</li>
+<li class="lvl-3">
+<p><code>Service</code> 层处理业务逻辑，根据需要调用 <code>DAO</code> 层的方法获取数据。</p>
+</li>
+<li class="lvl-3">
+<p><code>DAO</code> 层访问数据库获取数据，将数据转换为 <code>Entity </code>对象。</p>
+</li>
+<li class="lvl-3">
+<p><code>DAO</code> 层将 <code>Entity</code> 对象返回给 <code>Service</code> 层。</p>
+</li>
+<li class="lvl-3">
+<p><code>Service</code> 层将 <code>Entity</code> 对象转换为 <code>DTO</code> 对象，并将其返回给 <code>Controller</code> 层。</p>
+</li>
+<li class="lvl-3">
+<p><code>Controller</code> 层将<code> DTO</code> 对象转换为 HTTP 响应并返回给客户端。</p>
+</li>
+</ol>
+<p>以上是一个简单的调用层级流程示例，具体实现可能会因项目需求和设计而有所不同。</p>
+<p>###前端Vue项目代码分包示例</p>
+<p>下面是一个细致的 Vue 前端项目目录结构，按照功能划分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">├── api/                        # 存放 API 接口相关文件</span><br><span class="line">│   ├── config.js               # API 配置文件</span><br><span class="line">│   ├── index.js                # API 接口的入口文件</span><br><span class="line">│   └── modules/                # 存放不同模块的 API 接口文件</span><br><span class="line">│       ├── auth.js              # 用户认证相关 API 接口</span><br><span class="line">│       ├── orders.js            # 订单相关 API 接口</span><br><span class="line">│       └── products.js          # 商品相关 API 接口</span><br><span class="line">├── assets/                     # 存放静态资源文件</span><br><span class="line">│   ├── fonts/                   # 存放字体文件</span><br><span class="line">│   ├── images/                  # 存放图片文件</span><br><span class="line">│   └── styles/                  # 存放样式文件</span><br><span class="line">│       ├── base.scss             # 全局基础样式</span><br><span class="line">│       ├── variables.scss        # 全局变量样式</span><br><span class="line">│       └── mixins/               # 存放 SCSS 混合</span><br><span class="line">├── components/                 # 存放全局组件</span><br><span class="line">│   ├── common/                  # 存放通用组件</span><br><span class="line">│   ├── layout/                  # 存放布局组件</span><br><span class="line">│   └── ui/                      # 存放 UI 组件</span><br><span class="line">├── router/                     # 存放路由相关文件</span><br><span class="line">│   ├── index.js                 # 路由配置文件</span><br><span class="line">│   └── middleware/              # 存放路由中间件文件</span><br><span class="line">├── store/                      # 存放 Vuex 状态管理相关文件</span><br><span class="line">│   ├── index.js                 # Vuex Store 的入口文件</span><br><span class="line">│   ├── modules/                 # 存放不同模块的 Vuex Store 文件</span><br><span class="line">│   │   ├── auth.js               # 用户认证相关 Vuex Store</span><br><span class="line">│   │   ├── orders.js             # 订单相关 Vuex Store</span><br><span class="line">│   │   └── products.js           # 商品相关 Vuex Store</span><br><span class="line">│   └── plugins/                 # 存放 Vuex 插件</span><br><span class="line">│       └── logger.js             # 日志插件</span><br><span class="line">├── utils/                      # 存放工具类相关文件</span><br><span class="line">│   ├── helpers/                 # 存放通用工具类</span><br><span class="line">│   ├── services/                # 存放数据服务相关文件</span><br><span class="line">│   ├── validators/              # 存放表单验证相关文件</span><br><span class="line">│   └── constants.js             # 存放常量文件</span><br><span class="line">├── views/                      # 存放视图相关文件</span><br><span class="line">│   ├── auth/                    # 存放用户认证相关视图</span><br><span class="line">│   ├── orders/                  # 存放订单相关视图</span><br><span class="line">│   ├── products/                # 存放商品相关视图</span><br><span class="line">│   └── dashboard.vue            # 控制面板视图</span><br><span class="line">├── App.vue                     # 根组件</span><br><span class="line">├── main.js                     # 应用程序的入口文件</span><br><span class="line">└── router.js                   # 路由配置文件的入口文件</span><br></pre></td></tr></table></figure>
+<p>在这个目录结构中，我们将文件按照功能进行了分类。具体来说：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>api</code> 文件夹存放 API 接口相关文件，其中 <code>config.js</code> 为 API 配置文件，<code>index.js</code> 为API 接口的入口文件，<code>modules</code> 文件夹存放不同模块的 API 接口文件。</p>
+</li>
+<li class="lvl-2">
+<p><code>assets</code> 文件夹存放静态资源文件，包括字体、图片和样式等。其中，<code>fonts</code> 文件夹存放字体文件，<code>images</code> 文件夹存放图片文件，<code>styles</code> 文件夹存放样式文件，包括全局基础样式、全局变量样式和 SCSS 混合等。</p>
+</li>
+<li class="lvl-2">
+<p><code>components</code> 文件夹存放全局组件，包括通用组件、布局组件和 UI 组件等。</p>
+</li>
+<li class="lvl-2">
+<p><code>router</code> 文件夹存放路由相关文件，其中 <code>index.js</code> 为路由配置文件，<code>middleware</code> 文件夹存放路由中间件文件。</p>
+</li>
+<li class="lvl-2">
+<p><code>store</code> 文件夹存放 Vuex 状态管理相关文件，其中 <code>index.js</code> 为 Vuex Store 的入口文件，<code>modules</code> 文件夹存放不同模块的 Vuex Store 文件，<code>plugins</code> 文件夹存放 Vuex 插件。</p>
+</li>
+<li class="lvl-2">
+<p><code>utils</code> 文件夹存放工具类相关文件，包括通用工具类、数据服务相关文件、表单验证相关文件和常量文件等。</p>
+</li>
+<li class="lvl-2">
+<p><code>views</code> 文件夹存放视图相关文件，包括用户认证相关视图、订单相关视图、商品相关视图和控制面板视图等。</p>
+</li>
+<li class="lvl-2">
+<p><code>App.vue</code> 文件为根组件，<code>main.js</code> 文件为应用程序的入口文件，<code>router.js</code> 文件为路由配置文件的入口文件。</p>
+</li>
+</ul>
+<p>对于调用层级流程，我们可以简述如下：</p>
+<ol>
+<li class="lvl-3">
+<p>用户在浏览器中访问 Vue 应用，浏览器请求后端获取 HTML 页面。</p>
+</li>
+<li class="lvl-3">
+<p>后端返回 HTML 页面，并将 Vue 应用的 JavaScript 资源文件发送给浏览器。</p>
+</li>
+<li class="lvl-3">
+<p>浏览器解析 HTML 页面和 JavaScript 文件，初始化 Vue 应用。</p>
+</li>
+<li class="lvl-3">
+<p>Vue 应用根据路由配置文件加载对应的视图组件。</p>
+</li>
+<li class="lvl-3">
+<p>视图组件向 Store 层请求数据，Store 层调用 API 层发送 HTTP 请求获取数据。</p>
+</li>
+<li class="lvl-3">
+<p>API 层将请求发送给后端，后端返回数据。</p>
+</li>
+<li class="lvl-3">
+<p>API 层将后端返回的数据解析后返回给 Store 层。</p>
+</li>
+<li class="lvl-3">
+<p>Store 层将数据保存到 Vuex Store 中，并通知视图组件更新数据。</p>
+</li>
+<li class="lvl-3">
+<p>视图组件根据 Store 中的数据渲染页面，并处理用户的交互行为。</p>
+</li>
+<li class="lvl-4">
+<p>如果需要与后端进行数据交互，视图组件调用工具类层的 API 请求方法发送 HTTP 请求。</p>
+</li>
+<li class="lvl-4">
+<p>工具类层调用 Axios 等库发送 HTTP 请求，获取后端返回的数据。</p>
+</li>
+<li class="lvl-4">
+<p>如果需要进行数据持久化操作，视图组件调用 Store 层的数据读取和写入方法。</p>
+</li>
+</ol>
+<p>总体来说，Vue 的调用层级流程相对清晰，不同的层级各司其职，实现了数据的分离和解耦，提高了项目的可维护性和可扩展性。</p>
+<p>下面是一个基本的 Vue 前端项目调用层级流程示意图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────────┐          ┌───────────────────┐          ┌───────────────────┐</span><br><span class="line">│       Router      │ ◄───────│        Store        │ ◄───────│      Component    │</span><br><span class="line">└───────────────────┘          └───────────────────┘          └───────────────────┘</span><br><span class="line">            ▲                             ▲                             ▲        </span><br><span class="line">            │                             │                             │        </span><br><span class="line">            │                             │                             │        </span><br><span class="line">            │                             │                             │        </span><br><span class="line">┌───────────────────┐          ┌───────────────────┐          ┌───────────────────┐</span><br><span class="line">│      View         │ ◄───────│        Vuex         │ ◄───────│      Component    │</span><br><span class="line">└───────────────────┘          └───────────────────┘          └───────────────────┘</span><br></pre></td></tr></table></figure>
+<p>其中，Router 层负责处理页面路由，Store 层负责管理应用程序的状态，View 层负责渲染页面并与用户交互。Component 是一个概念性的层级，用于表示各种可复用的 Vue 组件。</p>
+<p>调用层级流程可以总结为以下步骤：</p>
+<ol>
+<li class="lvl-3">
+<p>Router 层根据路由信息，选择合适的视图组件进行展示。</p>
+</li>
+<li class="lvl-3">
+<p>视图组件调用 Vuex 的方法，获取应用程序的状态。</p>
+</li>
+<li class="lvl-3">
+<p>Vuex 状态管理层处理应用程序的状态，根据需要调用其他服务或者直接处理数据逻辑。</p>
+</li>
+<li class="lvl-3">
+<p>组件层接收应用程序状态和其他参数，将其传递给子组件，进行页面的渲染。</p>
+</li>
+<li class="lvl-3">
+<p>组件层处理用户的交互行为，调用对应的方法或者发送请求到后端获取数据。</p>
+</li>
+<li class="lvl-3">
+<p>如果需要与后端进行数据交互，可以在 API 层中实现发送 HTTP 请求并接收后端响应的操作。在 Vue 项目中，通常会使用 Axios 或者 Vue-resource 等库来封装 HTTP 请求，方便在 API 层中调用。</p>
+</li>
+</ol>
+<p><strong>本文只是针对前后端项目（前端使用Vue，后端使用Springboot）的一个标准的分包示例，可以为大家进行代码分包提供一定的参考，对于不同的项目和框架会有差异</strong></p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">如果这篇文章对你有帮助，你可以请作者喝一杯蜜雪冰城。</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205139.jpg' target='_blank' >
+                       <img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205139.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205380.png' target='_blank' >
+                       <img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205380.png" alt="微信" loading="lazy">
+                    </a>
+                    <p>微信</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="https://www.logosc.cn/oss/download/qt/2023/05/05/a138abd126e7f55dbda11e0ad1fd7fd0.jpeg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%90%8E%E7%AB%AF/">
+                    后端
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AF%BC%E8%AE%BA/" class="trm-anima-link">
+                    计算机导论
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/05/05</li>
+                <li>09:03</li>
+                
+                    <li>6.5k</li>
+                
+                
+                    <li>22</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div id="giscus-wrap" class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50"></div>
+<script data-swup-reload-script>
+    function loadGiscus() {
+        let nowTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+        const config = {
+            src: 'https://giscus.app/client.js',
+            "data-repo": 'Deep-Octopus/blogCommentRepo',
+            "data-repo-id": 'R_kgDOJTFKPg',
+            "data-category": 'Announcements',
+            "data-category-id": 'DIC_kwDOJTFKPs4CVkCu',
+            "data-mapping": 'pathname',
+            "data-reactions-enabled": '1',
+            "data-emit-metadata": '0',
+            "data-theme": nowTheme,
+            "data-lang": 'zh-CN',
+            crossorigin: "anonymous",
+            async: true
+        }
+        let ele = document.createElement('script')
+        for (let key in config) {
+            ele.setAttribute(key, config[key])
+        }
+        document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin', ele)
+    }
+
+    function changeGiscusTheme() {
+        let theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+
+        function sendMessage(message) {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+
+        sendMessage({
+            setConfig: {
+                theme: theme
+            }
+        });
+    }
+
+    loadGiscus();
+</script>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2023- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">一个很闲的vegetable</span>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.4
+            </span>
+        </div>
+      
+
+     
+
+    
+        <div class="trm-footer-item">
+            我们永远不会止步不前！！！
+        </div>
+     
+</footer>
+
+
+
+  <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/katex.min.js" data-swup-reload-script></script>
+
+        
+            
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/copy-tex.min.js" data-swup-reload-script></script>
+
+        
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/auto-render.min.js" data-swup-reload-script></script>
+
+        <script data-swup-reload-script>
+              window.renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true },
+                ],
+                ...{"displayMode":true,"output":"htmlAndMathml","strict":false},
+            })
+        </script>
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.0.4"></script>
+
+</body>
+
+</html>
