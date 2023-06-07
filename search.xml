@@ -1170,8 +1170,8 @@ Let us go！！</p>
 <li class="lvl-3"><code>有助于代码优化和调试</code>：通过代码分包可以更清晰地了解各个代码模块之间的依赖关系，有利于进行代码优化和调试。例如，当出现性能问题时，可以根据代码分包的结构，定位到具体的模块或功能，从而更快地找到问题的根本原因。</li>
 </ol>
 <p>​		代码分包是一个非常重要的技术，能够有效提高代码的可读性、可维护性、可重用性和协作开发效率，有助于代码的优化和调试，是现代软件开发中不可缺少的一部分。</p>
-<p>##分包示例</p>
-<p>###后端Springboot项目代码分包示例</p>
+<p>#分包示例</p>
+<p>##后端Springboot项目代码分包示例</p>
 <p>在 Spring Boot 项目中，可以根据功能或模块将代码划分为不同的包，以便更好地组织和管理代码。</p>
 <p>以下是一些可能的包分配方式：</p>
 <ol>
@@ -1251,7 +1251,7 @@ Let us go！！</p>
 </li>
 </ol>
 <p>以上是一个简单的调用层级流程示例，具体实现可能会因项目需求和设计而有所不同。</p>
-<p>###前端Vue项目代码分包示例</p>
+<p>##前端Vue项目代码分包示例</p>
 <p>下面是一个细致的 Vue 前端项目目录结构，按照功能划分：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src/</span><br><span class="line">├── api/                        # 存放 API 接口相关文件</span><br><span class="line">│   ├── config.js               # API 配置文件</span><br><span class="line">│   ├── index.js                # API 接口的入口文件</span><br><span class="line">│   └── modules/                # 存放不同模块的 API 接口文件</span><br><span class="line">│       ├── auth.js              # 用户认证相关 API 接口</span><br><span class="line">│       ├── orders.js            # 订单相关 API 接口</span><br><span class="line">│       └── products.js          # 商品相关 API 接口</span><br><span class="line">├── assets/                     # 存放静态资源文件</span><br><span class="line">│   ├── fonts/                   # 存放字体文件</span><br><span class="line">│   ├── images/                  # 存放图片文件</span><br><span class="line">│   └── styles/                  # 存放样式文件</span><br><span class="line">│       ├── base.scss             # 全局基础样式</span><br><span class="line">│       ├── variables.scss        # 全局变量样式</span><br><span class="line">│       └── mixins/               # 存放 SCSS 混合</span><br><span class="line">├── components/                 # 存放全局组件</span><br><span class="line">│   ├── common/                  # 存放通用组件</span><br><span class="line">│   ├── layout/                  # 存放布局组件</span><br><span class="line">│   └── ui/                      # 存放 UI 组件</span><br><span class="line">├── router/                     # 存放路由相关文件</span><br><span class="line">│   ├── index.js                 # 路由配置文件</span><br><span class="line">│   └── middleware/              # 存放路由中间件文件</span><br><span class="line">├── store/                      # 存放 Vuex 状态管理相关文件</span><br><span class="line">│   ├── index.js                 # Vuex Store 的入口文件</span><br><span class="line">│   ├── modules/                 # 存放不同模块的 Vuex Store 文件</span><br><span class="line">│   │   ├── auth.js               # 用户认证相关 Vuex Store</span><br><span class="line">│   │   ├── orders.js             # 订单相关 Vuex Store</span><br><span class="line">│   │   └── products.js           # 商品相关 Vuex Store</span><br><span class="line">│   └── plugins/                 # 存放 Vuex 插件</span><br><span class="line">│       └── logger.js             # 日志插件</span><br><span class="line">├── utils/                      # 存放工具类相关文件</span><br><span class="line">│   ├── helpers/                 # 存放通用工具类</span><br><span class="line">│   ├── services/                # 存放数据服务相关文件</span><br><span class="line">│   ├── validators/              # 存放表单验证相关文件</span><br><span class="line">│   └── constants.js             # 存放常量文件</span><br><span class="line">├── views/                      # 存放视图相关文件</span><br><span class="line">│   ├── auth/                    # 存放用户认证相关视图</span><br><span class="line">│   ├── orders/                  # 存放订单相关视图</span><br><span class="line">│   ├── products/                # 存放商品相关视图</span><br><span class="line">│   └── dashboard.vue            # 控制面板视图</span><br><span class="line">├── App.vue                     # 根组件</span><br><span class="line">├── main.js                     # 应用程序的入口文件</span><br><span class="line">└── router.js                   # 路由配置文件的入口文件</span><br></pre></td></tr></table></figure>
 <p>在这个目录结构中，我们将文件按照功能进行了分类。具体来说：</p>
