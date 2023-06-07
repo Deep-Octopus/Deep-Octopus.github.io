@@ -151,7 +151,7 @@
 </li>
 </ol>
 <p>在Spring Boot中，我们可以通过@Configuration注解定义一个配置类，并使用@EnableAspectJAutoProxy注解开启AOP功能。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javaCopy code@Configuration</span><br><span class="line">@EnableAspectJAutoProxy</span><br><span class="line">public class AopConfig &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableAspectJAutoProxy</span><br><span class="line">public class AopConfig &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在上面的代码中，我们定义了一个AopConfig类，并使用@EnableAspectJAutoProxy注解开启AOP功能。</p>
 <ol start="4">
 <li class="lvl-3">
@@ -159,7 +159,7 @@
 </li>
 </ol>
 <p>​		现在，我们已经完成了全局统一异常处理的配置，可以进行测试了。在测试过程中，如果出现异常，会自动被切面类捕获并处理，返回给前端一个ErrorResponse对象。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javaCopy code@RestController</span><br><span class="line">public class TestController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test&quot;)</span><br><span class="line">    public String test() &#123;</span><br><span class="line">        int i = 1 / 0;</span><br><span class="line">        return &quot;test&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class TestController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/test&quot;)</span><br><span class="line">    public String test() &#123;</span><br><span class="line">        int i = 1 / 0;</span><br><span class="line">        return &quot;test&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​		在上面的代码中，我们定义了一个TestController类，并在其中的test方法中故意抛出一个异常。当我们访问该接口时，会自动被切面类捕获并进行统一异常处理。</p>
 <p>​		在这个例子中，我们使用了切面技术实现了全局统一异常处理，这种方式相比于try-catch代码块的方式更加简洁和优雅，也更易于维护。同时，AOP还可以用于处理其他方面的逻辑，比如日志、缓存、权限控制等。</p>
 <p>​		当然，这种方式也存在一些限制和注意事项。比如，如果应用中存在多个切面，可能会出现切面的执行顺序问题，需要手动配置切面执行的顺序。另外，在使用AOP时，也需要注意对性能的影响，如果切面代码逻辑过于复杂或者切入的方法过多，可能会对应用的性能产生一定的影响。</p>
@@ -185,6 +185,83 @@
         <tag>Java</tag>
         <tag>并发编程</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>基姆·拉尔森公式</title>
+    <url>/2023/05/19/%E5%9F%BA%E5%A7%86%C2%B7%E6%8B%89%E5%B0%94%E6%A3%AE%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>基姆·拉尔森（Kim Larsen）计算公式，也被称为Zeller’s congruence（泽勒公式）。该公式用于计算给定日期的星期几。</p>
+</blockquote>
+<h3><span id="基本原理">基本原理</span></h3>
+<p>基姆·拉尔森公式是一种算法，用于确定给定日期是星期几。公式通过将日期的年份、月份和日期进行一系列数学运算，并结合一些修正项，最终计算出星期几的值。它基于每个月的排列规律以及年份的编码，通过模运算和整除运算得到结果。</p>
+<h3><span id="公式的表达式">公式的表达式</span></h3>
+<p>基姆·拉尔森公式的表达式如下所示：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">h = (q + ⌊(<span class="number">13</span>(m+<span class="number">1</span>))/<span class="number">5</span>⌋ + K + ⌊K/<span class="number">4</span>⌋ + ⌊J/<span class="number">4</span>⌋ - <span class="number">2</span>J) <span class="built_in">mod</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>h</code> 表示星期几的值（0 表示星期六，1 表示星期日，以此类推）。</p>
+</li>
+<li class="lvl-2">
+<p><code>q</code> 表示日期（在公式中为月份的第几天）。</p>
+</li>
+<li class="lvl-2">
+<p><code>m</code> 表示月份（3 表示3月，4 表示4月，以此类推，1、2月分别视为上一年的13、14月）。</p>
+</li>
+<li class="lvl-2">
+<p><code>J</code> 表示年份的前两位数。</p>
+</li>
+<li class="lvl-2">
+<p><code>K</code> 表示年份的后两位数。</p>
+</li>
+</ul>
+<h3><span id="公式的计算步骤">公式的计算步骤</span></h3>
+<p>基姆·拉尔森公式的计算步骤如下：</p>
+<ol>
+<li class="lvl-3">
+<p>根据日期，月份和年份的值，将表达式中的各个变量代入公式。</p>
+</li>
+<li class="lvl-3">
+<p>根据整除和模运算规则，计算出最终的结果。</p>
+</li>
+<li class="lvl-3">
+<p>最终的结果即为对应日期的星期几的值。</p>
+</li>
+</ol>
+<p>使用C++代码更加细致地进行讲解：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">cppCopy codeint <span class="title">dayOfWeek</span><span class="params">(<span class="type">int</span> year, <span class="type">int</span> month, <span class="type">int</span> day)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (month &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        month += <span class="number">12</span>;</span><br><span class="line">        year--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> q = day;</span><br><span class="line">    <span class="type">int</span> m = month;</span><br><span class="line">    <span class="type">int</span> J = year / <span class="number">100</span>;</span><br><span class="line">    <span class="type">int</span> K = year % <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> h = (q + (<span class="number">13</span> * (m + <span class="number">1</span>) / <span class="number">5</span>) + K + (K / <span class="number">4</span>) + (J / <span class="number">4</span>) - (<span class="number">2</span> * J)) % <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 转换为星期表示（0 表示星期六，1 表示星期日，以此类推）</span></span><br><span class="line">    <span class="keyword">if</span> (h &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        h += <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个实现基姆·拉尔森公式的C++函数。它接受年份（year）、月份（month）和日期（day）作为输入，并返回一个表示星期几的值（0 表示星期六，1 表示星期日，以此类推）。</p>
+<p>在函数中，首先对月份和年份进行一些调整：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果月份小于3，则将月份加上12，并将年份减去1，这是为了按照公式中的规定将1月和2月视为上一年的13月和14月。</p>
+</li>
+<li class="lvl-2">
+<p>接下来，根据公式将日期（q）、月份（m）、年份的前两位数（J）和后两位数（K）代入公式。</p>
+</li>
+</ul>
+<p>公式中的各个项通过数学运算符进行计算，并最终得到星期几的值（h）。注意，在计算过程中使用了整除运算和模运算。</p>
+<p>最后，将计算得到的星期几的值转换为常规的星期表示形式，确保返回的结果在 0 到 6 的范围内。</p>
+<p>这样，使用上述代码实现的函数可以准确计算给定日期的星期几，进一步应用在你的项目中。</p>
+<h3><span id="公式的适用范围">公式的适用范围</span></h3>
+<p>基姆·拉尔森公式适用于格里历（Gregorian calendar）下的日期计算，可以用来确定任意年份、月份和日期的星期几。它的应用范围广泛，包括计算机编程、日历算法等领域。</p>
+<h3><span id="公式的实现注意事项">公式的实现注意事项</span></h3>
+<p>在实现基姆·拉尔森公式时，需要注意以下几个方面：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于1月和2月，需要将它们视为上一年的13月和14月进行计算。</p>
+</li>
+<li class="lvl-2">
+<p>在整除运算中，需要使用整数除法（取商的整数部分），以获得准确的结果。</p>
+</li>
+<li class="lvl-2">
+<p>在公式中，某些项需要进行向下取整操作（Floor），以确保计算的准确性。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
   </entry>
   <entry>
     <title>MySQL数据库基本操作</title>
