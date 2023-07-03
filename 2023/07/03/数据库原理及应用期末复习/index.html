@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="数据库期末复习，涵盖书上几乎全部知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库原理及应用期末复习">
+<meta property="og:url" content="https://deep-learn.top/2023/07/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Octopus">
+<meta property="og:description" content="数据库期末复习，涵盖书上几乎全部知识点">
+<meta property="og:locale">
+<meta property="og:image" content="https://deep-learn.top/img/404.jpg">
+<meta property="og:image" content="https://deep-learn.top/img/404.jpg">
+<meta property="og:image" content="https://deep-learn.top/img/404.jpg">
+<meta property="og:image" content="https://deep-learn.top/img/404.jpg">
+<meta property="article:published_time" content="2023-07-03T06:44:53.000Z">
+<meta property="article:modified_time" content="2023-07-03T06:50:55.946Z">
+<meta property="article:author" content="Deep Octopus">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://deep-learn.top/img/404.jpg">
+
+    <meta name="keywords" content="数据库期末复习">
+
+
+<title >数据库原理及应用期末复习</title>
+
+<!-- Favicon -->
+
+    <link href='/images/energy16.png?v=2.0.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/images/energy32.png?v=2.0.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+<link rel="stylesheet" href="https://npm.elemecdn.com/katex@latest/dist/katex.min.css">
+
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3975750_ub8ok6z2a8.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"deep-learn.top","author":"Deep Octopus","root":"/","typed_text":null,"theme_version":"2.0.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"images/energy32.png","icon16":"images/energy16.png","icon32":"images/energy32.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"images/energy16.png","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":10000},"creative_commons":{"license":"by-nc-sa","language":"deed.zh"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-07-03 14:50:55"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?24e69222a4eb2ea8339af0d51bd99a47";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha256-TThEtR+XalhWKkfF383YLOrI50NGNeIqrzS+q08afrY=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/images/energy32.png">
+    
+    
+        <div class="trm-logo-text">
+            DEEP<span>LEARN</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/category/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/tags/" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/links/" target="">
+                    友情链接
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/about/" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+        <a id="trm-search-btn" class="trm-search-btn" data-no-swup target="_blank" href="https://www.baidu.com/s?wd=site:www.imalun.com">
+            <i class="iconfont fas fa-search"></i>
+        </a>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            数据库原理及应用期末复习
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/ava2.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        一个很闲的vegetable
+    </h5>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont icon-github"></i>
+        </a>
+    
+        <a href="https://www.qq.com/" title="QQ" rel="nofollow" target="_blank">
+            <i class="iconfont icon-QQ"></i>
+        </a>
+    
+        <a href="https://wx.qq.com/" title="WeChat" rel="nofollow" target="_blank">
+            <i class="iconfont icon-weixin"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                地址:
+            </div>
+            <div class="trm-label trm-label-light">
+                重庆 渝北 西唯兵
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                20
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:1687723655@qq.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数据库原理及应用期末复习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">第一章  数据库系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">数据库基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">数据模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">第二章  关系数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">第六章  关系数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">第七章  数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.4.1.</span> <span class="toc-text">数据库设计的步骤</span></a></li></ol></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            07/03
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            14:44
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Deep Octopus
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1><span id="数据库原理及应用期末复习">数据库原理及应用期末复习</span></h1>
+<blockquote>
+<p>有志者，事竟成。</p>
+</blockquote>
+<h2><span id="第一章-数据库系统概述">第一章  数据库系统概述</span></h2>
+<h3><span id="数据库基本概念">数据库基本概念</span></h3>
+<p>数据：数据是数据库中存储的基本对象，可以定义为：<strong><code>描述事物的符号记录</code></strong>。</p>
+<p>数据库：长期存储在计算机内的、有组织的、可共享的大量数据集合。</p>
+<p>数据库管理系统：位于用户与操作系统之间的一层<code>数据管理软件</code>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>作用：它能科学地组织和存储数据，高效地获取和维护数据。</p>
+</li>
+<li class="lvl-2">
+<p>功能：</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据定义</li>
+<li class="lvl-6">数据操纵</li>
+<li class="lvl-6">数据库的运行管理</li>
+<li class="lvl-6">数据库的建立与维护</li>
+</ul>
+</li>
+</ul>
+<p>数据库系统：在计算机系统中引入数据库后的系统，是<code>由软件和硬件组成的完整系统</code>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>特点：</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据结构化</li>
+<li class="lvl-6">数据冗余度低，实现了数据共享</li>
+<li class="lvl-6">数据独立性高</li>
+<li class="lvl-6">数据由DBMS统一管理和控制</li>
+</ul>
+</li>
+</ul>
+<h3><span id="数据模型">数据模型</span></h3>
+<pre class="mermaid">graph TB
+	a(现实世界)-->b(信息世界)
+	b --> c(计算机世界)
+	f(问题) --> d(概念模型)
+	d --> e(数据模型)</pre>
+<p>概念模型相关术语：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>实体</code>：客观存在的、可以相互区别的事物或概念。</p>
+<ul class="lvl-2">
+<li class="lvl-6">实体转换规则
+<ul class="lvl-4">
+<li class="lvl-10">一个实体型转化为一个关系模式</li>
+<li class="lvl-10">实体的属性就是关系的属性</li>
+<li class="lvl-10">实体的码就是关系的码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>属性</code>：实体所具有的某一个特性。</p>
+</li>
+<li class="lvl-2">
+<p><code>码</code>：能够唯一标识实体的属性集。</p>
+</li>
+<li class="lvl-2">
+<p><code>域</code>：属性的取值范围。</p>
+</li>
+<li class="lvl-2">
+<p>同型实体：具有相同属性的实体。</p>
+</li>
+<li class="lvl-2">
+<p>实体型：用实体名及其属性名的集合来抽象和刻画同型实体。</p>
+</li>
+<li class="lvl-2">
+<p>实体集：属于同一个实体型的实体集合。</p>
+</li>
+<li class="lvl-2">
+<p>联系：包括实体内部的联系与实体之间的联系。</p>
+</li>
+</ul>
+<p>概念模型的<code>组成要素</code>：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据结构: 对系统静态特征的描述。关系结构的数据模型是关系模型。</p>
+</li>
+<li class="lvl-2">
+<p>数据操作：对系统动态行为的描述。数据库主要有<code>检索</code>和<code>更新</code>两大类操作。</p>
+</li>
+<li class="lvl-2">
+<p>完整性约束条件：描述数据结构内数据语法、语义<code>联系</code>、他们之间的<code>制约与依存关系</code>，以及数据动态变化的<code>规则</code>。</p>
+</li>
+</ul>
+<p>概念模型的<code>特点</code>：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>能真实、充分地反映现实世界;</p>
+</li>
+<li class="lvl-2">
+<p>易于理解;</p>
+</li>
+<li class="lvl-2">
+<p>易于更改;</p>
+</li>
+<li class="lvl-2">
+<p>易于向关系、网状、层次等各种数据模型转换。</p>
+</li>
+</ul>
+<p>常用数据模型：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>层次模型</p>
+</li>
+<li class="lvl-2">
+<p>网状模型</p>
+</li>
+<li class="lvl-2">
+<p>关系模型</p>
+</li>
+</ul>
+<p><strong>数据库三级模式</strong>：</p>
+<p>数据库系统体系结构从数据库管理系统角度看数据库系统内部的模式结构，通常用三级模式结构：外模式、模式、内模式。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>外模式：又称子模式或用户模式，是模式的子集，是<code>数据的局部逻辑结构</code>，也是数据库用户看到的数据视图。一个数据库可以有多个外模式。应用程序都和外模式打交道。</p>
+</li>
+<li class="lvl-2">
+<p>模式：又称逻辑模式或概念模式，它是<code>数据库中全体数据的全局逻辑结构和特征的描述</code>，也是所有用户的公共数据视图。模式实际上是数据库数据在逻辑级上的视图，<code>一个数据库只有一个模式</code>。</p>
+</li>
+<li class="lvl-2">
+<p>内模式：又称存储模式，是数据在数据库中的内部表示，即<code>数据的物理结构和存储方式的描述</code>。<code>一个数据库只有一个内模式</code>。</p>
+</li>
+</ul>
+<p><strong>数据库二级映像</strong></p>
+<p>为了在内部实现数据库的三个抽象层次的联系和转换而生</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>外模式/模式</p>
+<ul class="lvl-2">
+<li class="lvl-6">模式描述数据的<code>全局逻辑结构</code>，外模式描述数据的<code>局部逻辑结构</code>，<code>同一个模式可以任意多个外模式</code></li>
+<li class="lvl-6">对于每一个外模式，数据库系统都有一个外模式/模式映像</li>
+<li class="lvl-6">当模式改变时，数据库管理员对各个外模式/模式映像做出相应改变，以保持外模式不变。应用程序是依据数据的外模式编写的，从而应用程序库不必修改，保证了<code>数据与程序的逻辑独立性</code></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>模式/内模式</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库中只有一个模式，也只有一个内模式，所以<code>模式/内模式映像是唯一的</code></li>
+<li class="lvl-6">定义了数据库的全局逻辑结构与存储结构之间的对应关系</li>
+<li class="lvl-6">当数据库的存储结构改变时，由数据库管理员对模式/内模式映像做出相应改变，以使模式保持不变，使得外模式不变，从而应用程序也不必修改，保证了<code>数据与程序的物理独立性</code></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>功能和作用：保证数据库系统中的数据能够有较高的逻辑独立性和物理独立性</p>
+</li>
+</ul>
+<p><strong>数据库系统的外部体系结构</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>单用户结构的数据库系统</p>
+</li>
+<li class="lvl-2">
+<p>分布式结构的数据库系统</p>
+</li>
+<li class="lvl-2">
+<p>客户机/服务器结构的数据库系统</p>
+</li>
+<li class="lvl-2">
+<p>浏览器/服务器结构的数据库系统</p>
+</li>
+</ul>
+<h2><span id="第二章-关系数据库">第二章  关系数据库</span></h2>
+<p><strong>关系数据结构</strong></p>
+<p>关系：数据之间的逻辑连接，用于描述数据实体之间的相互关系</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>域：  一组具有相同数据类型的值的集合，就是表的一列的<code>取值范围</code></p>
+</li>
+<li class="lvl-2">
+<p>笛卡尔积：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mn>3</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">D_1 = \{1,2,3\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">3</span><span class="mclose">}</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">D_2 = \{A,B\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">}</span></span></span></span></p>
+<ul class="lvl-2">
+<li class="lvl-6">二者笛卡尔积为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>1</mn></msub><mo>×</mo><msub><mi>D</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mn>1</mn><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>1</mn><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mi>A</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">)</mo><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">D_1\times D_2 = \{(1,A),(1,B),(2,A),(2,B),(3,A),(3,B)\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{(</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">)}</span></span></span></span></li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>关系：笛卡尔中有实际意义的元组构成关系（一张二维表）</p>
+</li>
+<li class="lvl-2">
+<p>候选码：能唯一标识关系中一个元组的某一属性组（可能不止一个）</p>
+</li>
+<li class="lvl-2">
+<p>主属性：候选码的诸属性称为主属性</p>
+</li>
+<li class="lvl-2">
+<p>非主属性：不存在与任何候选码中的属性称为非主属性</p>
+</li>
+<li class="lvl-2">
+<p>全码：关系模式的所有属性是这个关系模式的候选码，称为全码</p>
+</li>
+<li class="lvl-2">
+<p>性质</p>
+<ul class="lvl-2">
+<li class="lvl-6">关系中的属性值不可分解（原子性）</li>
+<li class="lvl-6">表中各列取自同一个域</li>
+<li class="lvl-6">不同属性给予不同属性名</li>
+<li class="lvl-6">行列次序可以交换</li>
+<li class="lvl-6">表中的行叫元组，即一个实体，表中不能有完全相同的两行</li>
+</ul>
+</li>
+</ul>
+<p>关系模式：关系数据库中的数据结构，它定义了表的结构和属性</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系模式是型，关系是值，关系模式是对关系的描述</p>
+</li>
+</ul>
+<p>关系数据库：是一种基于关系模型的数据库。它使用表和列来组织和存储数据</p>
+<p>关系数据库操作：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>常用关系操作</p>
+<ul class="lvl-2">
+<li class="lvl-6">查询操作：选择、投影、连接、除、并、差、交、笛卡尔积，选择、投影、并、差、笛卡尔积是5中基本操作</li>
+<li class="lvl-6">数据更新：插入、删除、修改</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>关系操作特点</p>
+<ul class="lvl-2">
+<li class="lvl-6">集合操作方式</li>
+</ul>
+</li>
+</ul>
+<p>完整性约束：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>实体完整性：若属性A是基本关系R的主属性，则A不能取空值（对主码的约束）</p>
+<ul class="lvl-2">
+<li class="lvl-6">保证了实体的可区分性</li>
+<li class="lvl-6">保证了实体的唯一性</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>参照完整性：外码只能取空值或目标关系存在的值（对外码的约束）</p>
+<ul class="lvl-2">
+<li class="lvl-6">定义外码与主码之间的引用规则</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>用户定义的完整性：针对某一具体应用环境，给出关系数据库的约束条件。这些约束条件反应某一具体应用所涉及的数据必须满足的语义要求</p>
+</li>
+</ul>
+<p>关系运算</p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202307031445869.png" alt="关系运算符" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>##第三章  SQL语言</p>
+<p><strong>特点</strong>：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一体化</p>
+</li>
+<li class="lvl-2">
+<p>高度非过程化</p>
+</li>
+<li class="lvl-2">
+<p>语言简洁</p>
+</li>
+<li class="lvl-2">
+<p>多种使用方式</p>
+</li>
+</ul>
+<p>数据库定义：CREATE DATABASE 数据库名</p>
+<p>数据库维护：ALTER DATABASE 数据库名</p>
+<p>表定义：CREATE TABLE 表名(属性名 数据类型 属性约束条件, …,表约束条件)</p>
+<p>常用数据类型：varchar(n), text , date, int , bigint, float  …</p>
+<p>###完整性约束定义</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>作用范围：列级约束，元组约束，关系约束</p>
+</li>
+<li class="lvl-2">
+<p>实体完整性</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>NOT NULL 约束</code>：该约束确保列中的每个值都不为空。</p>
+<p>例如，将 ‘customers’ 表中的 ‘customer_name’ 列设为 NOT NULL 约束：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE customers MODIFY customer_name VARCHAR(50) NOT NULL;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-6">
+<p><code>UNIQUE 约束</code>：该约束确保列或一组列中的每个值都是唯一的，即不能重复。</p>
+<p>例如，将 ‘customers’ 表中的 ‘email’ 列设为 UNIQUE 约束：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE customers ADD CONSTRAINT unique_email UNIQUE (email);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-6">
+<p><code>PRIMARY KEY 约束</code>：该约束确保列或一组列中的每个值都是唯一的，并用于唯一标识表中的每个记录。</p>
+<p>例如，在一个新表中创建一个名为 ‘orders’ 的主键约束：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders (</span><br><span class="line">  order_id INT PRIMARY KEY,</span><br><span class="line">  customer_id INT,</span><br><span class="line">  order_date DATE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>参照完整性</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>FOREIGN KEY 约束</code>：该约束确保列或一组列中的值与另一个表中的值相匹配。这是关联两个表的常用方法。</p>
+<p>例如，在 ‘orders’ 表中添加一个指向 ‘customers’ 表的 ‘customer_id’ 列的外键约束</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orders ADD CONSTRAINT fk_orders_customer_id</span><br><span class="line">  FOREIGN KEY (customer_id) REFERENCES customers(customer_id);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-6">
+<p>违反参照完整性的处理方式：拒绝、联级删除（修改）、设置为空值，默认是拒绝</p>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>用户定义完整性</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>CHECK 约束</code>：该约束确保列中的每个值都满足特定条件。</p>
+<p>例如，在 ‘employees’ 表中添加一个 CHECK 约束，以确保 ‘salary’ 列中的值大于等于 50000：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE employees ADD CONSTRAINT check_salary CHECK (salary &gt;= 50000);</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-6">
+<p><code>DEFAULT 约束</code>：该约束指定在未提供值时使用的默认值。</p>
+<p>例如，在 ‘orders’ 表中为 ‘order_date’ 列添加一个 DEFAULT 约束，以便在未提供值时使用当前日期：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orders MODIFY order_date DATE DEFAULT CURRENT_DATE;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>INDEX 约束</code>：该约束创建一个索引，以提高对该列的检索效率。</p>
+<p>例如，在 ‘products’ 表中为 ‘product_name’ 列添加一个索引：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX idx_product_name ON products (product_name);</span><br></pre></td></tr></table></figure>
+<p>…</p>
+</li>
+</ul>
+<p>###索引</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>优点：可以加快查询速度</p>
+</li>
+<li class="lvl-2">
+<p>缺点：本身会占用用户数据库空间，会增加维护索引的时间成本</p>
+</li>
+<li class="lvl-2">
+<p>种类</p>
+<ul class="lvl-2">
+<li class="lvl-6"><code>聚集索引</code>：数据库表中的数据按照索引关键字的顺序存储。<code>一张表只能有一个聚集索引</code></li>
+<li class="lvl-6"><code>非聚集索引</code>：表的物理顺序和索引关键字顺序不同。<code>一张表可以有多个非聚集索引</code></li>
+<li class="lvl-6"><code>唯一索引</code>：索引关键字不允许重复。`聚集索引和非聚集索引都可以是唯一索引</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>建立索引</p>
+<p>在SQL中创建索引的常规语法如下：</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX index_name</span><br><span class="line"><span class="keyword">ON</span> table_name (column1 <span class="keyword">ASC</span>, column2 <span class="keyword">DESC</span>, ...);</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>index_name</code> 是所创建的索引的名称，在同一表中索引名称必须唯一。</p>
+</li>
+<li class="lvl-6">
+<p><code>table_name</code> 是数据表的名称。</p>
+</li>
+<li class="lvl-6">
+<p><code>(column1, column2, ...)</code> 是包含一个或多个列的索引列列表。</p>
+</li>
+</ul>
+<p>注意事项：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>索引应该尽可能放在用于筛选、排序和连接（JOIN）数据的列上。</p>
+</li>
+<li class="lvl-6">
+<p>索引可能会影响插入、更新和删除操作的性能，因此应该只在需要索引的列上创建索引。</p>
+</li>
+<li class="lvl-6">
+<p>过多的索引可能会影响查询性能，因此应该仅在必要的列上创建索引。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>###数据查询：自己多写写SQL语句，增删改查</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>单表查询</p>
+</li>
+<li class="lvl-2">
+<p>多表查询</p>
+</li>
+<li class="lvl-2">
+<p>子查询</p>
+</li>
+<li class="lvl-2">
+<p>集合查询</p>
+</li>
+<li class="lvl-2">
+<p>基于派生表查询</p>
+</li>
+<li class="lvl-2">
+<p>使用TOP选择结果集元组</p>
+</li>
+</ul>
+<p>###数据更改</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>插入数据（insert）</p>
+</li>
+<li class="lvl-2">
+<p>修改数据（update）</p>
+</li>
+<li class="lvl-2">
+<p>删除数据（delete）</p>
+</li>
+</ul>
+<p>###视图</p>
+<p>##第四章 Transact-SQL</p>
+<p>不要求</p>
+<p>##第五章 数据库管理与维护</p>
+<p>###安全性管理</p>
+<p>###并发控制</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>事务</p>
+<ul class="lvl-2">
+<li class="lvl-6">概念：由用户定义的一系列数据操作语句构成，这些操作语句要么全部执行、要么都不执行。<code>事务是数据库运行的最小的、不可分割的工作单位</code>。</li>
+<li class="lvl-6">特性（<code>ACID</code>）
+<ul class="lvl-4">
+<li class="lvl-10"><mark>原子性</mark>（Atomicity）：指事务中的操作不可分割，要么全部执行成功，要么全部回滚，保证数据的一致性。<code>原子性是事务概念本质的体现和基本要求</code></li>
+<li class="lvl-10"><mark>一致性</mark>（Consistency）：事务执行完成后，数据库中的数据必须全部更新，确保事务执行后使数据库从一个一致性状态变成另一个一致性状态，此时数据库中的数据具备正确性和完整性。当数据库只包含事务成功提交的结果，说明数据库处于一致性状态。如果不一致要进行回滚</li>
+<li class="lvl-10"><mark>隔离性</mark>（Isolation）：指并发执行的事务之间是隔离的，每个事务对于其他事务的操作是不可见的，避免了数据的冲突。</li>
+<li class="lvl-10"><mark>持久性</mark>（Durability）：指事务一旦提交，对数据库中数据的改变是永久的，即使系统崩溃或者重启，也不会丢失。</li>
+</ul>
+</li>
+<li class="lvl-6">SQL Server 的事务处理模型
+<ul class="lvl-4">
+<li class="lvl-10">显式事务：事务有显式的开始和结束标志</li>
+<li class="lvl-10">隐式事务：每条数据操作语句都自动成为一个事务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>并发</p>
+<ul class="lvl-2">
+<li class="lvl-6">事务的串行执行：一个事务完成后，再执行另一个事务</li>
+<li class="lvl-6">事务的并发执行：DBMS同时接收多个事务，这些事务在时间上重叠执行
+<ul class="lvl-4">
+<li class="lvl-10">好处：并发执行可以提高系统资源利用率，改善短事务的响应时间</li>
+<li class="lvl-10">坏处：并发执行可能会破坏事务的ACID特性</li>
+</ul>
+</li>
+<li class="lvl-6">并发操作导致的问题（破坏了<code>事务的隔离性</code>导致以下问题）
+<ul class="lvl-4">
+<li class="lvl-10">丢失更新：当两个或两个以上的事务选择同一数据值，在更新最初的读取值时，会发生丢失更新的问题</li>
+<li class="lvl-10">读“脏”数据：指一个事务读取了另一个事务失败运行过程中的数据</li>
+<li class="lvl-10">不可重复读：一个事务在执行过程中多次读取同一行数据时，由于其他事务对该行数据进行了更改，则每次读取的结果都不同。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>并发控制</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>概念：使用某种方法来执行并发操作，使得一个事务的执行不受其他事务的干扰，避免造成数据的不一致</p>
+</li>
+<li class="lvl-6">
+<p>方法</p>
+<ul class="lvl-4">
+<li class="lvl-10">排他锁（X锁）（写锁）：并发事务对数据进行访问，其他事务不能读取或更新锁定的数据。X锁采用的方法是：<code>禁止并发操作</code></li>
+<li class="lvl-10">共享锁（S锁）（读锁）：允许事务并发读取数据。其他事务可以读取锁定的数据，但是不能再释放锁之间进行修改数据操作</li>
+<li class="lvl-10">加锁的真正目的：防止更新操作对数据一致性的破坏</li>
+</ul>
+<p>锁的兼容性：（事务T1加了某个锁，T2还能不能加某个锁）</p>
+<table>
+<thead>
+<tr>
+<th>T2\T1</th>
+<th>排他锁（X锁）</th>
+<th>共享锁（S锁）</th>
+<th>–没有锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>排他锁（X锁）</td>
+<td>否</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>共享锁（S锁）</td>
+<td>否</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>–没有锁</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>SQL Server的封锁技术</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>封锁协议</p>
+<ul class="lvl-4">
+<li class="lvl-10">一级封锁协议
+<ul class="lvl-6">
+<li class="lvl-14">定义：事务T在修改数据对象之前必须先对其加上排他锁（X锁），直到事务结束（正常or非正常）释放锁</li>
+<li class="lvl-14">好处：防止丢失数据更新问题</li>
+<li class="lvl-14">不足：不能保证可重复读和读“脏”数据</li>
+</ul>
+</li>
+<li class="lvl-10">二级封锁协议
+<ul class="lvl-6">
+<li class="lvl-14">定义：在一级封锁协议的基础上，加上事务T要读取数据之前，必须先对其加上共享锁（S锁），<code>读取完毕立即释放S锁</code></li>
+<li class="lvl-14">好处：可以防止数据丢失更新问题，还可以防止读“脏”数据</li>
+<li class="lvl-14">不足：不能保证可重复读数据</li>
+</ul>
+</li>
+<li class="lvl-10">三级封锁协议
+<ul class="lvl-6">
+<li class="lvl-14">定义：在一级封锁协议的基础上，加上事务T读取数据之前须先对其加上共享锁（S锁），<code>读取完后不释放S锁</code>，而是等到事务T结束才释放</li>
+<li class="lvl-14">好处：可以防止丢失更新和不读“脏”数据，防止不可重复读</li>
+</ul>
+</li>
+</ul>
+<p>三个封锁协议都规定对数据对象的更新必须加X锁，区别在于<code>读取操作是否需要申请加锁，何时释放锁</code></p>
+<table>
+<thead>
+<tr>
+<th>封锁协议</th>
+<th>排他锁（X锁）</th>
+<th>共享锁（S锁）</th>
+<th>不丢失更新</th>
+<th>不读脏数据</th>
+<th>可重复读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一级封锁协议</td>
+<td>必须加锁，事务结束释放</td>
+<td>不加锁</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>二级封锁协议</td>
+<td>必须加锁，事务结束释放</td>
+<td>加锁，读完立即释放</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>三级封锁协议</td>
+<td>必须加锁，事务结束释放</td>
+<td>加锁，事务结束释放</td>
+<td>是</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="lvl-6">
+<p>死锁和活锁</p>
+<ul class="lvl-4">
+<li class="lvl-10">活锁
+<ul class="lvl-6">
+<li class="lvl-14">定义：当两个或多个事务请求对同一个数据进行封锁时，可能会存在某个事务处于永远等待锁的情况</li>
+<li class="lvl-14">解决方法：采用先来先服务的策略</li>
+</ul>
+</li>
+<li class="lvl-10">死锁
+<ul class="lvl-6">
+<li class="lvl-14">定义：在同时处于等待状态的两个或多个事务中，其中每一个事务都在等待其他事务释放锁后才能继续执行，即多个事务彼此相互等待</li>
+<li class="lvl-14">解决方法
+<ul class="lvl-8">
+<li class="lvl-18">采取一定的措施来避免死锁的发生</li>
+<li class="lvl-18">允许死锁的发生，但是采取一定的手段定期诊断系统中是否有死锁，有则解除它</li>
+</ul>
+</li>
+<li class="lvl-14">预防方法
+<ul class="lvl-8">
+<li class="lvl-18">一次性封锁法：每个事务必须一次性对用得到的数据全部加锁，否则不能执行</li>
+<li class="lvl-18">顺序封锁法：按照预先约定的封锁顺序进行封锁</li>
+</ul>
+</li>
+<li class="lvl-14">死锁的诊断与解除
+<ul class="lvl-8">
+<li class="lvl-18">超时法 ：设置时限，事务等待时间超时则解除死锁</li>
+<li class="lvl-18">事务等待图法：看有向图有没有回路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>并发调度的可串行性</p>
+<ul class="lvl-4">
+<li class="lvl-10">定义：多个事务的并发执行是正确的，当且仅当结果与按照某一顺序串行执行的结果相同时，称这种调度策略为可串行化的调度</li>
+<li class="lvl-10">可串行性是并发事务正确调度的<code>准则</code></li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>两段锁协议（保证调度的可串行化）</p>
+<ul class="lvl-4">
+<li class="lvl-10">定义：事务必须分为<code>两个阶段</code>对数据对象进行加锁和解锁</li>
+<li class="lvl-10">两个方面的内容：
+<ul class="lvl-6">
+<li class="lvl-14">对任何数据进行读写操作前，要先申请并获得对数据的封锁</li>
+<li class="lvl-14">释放一个封锁后，事务不再申请和获得对该数据的封锁</li>
+</ul>
+</li>
+<li class="lvl-10">两个阶段
+<ul class="lvl-6">
+<li class="lvl-14">第一阶段：申请封锁，事务可以申请获得任何数据对象上的任何类型的锁，但不允许释放任何锁</li>
+<li class="lvl-14">第二阶段：释放封锁，事务可以释放任何数据对象上的任何类型的锁，但不允许申请任何锁</li>
+</ul>
+</li>
+<li class="lvl-10">事务遵循两段锁协议是可串行化调度的充分条件，不是必要条件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>数据备份</p>
+<ul class="lvl-2">
+<li class="lvl-6">备份类型
+<ul class="lvl-4">
+<li class="lvl-10"><code>完全备份</code>（完全数据库备份）：备份整个数据库，包括所有数据对象和事务日志
+<ul class="lvl-6">
+<li class="lvl-14">操作简便，便于使用。但是随着数据库规模增大，会花费更多的时间和空间</li>
+</ul>
+</li>
+<li class="lvl-10"><code>差分备份</code>（增量备份）：仅备份自上次完全备份依赖对数据进行修改的内容
+<ul class="lvl-6">
+<li class="lvl-14">相比完全备份速度更快，空间更节省，简化了数据库备份操作，减少了丢失数据的可能性，减少还原频繁修改数据库的时间，适用于<code>修改频繁的数据</code></li>
+</ul>
+</li>
+<li class="lvl-10">事务日志备份：对事务日志进行备份，备份时复制自上次备份依赖对数据库所做的改变
+<ul class="lvl-6">
+<li class="lvl-14">用户可以使用事务日志备份将数据库恢复到特定的即时点或故障点</li>
+</ul>
+</li>
+<li class="lvl-10">文件或文件组备份</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>数据恢复</p>
+<ul class="lvl-2">
+<li class="lvl-6">事务故障：事务在运行到正常终止点前被中止
+<ul class="lvl-4">
+<li class="lvl-10">解决方法：利用事务操作的日志文件<code>撤销</code>该事务对数据库进行的<code>修改</code></li>
+</ul>
+</li>
+<li class="lvl-6">系统故障
+<ul class="lvl-4">
+<li class="lvl-10">未完成事务对数据库的更新已经写入数据库
+<ul class="lvl-6">
+<li class="lvl-14">解决方法：强行<code>撤销</code>所有<code>未完成的事务</code>并<code>清除</code>事务对数据库的<code>修改</code></li>
+</ul>
+</li>
+<li class="lvl-10">已提交事务对数据库的更新可能还留在缓冲区，没来得及写入磁盘上的物理数据库
+<ul class="lvl-6">
+<li class="lvl-14">解决方法：将事务提交的更新结果重新写入数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-6">介质故障
+<ul class="lvl-4">
+<li class="lvl-10">发生介质故障后，磁盘上的物理数据和日志文件被破坏，可能造成数据无法恢复</li>
+<li class="lvl-10">解决方法：重装数据库，然后重做已完成的事务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="第六章-关系数据库">第六章  关系数据库</span></h2>
+<p><code>关系</code>：实质上是一张二维表。表的每一行叫做一个元组，每一列叫做一个属性</p>
+<p><code>关系模式</code>：就是这个元组集合的结构上的描述</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>关系模式的形式化定义<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>U</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>D</mi><mi>O</mi><mi>M</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(U,D,DOM,F)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal" style="margin-right:0.10903em;">OM</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span></span></span></span>  R:关系名，U：组成该关系的属性集合，D：属性组U中属性所来自的域，DOM：属性向域的映像集合，F：属性间数据的依赖关系集合</p>
+</li>
+</ul>
+<p><code>关系数据库</code>：以关系模型为基础的数据库</p>
+<p>数据依赖：函数依赖、多值依赖</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>只考虑函数依赖存在的问题：</p>
+<ul class="lvl-2">
+<li class="lvl-6">数据冗余</li>
+<li class="lvl-6">更新异常
+<ul class="lvl-4">
+<li class="lvl-10">插入异常</li>
+<li class="lvl-10">更新异常</li>
+<li class="lvl-10">删除异常</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>函数依赖</code>：一个或多个属性的取值决定了另一个属性的取值</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>eg: 假设我们有一个关系R（A，B，C），其中A是主键。如果我们知道A的值，那么B和C的值就可以唯一确定。因此，我们可以说存在函数依赖A -&gt; B，A -&gt; C。</p>
+</li>
+</ul>
+<ol>
+<li class="lvl-3">
+<p>完全函数依赖（Fully functional dependency）：关系模式R（U）中，如果<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\rightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>,并且对于X的任何一个真子集<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">X&#x27;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7519em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7519em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> ，都有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mtext>’</mtext><mo>↛</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X’ \nrightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord">’</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">↛</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，则称Y完全函数依赖于X</p>
+</li>
+<li class="lvl-3">
+<p>部分函数依赖（Partial functional dependency）：若<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X \rightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>，但Y不完全函数依赖于X，则称Y部分函数依赖于X</p>
+</li>
+<li class="lvl-3">
+<p>传递函数依赖（Transitive functional dependency）：关系模式R（U），如果<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi><mo separator="true">,</mo><mi>Y</mi><mo>→</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">X\rightarrow Y,Y\rightarrow Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span>，且<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>⊈</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo>→</mo><mi>X</mi></mrow><annotation encoding="application/x-tex">Y\nsubseteq X,Y\rightarrow X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0966em;vertical-align:-0.3027em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⊈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>，则称Z传递函数依赖于X</p>
+</li>
+</ol>
+<p><code>主码</code>：设 K 为 R ( U , F )中的属性或属性集合，若U完全函数依赖于K，则K为R的<code>候选码</code>。若候选码多于一个，则选定其中一个为<code>主码</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>候选码可以唯一地识别关系的元组</p>
+</li>
+<li class="lvl-2">
+<p>一个关系模式可能具有多个候选码，可以指定一个为识别关系元组的主码</p>
+</li>
+<li class="lvl-2">
+<p>包含在任意一个候选码中的属性叫做<code>主属性</code>，反之叫<code>非主属性</code>或<code>非码属性</code></p>
+</li>
+<li class="lvl-2">
+<p>最简单的情况下，候选码只包含一个属性</p>
+</li>
+<li class="lvl-2">
+<p>最复杂的情况下，候选码包含关系模式的所有属性，称为<code>全码</code></p>
+</li>
+</ul>
+<p><code>外码</code>：关系模式R中属性或属性组X并非R的码，但X是另一个关系模式的码，则称X是R的<code>外部码</code>，简称<code>外码</code></p>
+<p>###<code>范式</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>满足不同程度要求的关系等级称为范式  |||   现在把范式理解成符合某一种级别的关系模式的集合，R为第几范式可以写成  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mi>n</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in nNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span></p>
+</li>
+<li class="lvl-2">
+<p>各范式联系：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>N</mi><mi>F</mi><mo>⊂</mo><mn>4</mn><mi>N</mi><mi>F</mi><mo>⊂</mo><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi><mo>⊂</mo><mn>3</mn><mi>N</mi><mi>F</mi><mo>⊂</mo><mn>2</mn><mi>N</mi><mi>F</mi><mo>⊂</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">5NF\subset 4NF\subset BCNF\subset 3NF\subset 2NF\subset 1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">5</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">4</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span></p>
+</li>
+<li class="lvl-2">
+<p>规范化：一个低一级范式的关系模式，通过<code>模式分解</code>可以转换为若干个高一级范式的关系模式的集合，这种过程称为规范化（<code>简单化</code>、<code>单一化</code>、<code>减少出现更新异常</code>）</p>
+</li>
+<li class="lvl-2">
+<p>几种范式</p>
+<ul class="lvl-2">
+<li class="lvl-6">第一范式（1NF）：一个关系模式R的所有属性都是不可分的基本数据项，记作<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span></li>
+<li class="lvl-6">第二范式（2NF）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，且每一个<code>非主属性</code>都完全函数依赖于码，记作<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in 2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span></li>
+<li class="lvl-6">第三范式（3NF）：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>2</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in2NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，且R中每一个<code>非主属性</code>都不传递函数依赖于R的候选码，记作<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mn>3</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in3NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">3</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>
+<ul class="lvl-4">
+<li class="lvl-10">没有限制主属性对码的依赖关系</li>
+<li class="lvl-10">如果R只包含两个属性，则R一定属于第三范式</li>
+</ul>
+</li>
+<li class="lvl-6">BC范式（BCNF）：关系模式是1NF，如果对于R的每一个函数依赖<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mi>Y</mi></mrow><annotation encoding="application/x-tex">X\rightarrow Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>,若Y不属于X时X必含有候选码，记作<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>∈</mo><mi>B</mi><mi>C</mi><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R\in BCNF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">BCNF</span></span></span></span>
+<ul class="lvl-4">
+<li class="lvl-10">特性
+<ul class="lvl-6">
+<li class="lvl-14">所有非主属性对每一个码都是完全函数依赖</li>
+<li class="lvl-14">所有主属性对每一个不包含它的码也是完全函数依赖</li>
+<li class="lvl-14">没有任何属性完全函数依赖于非码的任何一组属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-6">第四范式（4NF）：关系模式<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>U</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">)</mo><mo>∈</mo><mn>1</mn><mi>N</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">R(U,F)\in 1NF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">NF</span></span></span></span>，如果对于R的每一个非平凡多值依赖<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>→</mo><mo>→</mo><mi>Y</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>⊈</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">X\rightarrow \rightarrow Y(Y\nsubseteq X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0966em;vertical-align:-0.3027em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⊈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>，X都含有候选码</li>
+</ul>
+</li>
+</ul>
+<p>关系模式的规范化过程：</p>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202306231032478.jpg" alt="1687487451489" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2><span id="第七章-数据库设计">第七章  数据库设计</span></h2>
+<p>###<code>数据库设计的方法</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>直观设计法（手工试凑法）</p>
+</li>
+<li class="lvl-2">
+<p>规范设计法</p>
+<ul class="lvl-2">
+<li class="lvl-6">新奥尔良方法</li>
+<li class="lvl-6">基于E-R模型的方法</li>
+<li class="lvl-6">基于3NF的方法</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>计算机辅助设计法</p>
+</li>
+</ul>
+<p>###<code>数据库设计的特点</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据库设计是涉及多学科的综合技术</p>
+</li>
+<li class="lvl-2">
+<p>数据库设计是软件、硬件和干件的结合</p>
+</li>
+<li class="lvl-2">
+<p>数据库设计具有反复性、试探性，应分步进行</p>
+</li>
+<li class="lvl-2">
+<p>数据库设计需要将结构设计和行为设计密切结合</p>
+</li>
+</ul>
+<h3><span id="数据库设计的步骤"><code>数据库设计的步骤</code></span></h3>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202307031445873.png" alt="image-20230623104056316" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>需求分析阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">重点是数据和业务处理，业务处理的对象是数据，业务处理也会产生数据</li>
+<li class="lvl-6">数据字典：各类数据描述的集合，包括：数据项、数据结构、数据流、数据存储、处理过程</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>概念结构设计阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>概念模型特点</p>
+<ul class="lvl-4">
+<li class="lvl-10">能够充分真实地反应现实世界</li>
+<li class="lvl-10">易于被人们理解</li>
+<li class="lvl-10">易于更改</li>
+<li class="lvl-10">易于向关系、网状、层次等各种数据模型转换</li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>概念模型的E-R表示方法</p>
+<ul class="lvl-4">
+<li class="lvl-10">
+<p>实体关系：一对一（1：1），一对多（1：n），多对多（m：n）</p>
+</li>
+<li class="lvl-10">
+<p>E-R规则</p>
+<ul class="lvl-6">
+<li class="lvl-14">实体：矩形表示，框内写实体名</li>
+<li class="lvl-14">属性: 椭圆表示，用无向边将其与对应的实体连起来</li>
+<li class="lvl-14">联系：菱形表示，写明关系名，用无向边将其与对应的实体连起来，并标上联系类型（1:1,1:n，m:n）</li>
+</ul>
+<p><img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202307031445136.jpeg" alt="夸克分享_1687488766067_0" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>概念结构设计的方法</p>
+<ul class="lvl-4">
+<li class="lvl-10">自顶向下方法</li>
+<li class="lvl-10">自低向上方法</li>
+<li class="lvl-10">逐步扩张方法</li>
+<li class="lvl-10">混合策略方法</li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>数据抽象和局部视图设计</p>
+<ul class="lvl-4">
+<li class="lvl-10">选择局部应用</li>
+<li class="lvl-10">设计分E-R图</li>
+</ul>
+</li>
+<li class="lvl-6">
+<p>视图集成</p>
+<ul class="lvl-4">
+<li class="lvl-10">合并分E-R图，生成初步的E-R图
+<ul class="lvl-6">
+<li class="lvl-14">属性冲突（讨论协商）</li>
+<li class="lvl-14">命名冲突（讨论协商）</li>
+<li class="lvl-14">结构冲突（根据应用语义对实体联系的类型进行综合或调整）</li>
+</ul>
+</li>
+<li class="lvl-10">修改重构，生成基本E-R图</li>
+<li class="lvl-10">评审</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p>逻辑结构设计阶段</p>
+<ul class="lvl-2">
+<li class="lvl-6">概念模型向关系模型转换
+<ul class="lvl-4">
+<li class="lvl-10">一个实体转换成一个关系模式，实体的属性就是关系的属性，实体的码就是关系的码</li>
+<li class="lvl-10">一个1:1的联系可以转换成一个独立的关系模式，也可以与任意一端的关系模式合并</li>
+<li class="lvl-10">一个1：n的联系可以转换为一个独立的关系模式，也可以与n端对应的关系模式合并</li>
+<li class="lvl-10">一个m：n的联系转换为一个独立的关系模式(只能独立)，与该联系相连的各实体的码以及联系本身的属性均转换为关系的属性，各实体的码共同组成该关系模式的码</li>
+<li class="lvl-10">三个或三个以上的实体间的一个多元联系可以转换为一个关系模式，与该联系相连的各实体的码和联系本身的属性均转换为该关系的属性，关系的码为各实体的码的组合</li>
+<li class="lvl-10">具有相同码的关系模式可以合并</li>
+</ul>
+</li>
+<li class="lvl-6">关系模型优化
+<ul class="lvl-4">
+<li class="lvl-10">确定数据依赖</li>
+<li class="lvl-10">对数据依赖进行<code>极小化处理</code></li>
+<li class="lvl-10">确定关系模式属于第几范式</li>
+<li class="lvl-10">根据需求分析要求，分析这些模式是否合适</li>
+<li class="lvl-10">对关系模式进行必要的合并和分解</li>
+</ul>
+</li>
+<li class="lvl-6">用户子模式设计</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>物理结构设计阶段</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">确定数据库的物理结构
+<ul class="lvl-4">
+<li class="lvl-10">存储记录的结构设计</li>
+<li class="lvl-10">确定数据的存放位置</li>
+<li class="lvl-10">存取方法的设计</li>
+<li class="lvl-10">确定系统配置</li>
+</ul>
+</li>
+<li class="lvl-6">评价物理结构</li>
+<li class="lvl-6">撰写物理设计说明书和相关文档</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>数据库的实施</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">定义数据库结构</li>
+<li class="lvl-6">组织数据入库</li>
+<li class="lvl-6">应用程序的调试</li>
+<li class="lvl-6">数据库试运行</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><code>数据库的运行与维护阶段</code></p>
+<ul class="lvl-2">
+<li class="lvl-6">数据库的转储和恢复</li>
+<li class="lvl-6">维护数据库的安全性和完整性</li>
+<li class="lvl-6">检测并改善数据库性能</li>
+<li class="lvl-6">数据库的重组织和重构造</li>
+</ul>
+</li>
+</ul>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">如果这篇文章对你有帮助，你可以请作者喝一杯蜜雪冰城。</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205139.jpg' target='_blank' >
+                       <img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205139.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205380.png' target='_blank' >
+                       <img src="https://gitee.com/zhang-jie-king/myfigurebed/raw/master/202305051205380.png" alt="微信" loading="lazy">
+                    </a>
+                    <p>微信</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/06/10/C-%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%AE%97%E6%B3%95%E5%A4%B4%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" #.">
+                    未分类
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/06/10/C-%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%AE%97%E6%B3%95%E5%A4%B4%E6%96%87%E4%BB%B6%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/" class="trm-anima-link">
+                    
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/06/10</li>
+                <li>00:04</li>
+                
+                    <li>1.4k</li>
+                
+                
+                    <li>7</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div id="giscus-wrap" class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50"></div>
+<script data-swup-reload-script>
+    function loadGiscus() {
+        let nowTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+        const config = {
+            src: 'https://giscus.app/client.js',
+            "data-repo": 'Deep-Octopus/blogCommentRepo',
+            "data-repo-id": 'R_kgDOJTFKPg',
+            "data-category": 'Announcements',
+            "data-category-id": 'DIC_kwDOJTFKPs4CVkCu',
+            "data-mapping": 'pathname',
+            "data-reactions-enabled": '1',
+            "data-emit-metadata": '0',
+            "data-theme": nowTheme,
+            "data-lang": 'zh-CN',
+            crossorigin: "anonymous",
+            async: true
+        }
+        let ele = document.createElement('script')
+        for (let key in config) {
+            ele.setAttribute(key, config[key])
+        }
+        document.getElementById('giscus-wrap').insertAdjacentElement('afterbegin', ele)
+    }
+
+    function changeGiscusTheme() {
+        let theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+
+        function sendMessage(message) {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+
+        sendMessage({
+            setConfig: {
+                theme: theme
+            }
+        });
+    }
+
+    loadGiscus();
+</script>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2023- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">一个很闲的vegetable</span>
+        </div>
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.4
+            </span>
+        </div>
+      
+
+     
+
+    
+        <div class="trm-footer-item">
+            我们永远不会止步不前！！！
+        </div>
+     
+</footer>
+
+
+
+  <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+<div class="trm-search-popup">
+    <div class="trm-search-header">
+        <span class="trm-search-popup-btn-close">
+            <i class="iconfont fas fa-times"></i>
+        </span>
+    </div>
+    <div class="form trm-search-form">
+        <input class="trm-search-input" type="text" placeholder="搜索...">
+    </div>
+    <div class="trm-search-result-container">
+
+    </div>
+</div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://npm.elemecdn.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/katex.min.js" data-swup-reload-script></script>
+
+        
+            
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/copy-tex.min.js" data-swup-reload-script></script>
+
+        
+        
+<script src="https://npm.elemecdn.com/katex@latest/dist/contrib/auto-render.min.js" data-swup-reload-script></script>
+
+        <script data-swup-reload-script>
+              window.renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true },
+                ],
+                ...{"displayMode":true,"output":"htmlAndMathml","strict":false},
+            })
+        </script>
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.0.4"></script>
+
+</body>
+
+</html>
